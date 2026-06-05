@@ -26,6 +26,7 @@ factory_release_dry_run_full_v1_completed = true
 factory_release_real_publish_completed = false
 factory_release_artifact_review_completed = true
 factory_release_ready_for_real_publish = false
+source_commit_preparation_completed = true
 review_model = batch_review_with_per_draft_checklist
 review_scope = phase_0_full_review_plus_phase_1_light_audit
 review_started = true
@@ -477,6 +478,18 @@ untracked_source_files = true
 
 El bundle local es valido, pero no debe publicarse hasta versionar el estado fuente y regenerar el dry-run con el commit correcto.
 
+## Preparacion commit fuente
+
+```text
+source_commit_preparation_completed = true
+publish_real_release_executed = false
+tag_created = false
+tag_pushed = false
+github_release_created = false
+```
+
+La publicacion real queda diferida hasta revisar los artefactos finales del dry-run generado desde el commit fuente mas reciente.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -490,4 +503,5 @@ El bundle local es valido, pero no debe publicarse hasta versionar el estado fue
 - Fase 6 fue revisada en profundidad e implementada localmente como `full-v1`.
 - GQ-107 genero release dry-run de fabrica full-v1 sin publicar remoto.
 - GQ-108 reviso artefactos y bloqueo publish real hasta resolver trazabilidad de commit.
+- GQ-109 preparo commit fuente y mantiene publish real separado.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

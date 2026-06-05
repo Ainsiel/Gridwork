@@ -110,7 +110,8 @@
 | GQ-106 | Revisamos fase 6 e implementamos full-v1? | `GQ-106_phase_6_readiness_review_and_implementation.md` | accepted | `phase_6_strategy = review_full_then_implement_by_subphase`; implementado localmente |
 | GQ-107 | Preparamos release dry-run de fabrica full-v1? | `GQ-107_full_v1_factory_release_dry_run.md` | accepted | `factory_release_dry_run_completed = true`; publish real no ejecutado |
 | GQ-108 | Publicamos release real de fabrica full-v1 0.1.0? | `GQ-108_publish_real_factory_release_v010.md` | accepted | artefactos revisados; publish real bloqueado por working tree sin commit |
-| GQ-109 | Preparamos commit fuente antes de publicar factory-v0.1.0? | `GQ-109_prepare_source_commit_before_factory_release.md` | pending | TBD |
+| GQ-109 | Preparamos commit fuente antes de publicar factory-v0.1.0? | `GQ-109_prepare_source_commit_before_factory_release.md` | accepted | source commit preparado; publish real no ejecutado |
+| GQ-110 | Publicamos factory-v0.1.0 despues del commit fuente? | `GQ-110_publish_factory_v010_after_source_commit.md` | pending | TBD |
 
 ## Convencion de IDs
 
@@ -121,5 +122,5 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-109 - Preparamos commit fuente antes de publicar factory-v0.1.0?
+GQ-110 - Publicamos factory-v0.1.0 despues del commit fuente?
 ```

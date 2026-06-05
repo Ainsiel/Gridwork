@@ -1,6 +1,6 @@
 # GQ-109 - Preparar commit fuente antes de publicar factory-v0.1.0
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-107, GQ-108
 - Pregunta origen: GQ-109
 - Fecha de apertura: 2026-06-05
@@ -111,5 +111,35 @@ Mi recomendacion: preparar commit fuente y regenerar dry-run, sin publicar remot
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
+
+```text
+next_step = prepare_source_commit_then_regenerate_dry_run
+publish_real_release_now = false
+```
+
+Resultado:
+
+```text
+source_commit_preparation_started = true
+source_commit_created = true
+factory_release_dry_run_must_use_latest_head = true
+publish_real_release_executed = false
+tag_created = false
+tag_pushed = false
+github_release_created = false
+```
+
+Regla aplicada:
+
+```text
+No publicar release real hasta que el dry-run use el commit fuente mas reciente.
+No crear tag, push ni GitHub Release en esta decision.
+```
+
+## Evidencia
+
+Se preparo el estado fuente para que el siguiente dry-run de fabrica use `HEAD` como `sourceCommit` y ya no apunte a un commit anterior al contenido full-v1.
+
+El publish real queda diferido a una decision separada.
 
