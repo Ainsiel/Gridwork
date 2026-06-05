@@ -119,7 +119,7 @@
 | GQ-115 | Hacemos preflight npm antes de publicar CLI v0.1.0? | `GQ-115_npm_cli_publish_preflight.md` | accepted | preflight completo; bloqueado por npm auth/ownership no confirmado |
 | GQ-116 | Resolvemos npm ownership y trusted publishing? | `GQ-116_resolve_npm_ownership_trusted_publishing.md` | accepted | repo preparado para trusted publishing; bootstrap npm inicial sigue bloqueado |
 | GQ-117 | Como hacemos bootstrap inicial del paquete npm gridwork? | `GQ-117_bootstrap_npm_package_gridwork.md` | accepted | primer publish manual preparado; agente no publica npm |
-| GQ-118 | Verificamos publish manual npm y trusted publishing? | `GQ-118_verify_manual_npm_publish_and_trusted_publisher.md` | pending | TBD |
+| GQ-118 | Verificamos publish manual npm y trusted publishing? | `GQ-118_verify_manual_npm_publish_and_trusted_publisher.md` | pending | publish manual no detectado aun; `npm view gridwork` devuelve E404 |
 
 ## Convencion de IDs
 

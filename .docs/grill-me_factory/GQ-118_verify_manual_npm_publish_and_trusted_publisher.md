@@ -103,3 +103,39 @@ Mi recomendacion: verificar publish manual y configurar trusted publishing antes
 ## Decision registrada
 
 Pendiente.
+
+## Intento de verificacion 2026-06-05
+
+Se intento ejecutar la verificacion recomendada, pero el publish manual todavia no esta disponible en npm:
+
+```text
+npm_view_gridwork_0_1_0_version = E404
+npm_view_gridwork_dist_tags = E404
+npm_view_gridwork_repository = E404
+package_gridwork_exists = false
+package_gridwork_0_1_0_exists = false
+npx_smoke_test_executed = false
+trusted_publisher_verification_executed = false
+```
+
+Interpretacion:
+
+```text
+El primer publish manual de `gridwork@0.1.0` aun no fue detectado en npm.
+GQ-118 queda pendiente hasta que el humano ejecute el publish manual preparado en GQ-117.
+```
+
+Paso manual requerido antes de reintentar:
+
+```bash
+npm login
+npm publish -w packages/cli --access public --tag latest
+```
+
+Luego reintentar:
+
+```bash
+npm view gridwork@0.1.0 version
+npm view gridwork dist-tags --json
+npx gridwork@0.1.0 init --factory-version 0.1.0
+```

@@ -690,6 +690,20 @@ trusted_publisher_configured = not_yet
 
 El siguiente gate recomendado ocurre despues del publish manual humano: verificar `gridwork@0.1.0`, probar `npx` y configurar trusted publishing para futuras releases.
 
+## Intento GQ-118 antes de publish manual
+
+```text
+manual_publish_detected = false
+npm_view_gridwork_0_1_0_version = E404
+npm_view_gridwork_dist_tags = E404
+npm_view_gridwork_repository = E404
+npx_smoke_test_executed = false
+trusted_publisher_verification_executed = false
+gq_118_status = pending
+```
+
+GQ-118 queda pendiente hasta que el humano ejecute el primer publish manual preparado en GQ-117.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
