@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "CLI bootstrapper for the Gridwork personal software factory.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ainsiel/Gridwork.git",
+    "directory": "packages/cli"
+  },
   "bin": {
     "gridwork": "./dist/index.js"
   },

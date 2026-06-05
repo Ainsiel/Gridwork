@@ -1,6 +1,6 @@
 # GQ-115 - Preflight npm antes de publicar CLI v0.1.0
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-071, GQ-079, GQ-104, GQ-114
 - Pregunta origen: GQ-115
 - Fecha de apertura: 2026-06-05
@@ -106,4 +106,63 @@ Mi recomendacion: preflight npm/Actions sin tag ni publish.
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
+
+```text
+next_step = npm_cli_publish_preflight_only
+create_cli_tag_now = false
+push_cli_tag_now = false
+npm_publish_now = false
+```
+
+Resultado del preflight:
+
+```text
+npm_preflight_completed = true
+npm_auth_status = blocked
+npm_whoami = ENEEDAUTH
+npm_package = gridwork
+npm_package_exists = false
+npm_package_lookup_status = E404
+npm_version_0_1_0_exists = false
+npm_version_lookup_status = E404
+local_tag_cli_v0_1_0_exists = false
+remote_tag_cli_v0_1_0_exists = false
+github_workflow_exists = true
+github_workflow = publish-cli.yml
+github_workflow_id = 290103440
+github_workflow_total_runs = 0
+github_actions_enabled = true
+github_actions_allowed_actions = all
+workflow_trigger = push tags cli-v*
+workflow_id_token_write = true
+workflow_uses_npm_publish_provenance = true
+workflow_metadata_validation = pass
+workflow_placeholder_source_check = pass
+default_factory_source = Ainsiel/Gridwork
+publish_ready = false
+```
+
+Blocker:
+
+```text
+El equipo local no esta autenticado en npm.
+No se puede confirmar ownership efectivo ni trusted publishing para `gridwork`.
+```
+
+Interpretacion:
+
+```text
+El nombre `gridwork` aparece libre en npm porque `npm view gridwork` devuelve E404.
+La version `gridwork@0.1.0` tambien aparece libre.
+Pero eso no confirma que el workflow pueda publicar: falta configurar/confirmar npm auth,
+ownership o trusted publishing antes de pushear `cli-v0.1.0`.
+```
+
+Regla aplicada:
+
+```text
+No crear tag CLI mientras npm auth/ownership/trusted publishing no este resuelto.
+No hacer push de `cli-v0.1.0`.
+No ejecutar `npm publish`.
+```

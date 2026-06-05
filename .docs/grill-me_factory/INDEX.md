@@ -116,7 +116,9 @@
 | GQ-112 | Publicamos release real factory-v0.1.0? | `GQ-112_publish_real_factory_v010.md` | accepted | release real publicada en GitHub |
 | GQ-113 | Validamos instalacion desde release real factory-v0.1.0? | `GQ-113_validate_real_factory_release_install.md` | accepted | smoke remoto e idempotencia pasaron |
 | GQ-114 | Preparamos fuente para release CLI v0.1.0? | `GQ-114_prepare_cli_v010_release_source.md` | accepted | CLI v0.1.0 preparada; dry-run pass; no tag ni npm publish |
-| GQ-115 | Hacemos preflight npm antes de publicar CLI v0.1.0? | `GQ-115_npm_cli_publish_preflight.md` | pending | TBD |
+| GQ-115 | Hacemos preflight npm antes de publicar CLI v0.1.0? | `GQ-115_npm_cli_publish_preflight.md` | accepted | preflight completo; bloqueado por npm auth/ownership no confirmado |
+| GQ-116 | Resolvemos npm ownership y trusted publishing? | `GQ-116_resolve_npm_ownership_trusted_publishing.md` | accepted | repo preparado para trusted publishing; bootstrap npm inicial sigue bloqueado |
+| GQ-117 | Como hacemos bootstrap inicial del paquete npm gridwork? | `GQ-117_bootstrap_npm_package_gridwork.md` | pending | TBD |
 
 ## Convencion de IDs
 
@@ -127,5 +129,5 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-115 - Hacemos preflight npm antes de publicar CLI v0.1.0?
+GQ-117 - Como hacemos bootstrap inicial del paquete npm gridwork?
 ```

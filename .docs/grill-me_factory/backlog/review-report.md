@@ -608,6 +608,65 @@ npm_publish_executed = false
 
 La CLI queda lista para preflight npm/Actions. El siguiente gate recomendado es validar ownership/version en npm y readiness del workflow antes de crear `cli-v0.1.0`.
 
+## Preflight npm/Actions CLI v0.1.0
+
+```text
+npm_preflight_completed = true
+npm_auth_status = blocked
+npm_whoami = ENEEDAUTH
+npm_package = gridwork
+npm_package_exists = false
+npm_package_lookup_status = E404
+npm_version_0_1_0_exists = false
+npm_version_lookup_status = E404
+local_tag_cli_v0_1_0_exists = false
+remote_tag_cli_v0_1_0_exists = false
+github_workflow_exists = true
+github_workflow = publish-cli.yml
+github_workflow_id = 290103440
+github_actions_enabled = true
+github_actions_allowed_actions = all
+workflow_trigger = push tags cli-v*
+workflow_id_token_write = true
+workflow_uses_npm_publish_provenance = true
+workflow_metadata_validation = pass
+workflow_placeholder_source_check = pass
+publish_ready = false
+cli_tag_created = false
+cli_tag_pushed = false
+npm_publish_executed = false
+```
+
+El siguiente gate recomendado es resolver npm ownership/trusted publishing antes de crear `cli-v0.1.0`.
+
+## Preparacion trusted publishing CLI
+
+```text
+trusted_publishing_source_prepared = true
+package_name = gridwork
+package_version = 0.1.0
+package_repository_url = https://github.com/Ainsiel/Gridwork.git
+workflow = .github/workflows/publish-cli.yml
+workflow_node_version = 24
+workflow_npm_minimum_check = >=11.5.1
+workflow_node_minimum_check = >=22.14.0
+workflow_id_token_write = true
+workflow_publish_by_github_actions = true
+npm_test = pass
+test_count = 25
+npm_pack_dry_run = pass
+pack_file_count = 32
+npm_package_exists = false
+npm_whoami = ENEEDAUTH
+trusted_publisher_configured = not_verified
+publish_ready = false
+cli_tag_created = false
+cli_tag_pushed = false
+npm_publish_executed = false
+```
+
+El repo esta listo para trusted publishing, pero el paquete `gridwork` aun no existe en npm. El siguiente gate recomendado es decidir el bootstrap inicial del package antes de crear `cli-v0.1.0`.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -627,4 +686,6 @@ La CLI queda lista para preflight npm/Actions. El siguiente gate recomendado es 
 - GQ-112 publico `factory-v0.1.0` como GitHub Release real.
 - GQ-113 valido instalacion real desde GitHub Release e idempotencia con el CLI local.
 - GQ-114 preparo la fuente CLI v0.1.0 y genero dry-run sin tag ni publish npm.
+- GQ-115 ejecuto preflight npm/Actions; package/version estan libres pero npm auth/ownership no esta confirmado.
+- GQ-116 preparo el repo para trusted publishing; queda pendiente bootstrap inicial del package npm.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
