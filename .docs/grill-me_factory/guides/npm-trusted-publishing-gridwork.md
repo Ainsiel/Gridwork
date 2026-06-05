@@ -113,15 +113,27 @@ El workflow actual cumple el contrato esperado:
 ```text
 file = .github/workflows/publish-cli.yml
 trigger = push tags cli-v*
+manual_trigger = workflow_dispatch dry_run=true
 permissions.contents = read
 permissions.id-token = write
 runner = ubuntu-latest
 node = 24
 registry = https://registry.npmjs.org
 publish_command = npm publish -w packages/cli --access public --tag <dist-tag>
+publish_on_workflow_dispatch = false
 ```
 
 `id-token: write` es el permiso critico para que GitHub Actions pueda emitir el token OIDC que npm confia.
+
+Tambien existe un modo manual para validar GitHub Actions sin publicar:
+
+```text
+workflow_dispatch_input = dry_run
+dry_run_required = true
+publish_step_condition = github.event_name == 'push'
+```
+
+Ese modo debe usarse antes de preparar `0.1.1`.
 
 ## Como se probara en una version futura
 

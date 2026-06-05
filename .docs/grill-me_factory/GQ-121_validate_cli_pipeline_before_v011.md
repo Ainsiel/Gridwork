@@ -1,6 +1,6 @@
 # GQ-121 - Validar pipeline CLI antes de publicar 0.1.1
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-120
 - Pregunta origen: GQ-121
 - Fecha de apertura: 2026-06-05
@@ -121,4 +121,57 @@ Mi recomendacion: si, validar el pipeline en seco antes de publicar `0.1.1`.
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+selected_option = repair_and_run_publish_cli_dry_run
+workflow_dispatch_dry_run_repair = implemented_locally
+remote_github_actions_dry_run = pending
+publish_npm_now = false
+create_cli_v0_1_1_tag_now = false
+prepare_v0_1_1_after_remote_dry_run = true
+```
+
+## Implementacion local
+
+Se actualizo `.github/workflows/publish-cli.yml` para separar los modos:
+
+```text
+workflow_dispatch_input_dry_run_type = boolean
+workflow_dispatch_requires_dry_run_true = true
+workflow_dispatch_publishes_npm = false
+push_requires_cli_v_tag = true
+push_tag_must_match_package_version = true
+publish_step_runs_only_on_push = true
+```
+
+Antes, `workflow_dispatch` podia fallar porque la validacion exigia siempre `GITHUB_REF_NAME` con prefijo `cli-v`. Ahora la validacion de tag aplica solo cuando el evento es `push`.
+
+## Evidencia local
+
+Simulacion de eventos:
+
+```text
+workflow_dispatch_true_exit = 0
+workflow_dispatch_false_exit = 1
+push_cli_tag_exit = 0
+push_wrong_tag_exit = 1
+```
+
+Validaciones del paquete:
+
+```text
+npm_test = pass
+npm_test_count = 25
+npm_pack_cli_dry_run = pass
+npm_pack_package = gridwork@0.1.0
+npm_pack_file_count = 32
+```
+
+## Siguiente gate
+
+El workflow queda preparado localmente, pero el dry-run remoto de GitHub Actions queda pendiente hasta que el commit exista en GitHub.
+
+```text
+GQ-122 - Ejecutar dry-run remoto de publish-cli.yml
+```

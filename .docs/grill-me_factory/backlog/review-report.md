@@ -30,6 +30,8 @@ npm_manual_first_publish_completed = true
 npm_package_gridwork_v0_1_0_published = true
 npx_gridwork_v0_1_0_smoke_completed = true
 trusted_publisher_configured = true
+publish_cli_workflow_dispatch_repair_completed = true
+remote_publish_cli_dry_run_completed = false
 source_commit_preparation_completed = true
 review_model = batch_review_with_per_draft_checklist
 review_scope = phase_0_full_review_plus_phase_1_light_audit
@@ -801,6 +803,32 @@ finding = workflow_dispatch_dry_run_may_fail_because_tag_validation_requires_cli
 
 El siguiente paso recomendado es ajustar `publish-cli.yml` para que `workflow_dispatch` pueda correr en seco sin publicar npm. Despues de eso se prepara `gridwork@0.1.1` y se publica mediante `cli-v0.1.1` solo con aprobacion explicita.
 
+## Resultado GQ-121 workflow_dispatch dry-run
+
+```text
+workflow = .github/workflows/publish-cli.yml
+workflow_dispatch_dry_run_repair = implemented_locally
+workflow_dispatch_requires_dry_run_true = true
+workflow_dispatch_publish_step_runs = false
+push_requires_cli_v_tag = true
+push_tag_must_match_package_version = true
+publish_step_runs_only_on_push = true
+event_validation_simulation = pass
+workflow_dispatch_true_exit = 0
+workflow_dispatch_false_exit = 1
+push_cli_tag_exit = 0
+push_wrong_tag_exit = 1
+npm_test = pass
+npm_test_count = 25
+npm_pack_cli_dry_run = pass
+npm_pack_package = gridwork@0.1.0
+npm_pack_file_count = 32
+remote_github_actions_dry_run = pending
+next_gate = GQ-122
+```
+
+El workflow queda listo localmente para correr en seco desde GitHub Actions. El siguiente gate requiere push remoto y ejecucion manual del workflow con `dry_run=true`; no debe crear tag ni publicar npm.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -828,4 +856,5 @@ El siguiente paso recomendado es ajustar `publish-cli.yml` para que `workflow_di
 - GQ-118 verifico npm/npx con smoke real e idempotencia; queda pendiente GQ-120 para trusted publishing.
 - GQ-120 acepto trusted publishing con GitHub Actions; configuracion fue confirmada por el usuario.
 - GQ-121 queda como siguiente gate: validar el pipeline CLI en dry-run antes de publicar `0.1.1`.
+- GQ-121 ajusto `publish-cli.yml` para dry-run manual y paso validaciones locales; GQ-122 queda pendiente para ejecutar el dry-run remoto.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

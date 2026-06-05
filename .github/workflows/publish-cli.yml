@@ -9,7 +9,8 @@ on:
       dry_run:
         description: "Run validation without npm publish"
         required: true
-        default: "true"
+        default: true
+        type: boolean
 
 permissions:
   contents: read
@@ -39,9 +40,11 @@ jobs:
           node -e "const semver=(v)=>v.replace(/^v/,'').split('.').map(Number); const [major,minor,patch]=semver(process.version); if (major < 22 || (major === 22 && (minor < 14 || (minor === 14 && patch < 0)))) { console.error('trusted publishing requires Node >=22.14.0'); process.exit(1); }"
           node -e "const cp=require('child_process'); const version=cp.execSync('npm --version').toString().trim(); const [major,minor,patch]=version.split('.').map(Number); if (major < 11 || (major === 11 && (minor < 5 || (minor === 5 && patch < 1)))) { console.error('trusted publishing requires npm >=11.5.1'); process.exit(1); }"
 
-      - name: Validate tag and package metadata
+      - name: Validate event and package metadata
+        env:
+          DRY_RUN_INPUT: ${{ inputs.dry_run }}
         run: |
-          node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('packages/cli/package.json','utf8')); const tag=process.env.GITHUB_REF_NAME || ''; if (!tag.startsWith('cli-v')) { console.error('publish-cli requires cli-v* tag'); process.exit(1); } if (tag !== 'cli-v' + pkg.version) { console.error('tag must match packages/cli version'); process.exit(1); } if (pkg.repository?.url !== 'git+https://github.com/Ainsiel/Gridwork.git') { console.error('repository.url must match Ainsiel/Gridwork for trusted publishing'); process.exit(1); } if (pkg.bin?.gridwork !== 'dist/index.js') { console.error('bin.gridwork must point to dist/index.js'); process.exit(1); } for (const script of ['preinstall','install','postinstall']) { if (pkg.scripts?.[script]) { console.error('install lifecycle scripts are forbidden'); process.exit(1); } }"
+          node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('packages/cli/package.json','utf8')); const event=process.env.GITHUB_EVENT_NAME || ''; const tag=process.env.GITHUB_REF_NAME || ''; const dryRun=process.env.DRY_RUN_INPUT || ''; if (event === 'push') { if (!tag.startsWith('cli-v')) { console.error('publish-cli push requires cli-v* tag'); process.exit(1); } if (tag !== 'cli-v' + pkg.version) { console.error('tag must match packages/cli version'); process.exit(1); } } else if (event === 'workflow_dispatch') { if (dryRun !== 'true') { console.error('workflow_dispatch is dry-run only; dry_run must be true'); process.exit(1); } } else { console.error('publish-cli only supports push tags and workflow_dispatch dry-run'); process.exit(1); } if (pkg.repository?.url !== 'git+https://github.com/Ainsiel/Gridwork.git') { console.error('repository.url must match Ainsiel/Gridwork for trusted publishing'); process.exit(1); } if (pkg.bin?.gridwork !== 'dist/index.js') { console.error('bin.gridwork must point to dist/index.js'); process.exit(1); } for (const script of ['preinstall','install','postinstall']) { if (pkg.scripts?.[script]) { console.error('install lifecycle scripts are forbidden'); process.exit(1); } }"
 
       - name: Validate official factory source
         run: |

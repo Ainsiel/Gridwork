@@ -122,7 +122,8 @@
 | GQ-118 | Verificamos publish manual npm y trusted publishing? | `GQ-118_verify_manual_npm_publish_and_trusted_publisher.md` | accepted | `gridwork@0.1.0` publicado; npm/npx smoke e idempotencia pass; trusted publishing pasa a GQ-120 |
 | GQ-119 | Resolvemos 2FA/token npm para primer publish manual? | `GQ-119_resolve_npm_2fa_for_manual_publish.md` | accepted | `npm_2fa_enabled = true`; publish manual exitoso; recovery codes deben regenerarse por exposicion en chat |
 | GQ-120 | Configuramos trusted publishing npm para releases CLI futuras? | `GQ-120_configure_npm_trusted_publishing.md` | accepted | `trusted_publishing_strategy = npm_trusted_publisher_github_actions`; configuracion confirmada por usuario |
-| GQ-121 | Validamos pipeline CLI antes de publicar 0.1.1? | `GQ-121_validate_cli_pipeline_before_v011.md` | pending | recomendar reparar/probar `workflow_dispatch` dry-run antes de tag `cli-v0.1.1` |
+| GQ-121 | Validamos pipeline CLI antes de publicar 0.1.1? | `GQ-121_validate_cli_pipeline_before_v011.md` | accepted | `publish-cli.yml` ajustado para `workflow_dispatch` dry-run; validaciones locales pass; dry-run remoto pasa a GQ-122 |
+| GQ-122 | Ejecutamos dry-run remoto de publish-cli.yml? | `GQ-122_run_remote_publish_cli_dry_run.md` | pending | pushear workflow fix y ejecutar GitHub Actions manual con `dry_run=true` |
 
 ## Convencion de IDs
 
@@ -133,7 +134,7 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-121 - Validamos pipeline CLI antes de publicar 0.1.1?
+GQ-122 - Ejecutamos dry-run remoto de publish-cli.yml?
 ```
 
 ## Guias operativas
