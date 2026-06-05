@@ -121,7 +121,7 @@
 | GQ-117 | Como hacemos bootstrap inicial del paquete npm gridwork? | `GQ-117_bootstrap_npm_package_gridwork.md` | accepted | primer publish manual preparado; agente no publica npm |
 | GQ-118 | Verificamos publish manual npm y trusted publishing? | `GQ-118_verify_manual_npm_publish_and_trusted_publisher.md` | accepted | `gridwork@0.1.0` publicado; npm/npx smoke e idempotencia pass; trusted publishing pasa a GQ-120 |
 | GQ-119 | Resolvemos 2FA/token npm para primer publish manual? | `GQ-119_resolve_npm_2fa_for_manual_publish.md` | accepted | `npm_2fa_enabled = true`; publish manual exitoso; recovery codes deben regenerarse por exposicion en chat |
-| GQ-120 | Configuramos trusted publishing npm para releases CLI futuras? | `GQ-120_configure_npm_trusted_publishing.md` | pending | configurar GitHub Actions trusted publisher para `Ainsiel/Gridwork` + `publish-cli.yml` |
+| GQ-120 | Configuramos trusted publishing npm para releases CLI futuras? | `GQ-120_configure_npm_trusted_publishing.md` | accepted | `trusted_publishing_strategy = npm_trusted_publisher_github_actions`; configuracion manual pendiente en npm UI |
 
 ## Convencion de IDs
 
@@ -132,5 +132,5 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-120 - Configuramos trusted publishing npm para releases CLI futuras?
+Accion manual GQ-120 - Configurar Trusted publishing en npm UI para `gridwork`
 ```

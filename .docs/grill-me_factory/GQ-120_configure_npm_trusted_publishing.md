@@ -1,6 +1,6 @@
 # GQ-120 - Configurar trusted publishing npm para releases CLI futuras
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-118, GQ-119
 - Pregunta origen: GQ-120
 - Fecha de apertura: 2026-06-05
@@ -33,6 +33,15 @@ cli_tag_created = false
 cli_tag_pushed = false
 ```
 
+Verificacion local:
+
+```text
+local_npm_version = 10.9.2
+local_node_version = 22.13.1
+npm_trust_command_available = false
+configuration_method = npmjs_com_ui
+```
+
 El workflow ya existe en el repo fuente:
 
 ```text
@@ -57,8 +66,9 @@ package = gridwork
 provider = GitHub Actions
 owner = Ainsiel
 repository = Gridwork
-workflow = publish-cli.yml
+workflow_filename = publish-cli.yml
 environment = none
+allowed_actions = npm publish
 ```
 
 Luego dejar el tag `cli-v0.1.0` sin crear, porque `0.1.0` ya fue publicado manualmente. La primera prueba real del workflow deberia ser con una version futura, por ejemplo `0.1.1`.
@@ -134,4 +144,50 @@ Mi recomendacion: si, configurar trusted publishing y dejar la prueba real de Gi
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+trusted_publishing_strategy = npm_trusted_publisher_github_actions
+npm_token_secret_required = false
+provider = GitHub Actions
+package = gridwork
+organization_or_user = Ainsiel
+repository = Gridwork
+workflow_filename = publish-cli.yml
+environment_name = none
+allowed_actions = npm publish
+configuration_method = npmjs_com_ui
+trusted_publisher_configured = manual_pending
+create_cli_v0_1_0_tag = false
+first_workflow_publish_version = 0.1.1_or_later
+```
+
+La configuracion real debe hacerse en npmjs.com porque el npm local disponible es `10.9.2` y no incluye el comando `npm trust`. La CLI local de Node tambien esta en `22.13.1`, por debajo del minimo documentado para flujos de trusted publishing modernos; el workflow de GitHub ya usa Node 24, por lo que no bloquea futuras publicaciones desde Actions.
+
+## Instrucciones manuales npm UI
+
+Configurar en npm:
+
+```text
+Package: gridwork
+Section: Settings -> Trusted publishing
+Publisher: GitHub Actions
+Organization or user: Ainsiel
+Repository: Gridwork
+Workflow filename: publish-cli.yml
+Environment name: leave empty
+Allowed actions: npm publish
+```
+
+Notas:
+
+- ingresar solo `publish-cli.yml`, no `.github/workflows/publish-cli.yml`;
+- los campos son sensibles a mayusculas/minusculas;
+- npm no valida la configuracion al guardarla, el error apareceria al intentar publicar;
+- no agregar `NPM_TOKEN` a GitHub Secrets;
+- no crear `cli-v0.1.0` porque `gridwork@0.1.0` ya existe.
+
+## Fuente oficial consultada
+
+- npm Trusted Publishers: `https://docs.npmjs.com/trusted-publishers/`
+- npm `trust` CLI: `https://docs.npmjs.com/cli/v11/commands/npm-trust/`

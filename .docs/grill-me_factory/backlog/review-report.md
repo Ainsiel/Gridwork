@@ -765,6 +765,29 @@ next_gate = GQ-120
 
 El bootstrap publico queda validado: npm entrega la CLI, la CLI descarga la fabrica desde GitHub Release, y el usuario entra por `.gridwork/agents/orchestrator/PROMPT.md`. El siguiente gate recomendado es configurar trusted publishing en npm para publicar versiones futuras desde GitHub Actions sin `NPM_TOKEN`.
 
+## Decision trusted publishing GQ-120
+
+```text
+trusted_publishing_strategy = npm_trusted_publisher_github_actions
+provider = GitHub Actions
+package = gridwork
+organization_or_user = Ainsiel
+repository = Gridwork
+workflow_filename = publish-cli.yml
+environment_name = none
+allowed_actions = npm publish
+npm_token_secret_required = false
+configuration_method = npmjs_com_ui
+local_npm_trust_command_available = false
+local_npm_version = 10.9.2
+local_node_version = 22.13.1
+trusted_publisher_configured = manual_pending
+create_cli_v0_1_0_tag = false
+first_workflow_publish_version = 0.1.1_or_later
+```
+
+La configuracion debe hacerse desde npmjs.com en `gridwork` -> Settings -> Trusted publishing. No se debe crear `cli-v0.1.0`; la primera prueba real del workflow sera con una version futura.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -790,4 +813,5 @@ El bootstrap publico queda validado: npm entrega la CLI, la CLI descarga la fabr
 - GQ-118 intento verificar y luego recibio evidencia del publish manual fallido por E403; falta 2FA/token npm.
 - GQ-119 resolvio 2FA y el humano publico `gridwork@0.1.0` manualmente.
 - GQ-118 verifico npm/npx con smoke real e idempotencia; queda pendiente GQ-120 para trusted publishing.
+- GQ-120 acepto trusted publishing con GitHub Actions; configuracion manual en npm UI queda pendiente.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
