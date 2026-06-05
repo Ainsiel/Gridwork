@@ -157,12 +157,40 @@ workflow_filename = publish-cli.yml
 environment_name = none
 allowed_actions = npm publish
 configuration_method = npmjs_com_ui
-trusted_publisher_configured = manual_pending
+trusted_publisher_configured = true
 create_cli_v0_1_0_tag = false
 first_workflow_publish_version = 0.1.1_or_later
 ```
 
 La configuracion real debe hacerse en npmjs.com porque el npm local disponible es `10.9.2` y no incluye el comando `npm trust`. La CLI local de Node tambien esta en `22.13.1`, por debajo del minimo documentado para flujos de trusted publishing modernos; el workflow de GitHub ya usa Node 24, por lo que no bloquea futuras publicaciones desde Actions.
+
+## Configuracion confirmada por el usuario
+
+El usuario confirmo que GitHub Actions / Trusted Publishing ya quedo configurado.
+
+```text
+trusted_publisher_configured = true
+configuration_confirmed_by_user = true
+confirmation_date = 2026-06-05
+cli_v0_1_0_tag_created = false
+npm_token_secret_required = false
+```
+
+Interpretacion:
+
+```text
+La cadena publica inicial esta completa:
+factory-v0.1.0 existe en GitHub Releases
+gridwork@0.1.0 existe en npm
+npx gridwork@0.1.0 init funciona
+Trusted Publishing esta configurado para futuras releases CLI
+```
+
+Siguiente gate:
+
+```text
+GQ-121 - Validar pipeline CLI antes de publicar 0.1.1
+```
 
 ## Instrucciones manuales npm UI
 

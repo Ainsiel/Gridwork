@@ -29,7 +29,7 @@ factory_release_ready_for_real_publish = false
 npm_manual_first_publish_completed = true
 npm_package_gridwork_v0_1_0_published = true
 npx_gridwork_v0_1_0_smoke_completed = true
-trusted_publisher_configured = false
+trusted_publisher_configured = true
 source_commit_preparation_completed = true
 review_model = batch_review_with_per_draft_checklist
 review_scope = phase_0_full_review_plus_phase_1_light_audit
@@ -781,12 +781,25 @@ configuration_method = npmjs_com_ui
 local_npm_trust_command_available = false
 local_npm_version = 10.9.2
 local_node_version = 22.13.1
-trusted_publisher_configured = manual_pending
+trusted_publisher_configured = true
 create_cli_v0_1_0_tag = false
 first_workflow_publish_version = 0.1.1_or_later
 ```
 
-La configuracion debe hacerse desde npmjs.com en `gridwork` -> Settings -> Trusted publishing. No se debe crear `cli-v0.1.0`; la primera prueba real del workflow sera con una version futura.
+La configuracion fue confirmada por el usuario. No se debe crear `cli-v0.1.0`; la primera prueba real del workflow sera con una version futura.
+
+## Proximo gate GQ-121
+
+```text
+next_gate = GQ-121
+goal = validate_cli_pipeline_before_v0_1_1
+recommended_strategy = repair_and_run_publish_cli_dry_run
+publish_npm_now = false
+create_cli_v0_1_1_tag_now = false
+finding = workflow_dispatch_dry_run_may_fail_because_tag_validation_requires_cli_v_tag
+```
+
+El siguiente paso recomendado es ajustar `publish-cli.yml` para que `workflow_dispatch` pueda correr en seco sin publicar npm. Despues de eso se prepara `gridwork@0.1.1` y se publica mediante `cli-v0.1.1` solo con aprobacion explicita.
 
 ## Notas
 
@@ -813,5 +826,6 @@ La configuracion debe hacerse desde npmjs.com en `gridwork` -> Settings -> Trust
 - GQ-118 intento verificar y luego recibio evidencia del publish manual fallido por E403; falta 2FA/token npm.
 - GQ-119 resolvio 2FA y el humano publico `gridwork@0.1.0` manualmente.
 - GQ-118 verifico npm/npx con smoke real e idempotencia; queda pendiente GQ-120 para trusted publishing.
-- GQ-120 acepto trusted publishing con GitHub Actions; configuracion manual en npm UI queda pendiente.
+- GQ-120 acepto trusted publishing con GitHub Actions; configuracion fue confirmada por el usuario.
+- GQ-121 queda como siguiente gate: validar el pipeline CLI en dry-run antes de publicar `0.1.1`.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
