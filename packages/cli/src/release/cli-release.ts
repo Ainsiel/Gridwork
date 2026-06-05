@@ -3,9 +3,9 @@ import { mkdir, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { promisify } from "node:util";
 import {
-  DEFAULT_FACTORY_SOURCE,
   EXIT_CODES,
-  INSTALLER_PACKAGE_NAME
+  INSTALLER_PACKAGE_NAME,
+  PLACEHOLDER_FACTORY_SOURCE
 } from "../init/constants.js";
 import {
   listFiles,
@@ -195,7 +195,7 @@ function validateInputs(input: {
     });
   }
 
-  if (input.options.source === DEFAULT_FACTORY_SOURCE) {
+  if (input.options.source === PLACEHOLDER_FACTORY_SOURCE) {
     input.validation.push({
       id: "official_source_not_placeholder",
       severity: "error",

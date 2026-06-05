@@ -554,6 +554,32 @@ zip_asset_digest = sha256:04df0ed2072a227c3e066cbafb276079850da47249f1a9dcf60829
 
 La fabrica `full-v1` queda publicada como GitHub Release. El siguiente gate recomendado es validar consumo real desde GitHub Release con el CLI local.
 
+## Smoke remoto release factory-v0.1.0
+
+```text
+remote_release_smoke_completed = true
+target_dir = .factory/runs/20260605-remote-release-smoke-v010/target
+source_type = github-release
+source = Ainsiel/Gridwork
+release_tag = factory-v0.1.0
+factory_profile = full-v1
+factory_version = 0.1.0
+new_install_status = success
+new_install_created = 114
+new_install_conflicts = 0
+new_install_validation_errors = 0
+new_install_validation_status = pass
+idempotent_rerun_status = success
+idempotent_rerun_created = 0
+idempotent_rerun_unchanged = 114
+idempotent_rerun_conflicts = 0
+idempotent_rerun_validation_errors = 0
+idempotent_rerun_validation_status = pass
+publish_new_remote_state = false
+```
+
+La release real publicada es consumible por el CLI local. El siguiente gate recomendado es preparar la CLI v0.1.0 para npm sin publicar todavia.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -571,4 +597,5 @@ La fabrica `full-v1` queda publicada como GitHub Release. El siguiente gate reco
 - GQ-110 reviso los artefactos finales generados desde `149e6ebde1bc`; publish real sigue pendiente.
 - GQ-111 ejecuto preflight remoto; permisos, tag y release estan en estado correcto para publicar.
 - GQ-112 publico `factory-v0.1.0` como GitHub Release real.
+- GQ-113 valido instalacion real desde GitHub Release e idempotencia con el CLI local.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

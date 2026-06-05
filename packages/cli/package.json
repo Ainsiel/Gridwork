@@ -1,6 +1,6 @@
 {
   "name": "gridwork",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CLI bootstrapper for the Gridwork personal software factory.",
   "type": "module",
   "bin": {

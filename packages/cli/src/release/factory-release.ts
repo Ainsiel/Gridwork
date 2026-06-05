@@ -5,10 +5,10 @@ import { relative, resolve, sep } from "node:path";
 import { promisify } from "node:util";
 import { zipSync } from "fflate";
 import {
-  DEFAULT_FACTORY_SOURCE,
   FACTORY_TAG_PREFIX,
   FORBIDDEN_PRODUCT_PATHS,
-  INSTALLER_VERSION
+  INSTALLER_VERSION,
+  PLACEHOLDER_FACTORY_SOURCE
 } from "../init/constants.js";
 import {
   ensureParentDirectory,
@@ -262,7 +262,7 @@ function validateReleaseInputs(input: {
   allowPrerelease: boolean;
   validation: ValidationEntry[];
 }): void {
-  if (input.source === DEFAULT_FACTORY_SOURCE) {
+  if (input.source === PLACEHOLDER_FACTORY_SOURCE) {
     input.validation.push({
       id: "source_not_placeholder",
       severity: "error",

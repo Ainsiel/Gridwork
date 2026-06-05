@@ -62,7 +62,7 @@ test("cli release dry-run creates release plan and pack report without publishin
 
   assert.equal(result.code, 0);
   assert.match(result.stdout, /Gridwork CLI release dry-run prepared\./);
-  assert.match(result.stdout, /Tag: cli-v0\.0\.0/);
+  assert.match(result.stdout, /Tag: cli-v0\.1\.0/);
   assert.match(result.stdout, /Dist tag: latest/);
   assert.equal(result.stderr, "");
 
@@ -73,13 +73,13 @@ test("cli release dry-run creates release plan and pack report without publishin
   const publishCommands = await fileText(resolve(root, artifactsDir, "cli-publish-commands.md"));
 
   assert.equal(validation.status, "pass");
-  assert.match(releasePlan, /tag = cli-v0\.0\.0/);
+  assert.match(releasePlan, /tag = cli-v0\.1\.0/);
   assert.match(releasePlan, /publish = not_executed/);
   assert.match(packReport, /dist\/index\.js/);
   assert.doesNotMatch(packReport, /\.factory\//);
   assert.doesNotMatch(packReport, /factory\/\.gridwork/);
-  assert.match(publishCommands, /git tag cli-v0\.0\.0/);
-  assert.match(publishCommands, /git push origin cli-v0\.0\.0/);
+  assert.match(publishCommands, /git tag cli-v0\.1\.0/);
+  assert.match(publishCommands, /git push origin cli-v0\.1\.0/);
   assert.doesNotMatch(publishCommands, /^npm publish/m);
   await assert.rejects(() => readFile(resolve(root, artifactsDir, "publish-result.md"), "utf8"));
 });

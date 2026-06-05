@@ -114,7 +114,8 @@
 | GQ-110 | Publicamos factory-v0.1.0 despues del commit fuente? | `GQ-110_publish_factory_v010_after_source_commit.md` | accepted | artefactos finales revisados; publish real no ejecutado |
 | GQ-111 | Hacemos preflight remoto o publish real de factory-v0.1.0? | `GQ-111_remote_publish_factory_v010_gate.md` | accepted | preflight remoto pasado; no se publico |
 | GQ-112 | Publicamos release real factory-v0.1.0? | `GQ-112_publish_real_factory_v010.md` | accepted | release real publicada en GitHub |
-| GQ-113 | Validamos instalacion desde release real factory-v0.1.0? | `GQ-113_validate_real_factory_release_install.md` | pending | TBD |
+| GQ-113 | Validamos instalacion desde release real factory-v0.1.0? | `GQ-113_validate_real_factory_release_install.md` | accepted | smoke remoto e idempotencia pasaron |
+| GQ-114 | Preparamos fuente para release CLI v0.1.0? | `GQ-114_prepare_cli_v010_release_source.md` | pending | TBD |
 
 ## Convencion de IDs
 
@@ -125,5 +126,5 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-113 - Validamos instalacion desde release real factory-v0.1.0?
+GQ-114 - Preparamos fuente para release CLI v0.1.0?
 ```

@@ -1,6 +1,6 @@
 # GQ-113 - Validar instalacion desde release real factory-v0.1.0
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-112
 - Pregunta origen: GQ-113
 - Fecha de apertura: 2026-06-05
@@ -95,4 +95,73 @@ Mi recomendacion: si, validar la release real antes del publish npm.
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
+
+```text
+next_step = smoke_test_real_factory_release_with_local_cli
+publish_new_remote_state = false
+```
+
+Resultado:
+
+```text
+remote_release_smoke_completed = true
+target_dir = .factory/runs/20260605-remote-release-smoke-v010/target
+cli_used = packages/cli/dist/index.js
+command = gridwork init --factory-version 0.1.0 --source Ainsiel/Gridwork --verbose
+source_type = github-release
+source = Ainsiel/Gridwork
+release_tag = factory-v0.1.0
+factory_profile = full-v1
+factory_version = 0.1.0
+generated_product_code = false
+lockfile_created = true
+runtime_reports_created = true
+publish_new_remote_state = false
+```
+
+Primera ejecucion:
+
+```text
+init_run_id = 20260605-183654-init
+status = success
+created = 114
+updated = 0
+unchanged = 0
+conflicts = 0
+validation_errors = 0
+validation_status = pass
+```
+
+Segunda ejecucion idempotente:
+
+```text
+init_run_id = 20260605-183753-init
+status = success
+created = 0
+updated = 0
+unchanged = 114
+conflicts = 0
+validation_errors = 0
+validation_status = pass
+```
+
+Evidencia del lockfile:
+
+```text
+lockfile_factory_source_type = github-release
+lockfile_factory_source = Ainsiel/Gridwork
+lockfile_factory_version = 0.1.0
+lockfile_factory_tag = factory-v0.1.0
+lockfile_factory_sha256 = sha256:04df0ed2072a227c3e066cbafb276079850da47249f1a9dcf60829f1007c1f56
+lockfile_factory_source_commit = 149e6ebde1bc
+compatibility_status = compatible
+auth_mode = none
+```
+
+Conclusion:
+
+```text
+La release real factory-v0.1.0 es consumible por el CLI local.
+El camino descarga -> verifica -> extrae -> instala -> lockfile -> reportes funciona.
+```
