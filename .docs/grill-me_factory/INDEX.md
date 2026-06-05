@@ -134,3 +134,9 @@
 ```text
 Accion manual GQ-120 - Configurar Trusted publishing en npm UI para `gridwork`
 ```
+
+## Guias operativas
+
+| Guia | Archivo | Proposito |
+|---|---|---|
+| npm Trusted Publishing para Gridwork | `guides/npm-trusted-publishing-gridwork.md` | Configurar npm + GitHub Actions sin `NPM_TOKEN` para publicar futuras versiones CLI |
