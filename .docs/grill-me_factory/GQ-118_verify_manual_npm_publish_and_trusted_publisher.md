@@ -139,3 +139,37 @@ npm view gridwork@0.1.0 version
 npm view gridwork dist-tags --json
 npx gridwork@0.1.0 init --factory-version 0.1.0
 ```
+
+## Intento de publish manual 2026-06-05
+
+El humano ejecuto:
+
+```bash
+npm login
+npm publish -w packages/cli --access public --tag latest
+```
+
+Resultado:
+
+```text
+npm_login = success
+npm_whoami = ainsiel
+npm_publish = failed
+npm_publish_error_code = E403
+npm_publish_error_reason = two_factor_authentication_or_granular_access_token_with_bypass_2fa_required
+package_gridwork_0_1_0_published = false
+npm_view_gridwork_0_1_0_version_after_failure = E404
+```
+
+Interpretacion:
+
+```text
+El paquete y el tarball estan correctos, pero npm bloqueo el primer publish por politica de seguridad de la cuenta/registry.
+GQ-118 sigue pendiente hasta resolver 2FA/token y publicar manualmente.
+```
+
+Siguiente gate:
+
+```text
+GQ-119 - Resolver 2FA/token npm para primer publish manual
+```

@@ -704,6 +704,22 @@ gq_118_status = pending
 
 GQ-118 queda pendiente hasta que el humano ejecute el primer publish manual preparado en GQ-117.
 
+## Intento publish manual npm
+
+```text
+npm_login = success
+npm_account = ainsiel
+npm_publish_command = npm publish -w packages/cli --access public --tag latest
+npm_publish_result = failed
+npm_publish_error_code = E403
+npm_publish_error_reason = two_factor_authentication_or_granular_access_token_with_bypass_2fa_required
+package_gridwork_0_1_0_published = false
+npm_view_gridwork_0_1_0_version_after_failure = E404
+gq_118_status = pending
+```
+
+El siguiente gate recomendado es resolver 2FA en npm y reintentar el publish manual, sin crear tag CLI.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -726,4 +742,5 @@ GQ-118 queda pendiente hasta que el humano ejecute el primer publish manual prep
 - GQ-115 ejecuto preflight npm/Actions; package/version estan libres pero npm auth/ownership no esta confirmado.
 - GQ-116 preparo el repo para trusted publishing; queda pendiente bootstrap inicial del package npm.
 - GQ-117 preparo el primer publish manual de `gridwork@0.1.0`; el agente no ejecuto npm publish.
+- GQ-118 intento verificar y luego recibio evidencia del publish manual fallido por E403; falta 2FA/token npm.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
