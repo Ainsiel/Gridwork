@@ -1,6 +1,6 @@
 # GQ-110 - Publicar factory-v0.1.0 despues del commit fuente
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-107, GQ-108, GQ-109
 - Pregunta origen: GQ-110
 - Fecha de apertura: 2026-06-05
@@ -94,5 +94,50 @@ Mi recomendacion: revisar artefactos finales antes del publish real.
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
 
+```text
+next_step = review_final_release_artifacts_before_remote_publish
+publish_real_release_now = false
+```
+
+Resultado de la revision final:
+
+```text
+final_artifact_review_completed = true
+artifacts_dir = .factory/runs/20260605-145303-factory-release/artifacts/release
+factory_version = 0.1.0
+factory_tag = factory-v0.1.0
+source = Ainsiel/Gridwork
+source_commit = 149e6ebde1bc
+manifest_review = pass
+checksum_review = pass
+zip_inventory_review = pass
+validation_status = pass
+validation_blockers = 0
+validation_warnings = 0
+zip_file_count = 114
+zip_all_files_under_gridwork = true
+zip_forbidden_product_code_paths = 0
+local_tag_exists = false
+publish_real_release_executed = false
+tag_created = false
+tag_pushed = false
+github_release_created = false
+```
+
+Regla aplicada:
+
+```text
+Esta decision solo revisa artefactos locales.
+No crea tag, no hace push y no crea GitHub Release.
+El publish real queda separado en GQ-111 con aprobacion explicita.
+```
+
+Nota de trazabilidad:
+
+```text
+El manifest apunta a source_commit = 149e6ebde1bc.
+Si se publican los artefactos revisados, el tag remoto debe apuntar a ese commit exacto
+o debe regenerarse un nuevo dry-run con el nuevo HEAD antes de publicar.
+```

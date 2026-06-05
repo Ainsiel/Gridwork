@@ -111,7 +111,10 @@
 | GQ-107 | Preparamos release dry-run de fabrica full-v1? | `GQ-107_full_v1_factory_release_dry_run.md` | accepted | `factory_release_dry_run_completed = true`; publish real no ejecutado |
 | GQ-108 | Publicamos release real de fabrica full-v1 0.1.0? | `GQ-108_publish_real_factory_release_v010.md` | accepted | artefactos revisados; publish real bloqueado por working tree sin commit |
 | GQ-109 | Preparamos commit fuente antes de publicar factory-v0.1.0? | `GQ-109_prepare_source_commit_before_factory_release.md` | accepted | source commit preparado; publish real no ejecutado |
-| GQ-110 | Publicamos factory-v0.1.0 despues del commit fuente? | `GQ-110_publish_factory_v010_after_source_commit.md` | pending | TBD |
+| GQ-110 | Publicamos factory-v0.1.0 despues del commit fuente? | `GQ-110_publish_factory_v010_after_source_commit.md` | accepted | artefactos finales revisados; publish real no ejecutado |
+| GQ-111 | Hacemos preflight remoto o publish real de factory-v0.1.0? | `GQ-111_remote_publish_factory_v010_gate.md` | accepted | preflight remoto pasado; no se publico |
+| GQ-112 | Publicamos release real factory-v0.1.0? | `GQ-112_publish_real_factory_v010.md` | accepted | release real publicada en GitHub |
+| GQ-113 | Validamos instalacion desde release real factory-v0.1.0? | `GQ-113_validate_real_factory_release_install.md` | pending | TBD |
 
 ## Convencion de IDs
 
@@ -122,5 +125,5 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-110 - Publicamos factory-v0.1.0 despues del commit fuente?
+GQ-113 - Validamos instalacion desde release real factory-v0.1.0?
 ```

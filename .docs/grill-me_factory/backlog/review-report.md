@@ -490,6 +490,70 @@ github_release_created = false
 
 La publicacion real queda diferida hasta revisar los artefactos finales del dry-run generado desde el commit fuente mas reciente.
 
+## Revision final artefactos factory-v0.1.0
+
+```text
+final_artifact_review_completed = true
+artifacts_dir = .factory/runs/20260605-145303-factory-release/artifacts/release
+factory_version = 0.1.0
+factory_tag = factory-v0.1.0
+source_commit = 149e6ebde1bc
+validation_status = pass
+validation_blockers = 0
+validation_warnings = 0
+zip_file_count = 114
+zip_all_files_under_gridwork = true
+zip_forbidden_product_code_paths = 0
+local_tag_exists = false
+publish_real_release_executed = false
+tag_created = false
+tag_pushed = false
+github_release_created = false
+```
+
+El siguiente gate es remoto: validar autenticacion, permisos, inexistencia de tag/release y decidir si se publica `factory-v0.1.0`.
+
+## Preflight remoto factory-v0.1.0
+
+```text
+remote_preflight_completed = true
+gh_auth_status = pass
+gh_account = Ainsiel
+repo = Ainsiel/Gridwork
+repo_visibility = PUBLIC
+viewer_permission = ADMIN
+default_branch = main
+origin = https://github.com/Ainsiel/Gridwork.git
+local_head = 149e6ebde1bc
+local_tag_exists = false
+remote_tag_exists = false
+remote_release_exists = false
+publish_real_release_executed = false
+tag_created = false
+tag_pushed = false
+github_release_created = false
+```
+
+El siguiente gate es crear estado remoto real: tag local, push de tag y GitHub Release con assets.
+
+## Publicacion real factory-v0.1.0
+
+```text
+publish_real_release_executed = true
+tag_created = true
+tag_name = factory-v0.1.0
+tag_target_commit = 149e6ebde1bc872f901fee37c49c0bac1016dee6
+tag_pushed = true
+github_release_created = true
+github_release_url = https://github.com/Ainsiel/Gridwork/releases/tag/factory-v0.1.0
+release_asset_count = 4
+is_draft = false
+is_prerelease = false
+zip_asset_digest = sha256:04df0ed2072a227c3e066cbafb276079850da47249f1a9dcf60829f1007c1f56
+```
+
+La fabrica `full-v1` queda publicada como GitHub Release. El siguiente gate recomendado es validar consumo real desde GitHub Release con el CLI local.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -504,4 +568,7 @@ La publicacion real queda diferida hasta revisar los artefactos finales del dry-
 - GQ-107 genero release dry-run de fabrica full-v1 sin publicar remoto.
 - GQ-108 reviso artefactos y bloqueo publish real hasta resolver trazabilidad de commit.
 - GQ-109 preparo commit fuente y mantiene publish real separado.
+- GQ-110 reviso los artefactos finales generados desde `149e6ebde1bc`; publish real sigue pendiente.
+- GQ-111 ejecuto preflight remoto; permisos, tag y release estan en estado correcto para publicar.
+- GQ-112 publico `factory-v0.1.0` como GitHub Release real.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
