@@ -580,6 +580,34 @@ publish_new_remote_state = false
 
 La release real publicada es consumible por el CLI local. El siguiente gate recomendado es preparar la CLI v0.1.0 para npm sin publicar todavia.
 
+## Preparacion CLI v0.1.0
+
+```text
+cli_source_preparation_completed = true
+source_commit = 4d2021383f96278bcfb057157c07654653fcac1e
+package_name = gridwork
+package_version = 0.1.0
+installer_version = 0.1.0
+default_factory_source = Ainsiel/Gridwork
+placeholder_factory_source = gridwork/gridwork
+npm_test = pass
+test_count = 25
+npm_pack_dry_run = pass
+pack_file_count = 32
+cli_release_dry_run_completed = true
+cli_release_artifacts_dir = .factory/runs/20260605-184458-cli-release/artifacts/release
+cli_release_tag = cli-v0.1.0
+cli_release_dist_tag = latest
+cli_release_validation_status = pass
+cli_release_validation_blockers = 0
+cli_release_validation_warnings = 0
+cli_tag_created = false
+cli_tag_pushed = false
+npm_publish_executed = false
+```
+
+La CLI queda lista para preflight npm/Actions. El siguiente gate recomendado es validar ownership/version en npm y readiness del workflow antes de crear `cli-v0.1.0`.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -598,4 +626,5 @@ La release real publicada es consumible por el CLI local. El siguiente gate reco
 - GQ-111 ejecuto preflight remoto; permisos, tag y release estan en estado correcto para publicar.
 - GQ-112 publico `factory-v0.1.0` como GitHub Release real.
 - GQ-113 valido instalacion real desde GitHub Release e idempotencia con el CLI local.
+- GQ-114 preparo la fuente CLI v0.1.0 y genero dry-run sin tag ni publish npm.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

@@ -1,6 +1,6 @@
 # GQ-114 - Preparar fuente para release CLI v0.1.0
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-071, GQ-079, GQ-104, GQ-113
 - Pregunta origen: GQ-114
 - Fecha de apertura: 2026-06-05
@@ -143,4 +143,77 @@ Mi recomendacion: preparar CLI v0.1.0 y dry-run, sin tag ni npm publish.
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
+
+```text
+next_step = prepare_cli_v0_1_0_source_and_dry_run
+npm_publish_now = false
+create_cli_tag_now = false
+push_cli_tag_now = false
+```
+
+Cambios aplicados:
+
+```text
+packages/cli/package.json version = 0.1.0
+package-lock packages/cli version = 0.1.0
+INSTALLER_VERSION = 0.1.0
+DEFAULT_FACTORY_SOURCE = Ainsiel/Gridwork
+PLACEHOLDER_FACTORY_SOURCE = gridwork/gridwork
+placeholder_blocking_logic = separated_from_default_official_source
+```
+
+Commit fuente creado:
+
+```text
+commit = 4d2021383f96278bcfb057157c07654653fcac1e
+short_commit = 4d2021383f96
+message = Prepare CLI v0.1.0 release source
+```
+
+Validaciones ejecutadas:
+
+```text
+npm_test = pass
+test_count = 25
+npm_pack_dry_run = pass
+packed_package = gridwork@0.1.0
+pack_file_count = 32
+```
+
+Dry-run CLI:
+
+```text
+cli_release_dry_run_completed = true
+artifacts_dir = .factory/runs/20260605-184458-cli-release/artifacts/release
+package_name = gridwork
+version = 0.1.0
+tag = cli-v0.1.0
+dist_tag = latest
+source = Ainsiel/Gridwork
+source_commit = 4d2021383f96
+validation_status = pass
+validation_blockers = 0
+validation_warnings = 0
+publish_executed = false
+tag_created = false
+tag_pushed = false
+npm_publish_executed = false
+```
+
+Comandos preparados, no ejecutados:
+
+```bash
+git tag cli-v0.1.0
+git push origin cli-v0.1.0
+# GitHub Actions publish-cli.yml publica npm despues del tag aprobado.
+```
+
+Regla aplicada:
+
+```text
+No crear tag CLI sin gate explicito.
+No hacer push sin gate explicito.
+No ejecutar npm publish local.
+El publish npm queda delegado a GitHub Actions cuando exista tag cli-v0.1.0 aprobado.
+```
