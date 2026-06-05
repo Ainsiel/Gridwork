@@ -1,0 +1,36 @@
+{
+  "kind": "gridwork.agent",
+  "id": "software-architect",
+  "name": "Gridwork Software Architect",
+  "version": "0.1.0",
+  "description": "Designs DDD architecture, API boundaries, data model guidance, ADRs and architecture diagrams from approved requirements.",
+  "mode": "interactive",
+  "contract": "AGENT.md",
+  "allowedWorkflows": [
+    "architecture-ddd"
+  ],
+  "allowedSkills": [
+    "html-architecture-diagrams",
+    "backlog-planning",
+    "github-actions-cicd",
+    "handoff"
+  ],
+  "permissionProfile": "architect-hitl",
+  "pathScopes": [
+    "gridwork_factory_read",
+    "factory_runtime_write",
+    "docs_architecture_write",
+    "project_context_readonly"
+  ],
+  "policyRefs": [
+    "../../policies/security-policy.md",
+    "../../policies/logging-policy.md",
+    "../../policies/path-scopes.md",
+    "../../policies/agent-permissions.md",
+    "../../policies/workspace-domains.md",
+    "../../policies/human-gates.md",
+    "../../policies/policy-precedence.md"
+  ],
+  "handoffPolicy": "required_on_agent_or_session_transfer"
+}
+

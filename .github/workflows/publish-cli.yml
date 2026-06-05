@@ -1,0 +1,61 @@
+name: Publish CLI
+
+on:
+  push:
+    tags:
+      - "cli-v*"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run validation without npm publish"
+        required: true
+        default: "true"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish npm package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install
+        run: npm ci
+
+      - name: Validate tag and package metadata
+        run: |
+          node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('packages/cli/package.json','utf8')); const tag=process.env.GITHUB_REF_NAME || ''; if (!tag.startsWith('cli-v')) { console.error('publish-cli requires cli-v* tag'); process.exit(1); } if (tag !== 'cli-v' + pkg.version) { console.error('tag must match packages/cli version'); process.exit(1); } if (pkg.bin?.gridwork !== './dist/index.js') { console.error('bin.gridwork must point to ./dist/index.js'); process.exit(1); } for (const script of ['preinstall','install','postinstall']) { if (pkg.scripts?.[script]) { console.error('install lifecycle scripts are forbidden'); process.exit(1); } }"
+
+      - name: Block placeholder factory source
+        run: |
+          node -e "const fs=require('fs'); const constants=fs.readFileSync('packages/cli/src/init/constants.ts','utf8'); if (constants.includes('DEFAULT_FACTORY_SOURCE = \"gridwork/gridwork\"')) { console.error('DEFAULT_FACTORY_SOURCE is still the placeholder'); process.exit(1); }"
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - name: Pack dry-run
+        run: npm pack -w packages/cli --dry-run
+
+      - name: Resolve npm dist-tag
+        id: dist-tag
+        run: |
+          node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('packages/cli/package.json','utf8')); const distTag=pkg.version.includes('-') ? 'next' : 'latest'; fs.appendFileSync(process.env.GITHUB_OUTPUT, 'dist_tag=' + distTag + '\n');"
+
+      - name: Publish
+        if: ${{ github.event_name == 'push' }}
+        run: npm publish -w packages/cli --provenance --access public --tag ${{ steps.dist-tag.outputs.dist_tag }}

@@ -1,0 +1,17 @@
+{
+  "name": "gridwork-source",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Source monorepo for the Gridwork personal software factory.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "pack:cli:dry-run": "npm pack -w packages/cli --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

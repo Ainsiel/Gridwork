@@ -1,0 +1,28 @@
+{
+  "name": "gridwork",
+  "version": "0.0.0",
+  "description": "CLI bootstrapper for the Gridwork personal software factory.",
+  "type": "module",
+  "bin": {
+    "gridwork": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "fflate": "^0.8.3"
+  }
+}

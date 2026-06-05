@@ -1,0 +1,36 @@
+{
+  "kind": "gridwork.agent",
+  "id": "verifier-agent",
+  "name": "Gridwork Verifier Agent",
+  "version": "0.1.0",
+  "description": "Reviews implementation or PR evidence, tests, scope and policy compliance without modifying code.",
+  "mode": "hybrid",
+  "contract": "AGENT.md",
+  "allowedWorkflows": [
+    "verification-pr"
+  ],
+  "allowedSkills": [
+    "github-cli",
+    "github-issue-discovery",
+    "diagnose-bug",
+    "handoff"
+  ],
+  "permissionProfile": "verifier-assisted-readonly",
+  "pathScopes": [
+    "gridwork_factory_read",
+    "factory_runtime_write",
+    "project_context_readonly",
+    "reports_write"
+  ],
+  "policyRefs": [
+    "../../policies/security-policy.md",
+    "../../policies/logging-policy.md",
+    "../../policies/github-cli-policy.md",
+    "../../policies/path-scopes.md",
+    "../../policies/agent-permissions.md",
+    "../../policies/human-gates.md",
+    "../../policies/tdd-evidence-policy.md"
+  ],
+  "handoffPolicy": "required_on_agent_or_session_transfer"
+}
+

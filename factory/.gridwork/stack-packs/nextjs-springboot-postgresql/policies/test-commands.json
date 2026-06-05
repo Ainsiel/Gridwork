@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "commands": [
+    {
+      "id": "frontend_test",
+      "purpose": "Run frontend tests when configured by the project.",
+      "commandHint": "npm test",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "frontend_lint",
+      "purpose": "Run frontend lint when configured by the project.",
+      "commandHint": "npm run lint",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "backend_test",
+      "purpose": "Run Spring Boot tests when configured by the project.",
+      "commandHint": "./mvnw test",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "backend_verify",
+      "purpose": "Run backend verification when configured by the project.",
+      "commandHint": "./mvnw verify",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "docker_compose_config",
+      "purpose": "Validate docker compose configuration when a compose file already exists.",
+      "commandHint": "docker compose config",
+      "requiresPathConfirmation": true
+    }
+  ],
+  "rules": [
+    "Commands are hints until copied into a project allowlist.",
+    "Agents must not invent commands.",
+    "Unknown commands require approval."
+  ]
+}
+

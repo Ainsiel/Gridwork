@@ -1,0 +1,46 @@
+{
+  "kind": "gridwork.workflow",
+  "id": "architecture-ddd",
+  "name": "Architecture DDD",
+  "version": "0.1.0",
+  "description": "Designs DDD architecture, APIs, data boundaries, ADRs and diagrams from an approved SDD.",
+  "mode": "interactive",
+  "primaryAgent": "software-architect",
+  "participatingAgents": [
+    "orchestrator",
+    "software-architect",
+    "planner-agent"
+  ],
+  "allowedSkills": [
+    "html-architecture-diagrams",
+    "backlog-planning",
+    "github-actions-cicd",
+    "handoff"
+  ],
+  "requiredInputs": [
+    "approved_sdd",
+    "architecture_questions"
+  ],
+  "producedOutputs": [
+    "architecture_overview",
+    "bounded_contexts",
+    "api_design",
+    "data_design",
+    "adrs",
+    "html_diagrams",
+    "backlog_drafts"
+  ],
+  "artifactPaths": [
+    ".factory/runs/<run-id>/",
+    "docs/architecture/",
+    "docs/adr/"
+  ],
+  "humanGates": [
+    "architecture_decision",
+    "github_write",
+    "ci_file_write",
+    "secret_value_needed"
+  ],
+  "requiresWorkOrder": false
+}
+

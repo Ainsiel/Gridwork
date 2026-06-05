@@ -1,0 +1,36 @@
+{
+  "kind": "gridwork.agent",
+  "id": "implementer-agent",
+  "name": "Gridwork Implementer Agent",
+  "version": "0.1.0",
+  "description": "Implements approved work orders under TDD, within path scopes and allowlisted commands.",
+  "mode": "afk",
+  "contract": "AGENT.md",
+  "allowedWorkflows": [
+    "tdd-implementation"
+  ],
+  "allowedSkills": [
+    "github-issue-discovery",
+    "diagnose-bug",
+    "handoff"
+  ],
+  "permissionProfile": "implementer-afk-tdd",
+  "pathScopes": [
+    "gridwork_factory_read",
+    "factory_runtime_write",
+    "product_code_scoped_write",
+    "test_code_scoped_write"
+  ],
+  "policyRefs": [
+    "../../policies/security-policy.md",
+    "../../policies/logging-policy.md",
+    "../../policies/path-scopes.md",
+    "../../policies/agent-permissions.md",
+    "../../policies/workspace-domains.md",
+    "../../policies/human-gates.md",
+    "../../policies/policy-precedence.md",
+    "../../policies/tdd-evidence-policy.md"
+  ],
+  "handoffPolicy": "required_on_agent_or_session_transfer"
+}
+

@@ -1,0 +1,45 @@
+{
+  "kind": "gridwork.workflow",
+  "id": "tdd-implementation",
+  "name": "TDD Implementation",
+  "version": "0.1.0",
+  "description": "Implements an approved work order with TDD, evidence and allowlisted commands.",
+  "mode": "afk",
+  "primaryAgent": "implementer-agent",
+  "participatingAgents": [
+    "orchestrator",
+    "implementer-agent"
+  ],
+  "allowedSkills": [
+    "github-issue-discovery",
+    "diagnose-bug",
+    "handoff"
+  ],
+  "requiredInputs": [
+    "approved_work_order",
+    "acceptance_criteria",
+    "path_scopes",
+    "test_command_allowlist"
+  ],
+  "producedOutputs": [
+    "red_phase_evidence",
+    "green_phase_evidence",
+    "refactor_summary",
+    "implementation_summary",
+    "verification_handoff"
+  ],
+  "artifactPaths": [
+    ".factory/runs/<run-id>/",
+    ".factory/runs/<run-id>/artifacts/tdd/"
+  ],
+  "humanGates": [
+    "dependency_change",
+    "scope_change",
+    "unknown_command",
+    "github_write",
+    "secret_value_needed",
+    "destructive_action"
+  ],
+  "requiresWorkOrder": true
+}
+

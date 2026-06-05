@@ -1,0 +1,43 @@
+{
+  "kind": "gridwork.workflow",
+  "id": "verification-pr",
+  "name": "Verification PR",
+  "version": "0.1.0",
+  "description": "Reviews implementation or PR evidence, tests and policy compliance before merge decisions.",
+  "mode": "hybrid",
+  "primaryAgent": "verifier-agent",
+  "participatingAgents": [
+    "orchestrator",
+    "verifier-agent",
+    "implementer-agent"
+  ],
+  "allowedSkills": [
+    "github-cli",
+    "github-issue-discovery",
+    "diagnose-bug",
+    "handoff"
+  ],
+  "requiredInputs": [
+    "implementation_summary",
+    "work_order",
+    "tdd_evidence"
+  ],
+  "producedOutputs": [
+    "verifier_report",
+    "pr_comment_draft",
+    "feedback_to_implementer",
+    "verification_decision"
+  ],
+  "artifactPaths": [
+    ".factory/runs/<run-id>/",
+    ".factory/runs/<run-id>/artifacts/verification/"
+  ],
+  "humanGates": [
+    "github_pr_comment",
+    "merge",
+    "deploy",
+    "secret_value_needed"
+  ],
+  "requiresWorkOrder": false
+}
+

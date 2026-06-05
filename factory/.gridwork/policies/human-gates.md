@@ -1,0 +1,27 @@
+# Human Gates Policy
+
+## Always Stop Before
+
+- AFK delegation.
+- GitHub write commands.
+- Branch push, PR creation, merge or release creation.
+- Dependency changes.
+- Secret access.
+- Destructive file operations.
+- Deploy.
+- Expanding scope beyond the work order.
+- Running a command outside an allowlist.
+
+## Gate Record
+
+When a run exists, record gates in:
+
+```text
+.factory/runs/<run-id>/gates.json
+.factory/runs/<run-id>/summary.md
+```
+
+## Approval Shape
+
+Approval must name the action, scope and target. Broad approval does not authorize unrelated side effects.
+

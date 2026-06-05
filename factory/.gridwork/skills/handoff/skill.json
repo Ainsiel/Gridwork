@@ -1,0 +1,43 @@
+{
+  "kind": "gridwork.skill",
+  "id": "handoff",
+  "name": "Handoff",
+  "version": "0.1.0",
+  "description": "Creates a concise transfer summary when another agent or another session must continue the work.",
+  "category": "handoff",
+  "allowedAgents": [
+    "orchestrator",
+    "intake-agent",
+    "software-architect",
+    "planner-agent",
+    "implementer-agent",
+    "verifier-agent"
+  ],
+  "allowedWorkflows": [
+    "intake-existing-code",
+    "ideation-from-zero",
+    "architecture-ddd",
+    "tdd-implementation",
+    "verification-pr"
+  ],
+  "requiredInputs": [
+    "run_id",
+    "source_agent",
+    "target_agent_or_session",
+    "current_status",
+    "next_steps"
+  ],
+  "producedOutputs": [
+    "handoff_summary"
+  ],
+  "artifactPaths": [
+    ".factory/runs/<run-id>/handoff.md",
+    ".factory/runs/<run-id>/handoffs/"
+  ],
+  "toolPolicyRefs": [],
+  "humanGates": [
+    "sensitive_data_detected",
+    "missing_context"
+  ],
+  "permissionsInheritedOnly": true
+}
