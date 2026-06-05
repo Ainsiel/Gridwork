@@ -151,7 +151,7 @@ Resultado:
 trusted_publishing_source_prepared = true
 package_name = gridwork
 package_version = 0.1.0
-package_repository_url = https://github.com/Ainsiel/Gridwork.git
+package_repository_url = git+https://github.com/Ainsiel/Gridwork.git
 workflow = .github/workflows/publish-cli.yml
 workflow_node_version = 24
 workflow_npm_minimum_check = >=11.5.1

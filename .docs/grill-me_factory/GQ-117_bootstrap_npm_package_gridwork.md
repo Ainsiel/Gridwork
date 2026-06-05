@@ -1,6 +1,6 @@
 # GQ-117 - Bootstrap inicial del paquete npm gridwork
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-115, GQ-116
 - Pregunta origen: GQ-117
 - Fecha de apertura: 2026-06-05
@@ -137,4 +137,88 @@ Mi recomendacion: bootstrap manual del primer publish y luego trusted publishing
 
 ## Decision registrada
 
-Pendiente.
+El usuario acepta la recomendacion:
+
+```text
+next_step = manual_first_publish_then_configure_trusted_publishing
+create_cli_tag_now = false
+push_cli_tag_now = false
+npm_publish_by_agent = false
+```
+
+Preparacion aplicada para el publish manual:
+
+```text
+package_name = gridwork
+package_version = 0.1.0
+package_repository_url = git+https://github.com/Ainsiel/Gridwork.git
+package_bin_gridwork = dist/index.js
+npm_metadata_normalized = true
+```
+
+Validaciones ejecutadas:
+
+```text
+npm_test = pass
+test_count = 25
+npm_pack_dry_run = pass
+pack_file_count = 32
+npm_publish_dry_run = pass
+npm_publish_dry_run_package = gridwork@0.1.0
+npm_publish_dry_run_tag = latest
+npm_publish_dry_run_access = public
+npm_publish_dry_run_autocorrections = 0
+```
+
+Resultado:
+
+```text
+manual_first_publish_prepared = true
+manual_first_publish_executed_by_agent = false
+cli_tag_created = false
+cli_tag_pushed = false
+npm_publish_executed_by_agent = false
+trusted_publisher_configured = not_yet
+publish_ready_for_manual_human_step = true
+```
+
+Comando manual recomendado para el humano, desde la raiz del repo:
+
+```bash
+npm login
+npm publish -w packages/cli --access public --tag latest
+```
+
+Comandos de verificacion posteriores al publish manual:
+
+```bash
+npm view gridwork@0.1.0 version
+npm view gridwork@0.1.0 dist-tags --json
+npx gridwork@0.1.0 init --factory-version 0.1.0
+```
+
+Despues del primer publish manual, configurar trusted publishing en npmjs.com:
+
+```text
+Package: gridwork
+Publisher: GitHub Actions
+Organization/user: Ainsiel
+Repository: Gridwork
+Workflow filename: publish-cli.yml
+Allowed action: npm publish
+Environment: empty unless you add a protected deployment environment
+```
+
+Regla aplicada:
+
+```text
+El agente no ejecuta el primer npm publish.
+No se crea `cli-v0.1.0` hasta verificar el package publicado y trusted publishing.
+```
+
+Fuentes oficiales:
+
+```text
+https://docs.npmjs.com/trusted-publishers/
+https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/
+```

@@ -645,7 +645,7 @@ El siguiente gate recomendado es resolver npm ownership/trusted publishing antes
 trusted_publishing_source_prepared = true
 package_name = gridwork
 package_version = 0.1.0
-package_repository_url = https://github.com/Ainsiel/Gridwork.git
+package_repository_url = git+https://github.com/Ainsiel/Gridwork.git
 workflow = .github/workflows/publish-cli.yml
 workflow_node_version = 24
 workflow_npm_minimum_check = >=11.5.1
@@ -666,6 +666,29 @@ npm_publish_executed = false
 ```
 
 El repo esta listo para trusted publishing, pero el paquete `gridwork` aun no existe en npm. El siguiente gate recomendado es decidir el bootstrap inicial del package antes de crear `cli-v0.1.0`.
+
+## Bootstrap manual npm gridwork
+
+```text
+manual_first_publish_prepared = true
+package_name = gridwork
+package_version = 0.1.0
+package_repository_url = git+https://github.com/Ainsiel/Gridwork.git
+package_bin_gridwork = dist/index.js
+npm_test = pass
+test_count = 25
+npm_pack_dry_run = pass
+pack_file_count = 32
+npm_publish_dry_run = pass
+npm_publish_dry_run_autocorrections = 0
+manual_first_publish_executed_by_agent = false
+cli_tag_created = false
+cli_tag_pushed = false
+npm_publish_executed_by_agent = false
+trusted_publisher_configured = not_yet
+```
+
+El siguiente gate recomendado ocurre despues del publish manual humano: verificar `gridwork@0.1.0`, probar `npx` y configurar trusted publishing para futuras releases.
 
 ## Notas
 
@@ -688,4 +711,5 @@ El repo esta listo para trusted publishing, pero el paquete `gridwork` aun no ex
 - GQ-114 preparo la fuente CLI v0.1.0 y genero dry-run sin tag ni publish npm.
 - GQ-115 ejecuto preflight npm/Actions; package/version estan libres pero npm auth/ownership no esta confirmado.
 - GQ-116 preparo el repo para trusted publishing; queda pendiente bootstrap inicial del package npm.
+- GQ-117 preparo el primer publish manual de `gridwork@0.1.0`; el agente no ejecuto npm publish.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
