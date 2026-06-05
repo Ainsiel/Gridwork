@@ -26,6 +26,10 @@ factory_release_dry_run_full_v1_completed = true
 factory_release_real_publish_completed = false
 factory_release_artifact_review_completed = true
 factory_release_ready_for_real_publish = false
+npm_manual_first_publish_completed = true
+npm_package_gridwork_v0_1_0_published = true
+npx_gridwork_v0_1_0_smoke_completed = true
+trusted_publisher_configured = false
 source_commit_preparation_completed = true
 review_model = batch_review_with_per_draft_checklist
 review_scope = phase_0_full_review_plus_phase_1_light_audit
@@ -720,6 +724,47 @@ gq_118_status = pending
 
 El siguiente gate recomendado es resolver 2FA en npm y reintentar el publish manual, sin crear tag CLI.
 
+## Publish manual npm exitoso
+
+```text
+npm_2fa_enabled = true
+npm_account = ainsiel
+npm_publish_command = npm publish -w packages/cli --access public --tag latest
+npm_publish_result = success
+published_package = gridwork@0.1.0
+npm_publish_executed_by_agent = false
+cli_tag_created = false
+cli_tag_pushed = false
+```
+
+Nota de seguridad:
+
+```text
+npm_recovery_codes_shared_in_chat = true
+recovery_codes_should_be_regenerated = true
+recovery_codes_stored_in_repo = false
+```
+
+## Verificacion npm/npx GQ-118
+
+```text
+npm_view_gridwork_0_1_0_version = 0.1.0
+npm_view_gridwork_dist_tags_latest = 0.1.0
+npx_command = npx gridwork@0.1.0 init --factory-version 0.1.0
+npx_target_dir = .factory/runs/20260605-npx-gridwork-v010/target
+npx_first_run_status = success
+npx_first_run_message = Gridwork installed.
+npx_first_run_source = github-release:Ainsiel/Gridwork@factory-v0.1.0
+npx_first_run_report = .factory/init/20260605-191754-init
+npx_second_run_status = success
+npx_second_run_message = Gridwork already installed.
+npx_second_run_report = .factory/init/20260605-191811-init
+trusted_publisher_configured = false
+next_gate = GQ-120
+```
+
+El bootstrap publico queda validado: npm entrega la CLI, la CLI descarga la fabrica desde GitHub Release, y el usuario entra por `.gridwork/agents/orchestrator/PROMPT.md`. El siguiente gate recomendado es configurar trusted publishing en npm para publicar versiones futuras desde GitHub Actions sin `NPM_TOKEN`.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -743,4 +788,6 @@ El siguiente gate recomendado es resolver 2FA en npm y reintentar el publish man
 - GQ-116 preparo el repo para trusted publishing; queda pendiente bootstrap inicial del package npm.
 - GQ-117 preparo el primer publish manual de `gridwork@0.1.0`; el agente no ejecuto npm publish.
 - GQ-118 intento verificar y luego recibio evidencia del publish manual fallido por E403; falta 2FA/token npm.
+- GQ-119 resolvio 2FA y el humano publico `gridwork@0.1.0` manualmente.
+- GQ-118 verifico npm/npx con smoke real e idempotencia; queda pendiente GQ-120 para trusted publishing.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

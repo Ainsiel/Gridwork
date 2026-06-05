@@ -1,6 +1,6 @@
 # GQ-119 - Resolver 2FA/token npm para primer publish manual
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-117, GQ-118
 - Pregunta origen: GQ-119
 - Fecha de apertura: 2026-06-05
@@ -122,4 +122,36 @@ Mi recomendacion: habilitar 2FA, reintentar el publish manual y luego volver a G
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+npm_2fa_enabled = true
+npm_account = ainsiel
+manual_publish_retried_by_human = true
+manual_publish_result = success
+published_package = gridwork@0.1.0
+npm_publish_by_agent = false
+create_cli_tag_now = false
+push_cli_tag_now = false
+```
+
+El humano habilito 2FA en npm y repitio:
+
+```bash
+npm publish -w packages/cli --access public --tag latest
+```
+
+Resultado:
+
+```text
+npm_publish_result = success
+npm_publish_output = + gridwork@0.1.0
+```
+
+## Nota de seguridad
+
+Durante la conversacion se compartieron recovery codes de npm. No deben copiarse a ningun artefacto de Gridwork. Esos codigos deben tratarse como expuestos y conviene regenerarlos en npm, guardando los nuevos en un gestor seguro fuera del chat y fuera del repositorio.
+
+## Siguiente gate
+
+Volver a GQ-118 para verificar npm/npx y abrir la configuracion de trusted publishing para releases futuras.

@@ -1,6 +1,6 @@
 # GQ-118 - Verificar publish manual y configurar trusted publishing
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-117
 - Pregunta origen: GQ-118
 - Fecha de apertura: 2026-06-05
@@ -102,7 +102,21 @@ Mi recomendacion: verificar publish manual y configurar trusted publishing antes
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+manual_publish_completed = true
+npm_package = gridwork
+npm_version = 0.1.0
+npm_latest_dist_tag = 0.1.0
+npx_smoke_test_completed = true
+npx_idempotency_test_completed = true
+trusted_publisher_configured = false
+trusted_publisher_gate = GQ-120
+create_cli_tag_now = false
+push_cli_tag_now = false
+npm_publish_by_agent = false
+```
 
 ## Intento de verificacion 2026-06-05
 
@@ -172,4 +186,53 @@ Siguiente gate:
 
 ```text
 GQ-119 - Resolver 2FA/token npm para primer publish manual
+```
+
+## Verificacion despues del publish manual 2026-06-05
+
+Despues de habilitar 2FA y publicar manualmente, se verifico npm:
+
+```text
+npm_view_gridwork_0_1_0_version = 0.1.0
+npm_view_gridwork_dist_tags_latest = 0.1.0
+package_gridwork_0_1_0_exists = true
+```
+
+Tambien se ejecuto un smoke test real usando el paquete publicado via `npx`:
+
+```text
+npx_command = npx gridwork@0.1.0 init --factory-version 0.1.0
+target_dir = .factory/runs/20260605-npx-gridwork-v010/target
+first_run_status = success
+first_run_message = Gridwork installed.
+first_run_source = github-release:Ainsiel/Gridwork@factory-v0.1.0
+first_run_factory_profile = full-v1
+first_run_prompt = .gridwork/agents/orchestrator/PROMPT.md
+first_run_report = .factory/init/20260605-191754-init
+```
+
+Se ejecuto una segunda pasada para validar idempotencia:
+
+```text
+second_run_status = success
+second_run_message = Gridwork already installed.
+second_run_source = github-release:Ainsiel/Gridwork@factory-v0.1.0
+second_run_factory_profile = full-v1
+second_run_prompt = .gridwork/agents/orchestrator/PROMPT.md
+second_run_report = .factory/init/20260605-191811-init
+```
+
+Interpretacion:
+
+```text
+El bootstrap publico de Gridwork ya funciona:
+npm install path = npm registry
+factory install path = GitHub Release factory-v0.1.0
+user entrypoint = .gridwork/agents/orchestrator/PROMPT.md
+```
+
+Siguiente gate:
+
+```text
+GQ-120 - Configurar trusted publishing npm para releases CLI futuras
 ```
