@@ -17,8 +17,12 @@
   ],
   "producedOutputs": [
     "sdd_draft",
+    "functional_requirements",
+    "quality_attributes",
     "use_cases",
-    "test_cases"
+    "test_cases",
+    "traceability_matrix",
+    "open_questions"
   ],
   "artifactPaths": [
     ".factory/runs/<run-id>/artifacts/sdd/",
@@ -31,4 +35,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

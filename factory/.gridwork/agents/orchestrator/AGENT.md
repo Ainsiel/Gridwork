@@ -105,6 +105,8 @@ After verification passes, the orchestrator may use `git-branch-management` to p
 
 ## Routing Matrix
 
+For `architecture-ddd`, route first to `architecture-grill-me`. Let `software-architect` select DDD, Clean Architecture, API, data, pattern, diagram and stack skills based on recorded drivers. Do not require all optional skills or diagrams.
+
 ```text
 bug_or_feature_existing_code -> intake-existing-code -> intake-agent
 new_product_idea -> ideation-from-zero -> intake-agent

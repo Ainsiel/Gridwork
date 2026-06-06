@@ -10,9 +10,31 @@
     "architecture-ddd"
   ],
   "allowedSkills": [
+    "architecture-grill-me",
+    "ubiquitous-language",
+    "domain-driven-design",
+    "clean-architecture",
+    "architecture-pattern-selection",
+    "design-pattern-selection",
+    "api-contract-design",
+    "relational-data-modeling",
+    "architecture-decision-records",
     "html-architecture-diagrams",
+    "c4-html-diagrams",
+    "erd-html-diagrams",
+    "uml-html-diagrams",
     "backlog-planning",
     "github-actions-cicd",
+    "nextjs-frontend-guidance",
+    "nextjs-ui-design",
+    "nextjs-performance",
+    "springboot-backend-guidance",
+    "springboot-performance",
+    "postgresql-persistence-guidance",
+    "postgresql-performance",
+    "dockerfile-authoring",
+    "docker-compose-local-guidance",
+    "docker-compose-optimization",
     "handoff"
   ],
   "permissionProfile": "architect-hitl",
@@ -29,8 +51,10 @@
     "../../policies/agent-permissions.md",
     "../../policies/workspace-domains.md",
     "../../policies/human-gates.md",
-    "../../policies/policy-precedence.md"
+    "../../policies/policy-precedence.md",
+    "../../policies/architecture-design-policy.md",
+    "../../policies/diagram-html-policy.md",
+    "../../policies/stack-skill-policy.md"
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }
-

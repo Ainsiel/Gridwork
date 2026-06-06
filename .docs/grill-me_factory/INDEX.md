@@ -128,6 +128,7 @@
 | GQ-124 | Cual es el siguiente objetivo funcional despues del MVP? | `GQ-124_next_functional_objective_after_mvp.md` | accepted | completar contratos faltantes antes del dogfooding |
 | GQ-125 | Que agentes, workflows y skills faltan por implementar? | `GQ-125_complete_missing_factory_contracts.md` | accepted | roster completo; se agregan `tdd`, `git-branch-management` y `github-label-manager` |
 | GQ-126 | Como validar la fabrica expandida antes de otra release? | `GQ-126_validate_expanded_factory_dogfooding.md` | pending | dogfooding end-to-end en repositorio sandbox separado |
+| GQ-127 | Como implementar en profundidad skills de arquitectura y stack? | `GQ-127_deepen_architecture_and_stack_skills.md` | accepted | 25 core + 10 stack skills accionables; Arquitecto y stack pack ampliados |
 
 ## Convencion de IDs
 

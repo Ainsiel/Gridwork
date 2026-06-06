@@ -8,19 +8,28 @@ Provide guidance for agents working in projects that use:
 frontend = Next.js
 backend = Spring Boot
 database = PostgreSQL
-local_environment = Docker Compose recommended, not generated
+local_environment = Docker Compose recommended
 architecture_style = DDD + vertical slices
 ```
 
 ## Rules
 
-- This stack pack does not generate product code.
-- This stack pack does not create frontend, backend, database or Docker files.
+- `gridwork init` installs skill definitions only and does not generate product code.
+- During an approved implementation work order, stack skills may create or modify confirmed scoped product files.
 - Path hints are hints, not permissions.
-- Stack skills are guidance only and do not elevate permissions.
+- Stack skills do not elevate permissions.
 - The orchestrator must detect or ask for real project paths before AFK work.
+- Stack versions and existing project conventions must be detected before recommendations.
 
 ## Vertical Slice Preference
 
 When feasible, issues should include UI, API/application behavior, domain behavior, persistence changes and tests in one independently verifiable slice.
 
+## Skills
+
+```text
+Next.js = frontend guidance, UI design, performance
+Spring Boot = backend guidance, performance
+PostgreSQL = persistence guidance, performance
+Docker = Dockerfile authoring, Compose local guidance, Compose optimization
+```

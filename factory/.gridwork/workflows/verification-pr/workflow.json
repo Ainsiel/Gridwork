@@ -17,6 +17,16 @@
     "diagnose-bug",
     "tdd",
     "git-branch-management",
+    "nextjs-frontend-guidance",
+    "nextjs-ui-design",
+    "nextjs-performance",
+    "springboot-backend-guidance",
+    "springboot-performance",
+    "postgresql-persistence-guidance",
+    "postgresql-performance",
+    "dockerfile-authoring",
+    "docker-compose-local-guidance",
+    "docker-compose-optimization",
     "handoff"
   ],
   "requiredInputs": [

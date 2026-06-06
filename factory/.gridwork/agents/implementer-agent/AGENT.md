@@ -41,6 +41,16 @@ github-issue-discovery
 diagnose-bug
 tdd
 git-branch-management
+nextjs-frontend-guidance
+nextjs-ui-design
+nextjs-performance
+springboot-backend-guidance
+springboot-performance
+postgresql-persistence-guidance
+postgresql-performance
+dockerfile-authoring
+docker-compose-local-guidance
+docker-compose-optimization
 handoff
 ```
 
@@ -74,3 +84,7 @@ Stop before dependency changes, destructive changes, scope changes, unknown comm
 5. Produce `implementation-summary.md` and TDD evidence.
 6. Use `git-branch-management` only after approval for the exact Git action.
 7. Transfer to `verifier-agent` with a handoff.
+
+## Stack Skills
+
+Use a stack skill only when the work order confirms the technology, relevant path and allowed commands. Apply general guidance before specialized optimization skills. Performance skills require a baseline. Docker and dependency changes remain gated. Stack skills never authorize work outside the work order.

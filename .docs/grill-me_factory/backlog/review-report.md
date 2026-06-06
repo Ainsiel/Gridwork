@@ -903,6 +903,7 @@ No se publicara una version solo para probar infraestructura. El siguiente objet
 - GQ-123 decidio esperar un cambio funcional real antes de publicar `0.1.1`.
 - GQ-124 eligio completar contratos faltantes antes del dogfooding.
 - GQ-125 audito el roster completo y agrego las skills `tdd`, `git-branch-management` y `github-label-manager`.
+- GQ-127 corrigio skills superficiales, amplio arquitectura y stack pack, y agrego validacion de instrucciones accionables.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
 
 ## Resultado GQ-125 contratos faltantes
@@ -931,3 +932,30 @@ next_gate = GQ-126
 ```
 
 La fabrica conserva el roster aprobado y completa sus contratos operativos. El siguiente gate recomendado es dogfooding end-to-end antes de preparar una nueva release de fabrica.
+
+## Resultado GQ-127 skills profundas
+
+```text
+agents = 6
+workflows = 5
+core_skills = 25
+stack_skills = 10
+total_actionable_skills = 35
+new_architecture_skills = 12
+new_stack_skills = 6
+deepened_existing_core_skills = 8
+deepened_existing_stack_skills = 4
+architecture_diagram_template = self_contained_html
+agent_workflow_skill_graph = pass
+all_skills_have_actionable_instructions = pass
+npm_test = pass
+npm_test_count = 29
+npm_pack_cli_dry_run = pass
+factory_ascii_check = pass
+factory_release_dry_run = pass
+factory_release_bundle_file_count = 179
+remote_publish = not_executed
+next_gate = GQ-126
+```
+
+`architecture-ddd` selecciona skills opcionales segun drivers confirmados. El stack pack no genera producto durante `init`, pero puede guiar implementacion y verificacion dentro de permisos y work orders aprobados.

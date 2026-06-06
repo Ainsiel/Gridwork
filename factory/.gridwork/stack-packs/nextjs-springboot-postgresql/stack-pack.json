@@ -3,7 +3,7 @@
   "id": "nextjs-springboot-postgresql",
   "name": "Next.js + Spring Boot + PostgreSQL",
   "version": "0.1.0",
-  "description": "Guidance-only stack pack for fullstack vertical slices with Next.js, Spring Boot, PostgreSQL and Docker Compose.",
+  "description": "Stack skill pack for designing, implementing and verifying fullstack vertical slices with Next.js, Spring Boot, PostgreSQL and Docker.",
   "generatesProductCode": false,
   "pathsAreHintsOnly": true,
   "skillsExpandPermissions": false,
@@ -11,6 +11,7 @@
     "nextjs",
     "springboot",
     "postgresql",
+    "docker",
     "docker-compose"
   ],
   "policies": [
@@ -26,13 +27,22 @@
     "templates/work-order-fullstack-slice.md",
     "templates/test-plan-fullstack-slice.md",
     "templates/api-contract.md",
-    "templates/database-migration-plan.md"
+    "templates/database-migration-plan.md",
+    "templates/ui-design-spec.md",
+    "templates/performance-analysis.md",
+    "templates/dockerfile-plan.md",
+    "templates/compose-optimization-plan.md"
   ],
   "skills": [
     "skills/nextjs-frontend-guidance/skill.json",
+    "skills/nextjs-ui-design/skill.json",
+    "skills/nextjs-performance/skill.json",
     "skills/springboot-backend-guidance/skill.json",
+    "skills/springboot-performance/skill.json",
     "skills/postgresql-persistence-guidance/skill.json",
-    "skills/docker-compose-local-guidance/skill.json"
+    "skills/postgresql-performance/skill.json",
+    "skills/dockerfile-authoring/skill.json",
+    "skills/docker-compose-local-guidance/skill.json",
+    "skills/docker-compose-optimization/skill.json"
   ]
 }
-

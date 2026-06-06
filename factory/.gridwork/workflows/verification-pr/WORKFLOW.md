@@ -28,6 +28,7 @@ github-issue-discovery
 diagnose-bug
 tdd
 git-branch-management
+conditional stack-pack skills
 handoff
 ```
 
@@ -41,6 +42,8 @@ handoff
 6. Prepare a short GitHub comment draft only if requested.
 7. Decide `pass`, `changes_requested` or `needs_more_evidence`.
 8. After `pass`, optionally prepare a gated Git action plan without executing remote actions.
+
+Use relevant stack skills in review mode. A performance improvement cannot pass without comparable before/after evidence; infrastructure changes cannot pass without configuration and lifecycle validation.
 
 ## Human Gates
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Design the system from an approved SDD using Domain Driven Design and produce architecture outputs ready for backlog planning.
+Design the system from an approved SDD using an adaptive architecture grill-me, DDD strategic design and optional technical skills. Produce approved architecture outputs ready for backlog planning.
 
 ## When To Use
 
@@ -22,22 +22,50 @@ supporting_agents = orchestrator,planner-agent
 ## Allowed Skills
 
 ```text
+architecture-grill-me
+ubiquitous-language
+domain-driven-design
+clean-architecture
+architecture-pattern-selection
+design-pattern-selection
+api-contract-design
+relational-data-modeling
+architecture-decision-records
 html-architecture-diagrams
+c4-html-diagrams
+erd-html-diagrams
+uml-html-diagrams
 backlog-planning
 github-label-manager
 github-actions-cicd
+conditional stack-pack skills
 handoff
 ```
 
 ## Phases
 
-1. Read the approved SDD and identify uncertain architectural drivers.
-2. Run DDD grill-me: domains, bounded contexts, aggregates and ubiquitous language.
-3. Run technical mapping: API boundaries, persistence, integration, security and operations.
-4. Produce ADRs for important decisions.
-5. Produce HTML diagrams when visual representation helps.
-6. Use `backlog-planning` to prepare vertical-slice issue drafts after approval.
-7. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
+1. Read the approved SDD and use `architecture-grill-me` to identify drivers, constraints and uncertain decisions.
+2. Establish ubiquitous language and perform DDD strategic design.
+3. Select only the optional skills justified by the grill-me results.
+4. Design technical boundaries, APIs, data, security, operations and quality-attribute responses.
+5. Record consequential decisions as ADRs.
+6. Produce C4, ERD, UML or other HTML diagrams only when they answer a defined question.
+7. Review the complete design for traceability, simplicity, risks and contradictions.
+8. Ask for approval before promoting architecture drafts to `docs/architecture/` or `docs/adr/`.
+9. Use `backlog-planning` to prepare vertical-slice issue drafts after architecture approval.
+10. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
+
+## Optional Skill Rule
+
+The workflow does not require every architecture or diagram skill. The architect must create `skill-selection-plan.md` explaining:
+
+```text
+selected skill
+decision or question it answers
+required input
+expected output
+reason omitted when a commonly expected artifact is unnecessary
+```
 
 ## Human Gates
 
@@ -55,6 +83,18 @@ docs/adr/
 ```
 
 HTML diagrams must be self-contained local files without CDN or build step.
+
+Recommended architecture artifact set:
+
+```text
+architecture-questionnaire.md
+architecture-drivers.md
+architecture-overview.md
+domain/ubiquitous-language.md
+domain/context-map.md
+adrs/
+optional api/, data/, diagrams/ and structure/ outputs
+```
 
 ## Completion Criteria
 

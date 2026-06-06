@@ -40,6 +40,16 @@ github-issue-discovery
 diagnose-bug
 tdd
 git-branch-management
+nextjs-frontend-guidance
+nextjs-ui-design
+nextjs-performance
+springboot-backend-guidance
+springboot-performance
+postgresql-persistence-guidance
+postgresql-performance
+dockerfile-authoring
+docker-compose-local-guidance
+docker-compose-optimization
 handoff
 ```
 
@@ -61,3 +71,5 @@ Stop before `gh pr comment`, branch operations, merge, deploy, dependency change
 - Mark missing or invalid RED/GREEN as `needs_more_evidence`.
 - Never repair code during verification.
 - After a pass decision, `git-branch-management` may prepare a plan, but every Git write remains gated.
+- Use stack skills in review mode to check technology-specific correctness, design quality and evidence.
+- Require before/after measurements for performance claims and confirmed paths for infrastructure findings.

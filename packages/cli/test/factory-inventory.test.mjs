@@ -174,8 +174,17 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
   assert.deepEqual(
     manifest.skills.map((skill) => skill.id).sort(),
     [
+      "api-contract-design",
+      "architecture-decision-records",
+      "architecture-grill-me",
+      "architecture-pattern-selection",
       "backlog-planning",
+      "c4-html-diagrams",
+      "clean-architecture",
+      "design-pattern-selection",
       "diagnose-bug",
+      "domain-driven-design",
+      "erd-html-diagrams",
       "git-branch-management",
       "github-actions-cicd",
       "github-cli",
@@ -185,13 +194,39 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "gridwork-release-publisher",
       "handoff",
       "html-architecture-diagrams",
+      "relational-data-modeling",
       "sdd-requirements",
-      "tdd"
+      "tdd",
+      "ubiquitous-language",
+      "uml-html-diagrams"
     ]
   );
 
   assert.equal(manifest.stackPacks[0].id, "nextjs-springboot-postgresql");
   assert.equal(manifest.stackPacks[0].generatesProductCode, false);
+
+  const stackPack = await readJson(manifest.stackPacks[0].manifest);
+  assert.deepEqual(
+    stackPack.skills.map((skill) => skill.split("/")[1]).sort(),
+    [
+      "docker-compose-local-guidance",
+      "docker-compose-optimization",
+      "dockerfile-authoring",
+      "nextjs-frontend-guidance",
+      "nextjs-performance",
+      "nextjs-ui-design",
+      "postgresql-performance",
+      "postgresql-persistence-guidance",
+      "springboot-backend-guidance",
+      "springboot-performance"
+    ]
+  );
+
+  for (const skillManifest of stackPack.skills) {
+    const stackSkill = await readJson(`stack-packs/${manifest.stackPacks[0].id}/${skillManifest}`);
+    assert.equal(stackSkill.generatesOnInit, false, `${stackSkill.id} must not generate code during init`);
+    assert.equal(stackSkill.permissionsInheritedOnly, true, `${stackSkill.id} must inherit permissions`);
+  }
 });
 
 test("full-v1 catalog registers every core agent, workflow and skill directory", async () => {
@@ -208,6 +243,13 @@ test("full-v1 catalog registers every core agent, workflow and skill directory",
   assert.deepEqual(
     await directoryNames("skills"),
     manifest.skills.map((entry) => entry.id).sort()
+  );
+
+  const stackPackRef = manifest.stackPacks[0];
+  const stackPack = await readJson(stackPackRef.manifest);
+  assert.deepEqual(
+    await directoryNames(`stack-packs/${stackPackRef.id}/skills`),
+    stackPack.skills.map((entry) => entry.split("/")[1]).sort()
   );
 });
 
@@ -234,6 +276,21 @@ test("full-v1 agent, workflow and skill references are internally consistent", a
       entry,
       value: await readJson(entry.manifest)
     });
+  }
+  for (const stackPackRef of manifest.stackPacks ?? []) {
+    const stackPack = await readJson(stackPackRef.manifest);
+    for (const stackSkillManifest of stackPack.skills ?? []) {
+      const manifestPath = `stack-packs/${stackPackRef.id}/${stackSkillManifest}`;
+      const value = await readJson(manifestPath);
+      skills.set(value.id, {
+        entry: {
+          id: value.id,
+          manifest: manifestPath,
+          contract: manifestPath.replace(/skill\.json$/, "SKILL.md")
+        },
+        value
+      });
+    }
   }
 
   for (const [agentId, { entry, value }] of agents) {
@@ -299,6 +356,30 @@ test("full-v1 agent, workflow and skill references are internally consistent", a
   }
 });
 
+test("all core and stack skills contain actionable instructions", async () => {
+  const manifest = await readFactoryManifest();
+  const contracts = manifest.skills.map((entry) => entry.contract);
+
+  for (const stackPackRef of manifest.stackPacks ?? []) {
+    const stackPack = await readJson(stackPackRef.manifest);
+    for (const skillManifest of stackPack.skills ?? []) {
+      contracts.push(`stack-packs/${stackPackRef.id}/${skillManifest.replace(/skill\.json$/, "SKILL.md")}`);
+    }
+  }
+
+  for (const contract of contracts) {
+    const content = await readFile(resolve(factoryRoot, contract), "utf8");
+    const meaningfulLines = content.split(/\r?\n/).filter((line) => line.trim()).length;
+
+    assert.ok(meaningfulLines >= 18, `${contract} should contain substantive instructions`);
+    assert.match(
+      content,
+      /## (Procedure|Workflow|Execution Shape|Process|Start By Detecting|Recommended Factory Command)/,
+      `${contract} should define an actionable execution section`
+    );
+  }
+});
+
 test("full-v1 factory does not include product code folders", async () => {
   for (const relativePath of ["frontend", "backend", "database", "docker", "docker-compose.yml"]) {
     assert.equal(await fileExists(relativePath), false, `${relativePath} should not exist`);
@@ -311,4 +392,13 @@ test("installed docs point to orchestrator prompt without run command", async ()
 
   assert.match(quickstart, /\.gridwork\/agents\/orchestrator\/PROMPT\.md/);
   assert.doesNotMatch(prompt, /gridwork run/);
+});
+
+test("architecture diagram template is self-contained", async () => {
+  const template = await readFile(resolve(factoryRoot, "templates/architecture-diagram.html"), "utf8");
+
+  assert.match(template, /<!doctype html>/i);
+  assert.doesNotMatch(template, /https?:\/\//i);
+  assert.doesNotMatch(template, /<script[^>]+src=/i);
+  assert.doesNotMatch(template, /<link[^>]+href=/i);
 });

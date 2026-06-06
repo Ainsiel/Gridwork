@@ -25,11 +25,12 @@
   "artifactPaths": [
     ".factory/runs/<run-id>/artifacts/stack-guidance/"
   ],
-  "toolPolicyRefs": [],
+  "toolPolicyRefs": [
+    "../../../../policies/stack-skill-policy.md"
+  ],
   "humanGates": [
     "path_confirmation"
   ],
   "permissionsInheritedOnly": true,
-  "guidanceOnly": true
+  "generatesOnInit": false
 }
-

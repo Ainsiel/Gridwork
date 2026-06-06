@@ -19,6 +19,7 @@
     "label_catalog"
   ],
   "producedOutputs": [
+    "capability_dependency_map",
     "issue_drafts",
     "publish_plan",
     "work_order_candidates"
@@ -35,4 +36,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

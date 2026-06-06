@@ -17,3 +17,5 @@ Key capability assignments:
 - `verifier-agent` uses `tdd` only to assess evidence and never fixes code.
 - `planner-agent` uses `github-label-manager` to audit predefined labels before issue publication.
 - `orchestrator` may prepare Git action plans after verification, but never merges.
+- `software-architect` starts with `architecture-grill-me`, then selects only architecture and diagram skills justified by confirmed drivers.
+- `software-architect`, `implementer-agent` and `verifier-agent` may use stack-pack skills after technology and paths are confirmed.

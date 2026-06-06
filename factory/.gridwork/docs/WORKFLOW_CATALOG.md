@@ -11,3 +11,5 @@
 There is no agent workflow named `cicd-release` in v1. CI/CD is handled as GitHub Actions YAML with the `github-actions-cicd` skill.
 
 `tdd-implementation` uses the reusable `tdd` skill. Git actions after implementation or verification use `git-branch-management` and remain behind separate approval gates.
+
+`architecture-ddd` starts with an adaptive grill-me. DDD strategic design is central; Clean Architecture, patterns, APIs, data models, stack guidance and C4/ERD/UML HTML diagrams are optional capabilities selected only when needed.

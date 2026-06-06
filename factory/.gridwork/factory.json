@@ -113,6 +113,66 @@
       "contract": "skills/html-architecture-diagrams/SKILL.md"
     },
     {
+      "id": "architecture-grill-me",
+      "manifest": "skills/architecture-grill-me/skill.json",
+      "contract": "skills/architecture-grill-me/SKILL.md"
+    },
+    {
+      "id": "ubiquitous-language",
+      "manifest": "skills/ubiquitous-language/skill.json",
+      "contract": "skills/ubiquitous-language/SKILL.md"
+    },
+    {
+      "id": "domain-driven-design",
+      "manifest": "skills/domain-driven-design/skill.json",
+      "contract": "skills/domain-driven-design/SKILL.md"
+    },
+    {
+      "id": "clean-architecture",
+      "manifest": "skills/clean-architecture/skill.json",
+      "contract": "skills/clean-architecture/SKILL.md"
+    },
+    {
+      "id": "architecture-pattern-selection",
+      "manifest": "skills/architecture-pattern-selection/skill.json",
+      "contract": "skills/architecture-pattern-selection/SKILL.md"
+    },
+    {
+      "id": "design-pattern-selection",
+      "manifest": "skills/design-pattern-selection/skill.json",
+      "contract": "skills/design-pattern-selection/SKILL.md"
+    },
+    {
+      "id": "api-contract-design",
+      "manifest": "skills/api-contract-design/skill.json",
+      "contract": "skills/api-contract-design/SKILL.md"
+    },
+    {
+      "id": "relational-data-modeling",
+      "manifest": "skills/relational-data-modeling/skill.json",
+      "contract": "skills/relational-data-modeling/SKILL.md"
+    },
+    {
+      "id": "architecture-decision-records",
+      "manifest": "skills/architecture-decision-records/skill.json",
+      "contract": "skills/architecture-decision-records/SKILL.md"
+    },
+    {
+      "id": "c4-html-diagrams",
+      "manifest": "skills/c4-html-diagrams/skill.json",
+      "contract": "skills/c4-html-diagrams/SKILL.md"
+    },
+    {
+      "id": "erd-html-diagrams",
+      "manifest": "skills/erd-html-diagrams/skill.json",
+      "contract": "skills/erd-html-diagrams/SKILL.md"
+    },
+    {
+      "id": "uml-html-diagrams",
+      "manifest": "skills/uml-html-diagrams/skill.json",
+      "contract": "skills/uml-html-diagrams/SKILL.md"
+    },
+    {
       "id": "diagnose-bug",
       "manifest": "skills/diagnose-bug/skill.json",
       "contract": "skills/diagnose-bug/SKILL.md"
@@ -152,7 +212,10 @@
     "policies/tdd-evidence-policy.md",
     "policies/git-policy.md",
     "policies/work-order-policy.md",
-    "policies/tool-allowlist.md"
+    "policies/tool-allowlist.md",
+    "policies/architecture-design-policy.md",
+    "policies/diagram-html-policy.md",
+    "policies/stack-skill-policy.md"
   ],
   "schemas": [
     "schemas/factory.schema.json",
@@ -183,7 +246,16 @@
     "templates/tdd-plan.md",
     "templates/implementation-summary.md",
     "templates/git-action-plan.md",
-    "templates/github-label-plan.md"
+    "templates/github-label-plan.md",
+    "templates/architecture-questionnaire.md",
+    "templates/architecture-overview.md",
+    "templates/bounded-context-canvas.md",
+    "templates/adr.md",
+    "templates/pattern-decision.md",
+    "templates/api-design.md",
+    "templates/data-model-design.md",
+    "templates/diagram-notes.md",
+    "templates/architecture-diagram.html"
   ],
   "stackPacks": [
     {

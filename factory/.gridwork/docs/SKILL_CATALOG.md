@@ -9,9 +9,34 @@
 | github-cli | tooling | Governed `gh` usage. |
 | github-issue-publisher | github | Publishes approved issue drafts with approval. |
 | github-issue-discovery | github | Read-only discovery and normalization. |
-| html-architecture-diagrams | architecture | Self-contained HTML diagrams. |
+| architecture-grill-me | architecture | Adaptive interview and optional skill selection. |
+| ubiquitous-language | architecture | Canonical domain terminology and ambiguity control. |
+| domain-driven-design | architecture | Strategic and tactical DDD boundaries. |
+| clean-architecture | architecture | Dependency direction, ports and adapters. |
+| architecture-pattern-selection | architecture | Evidence-based system pattern selection. |
+| design-pattern-selection | architecture | Problem-driven local pattern selection. |
+| api-contract-design | architecture | Consumer-oriented API and event contracts. |
+| relational-data-modeling | architecture | Conceptual, logical and physical relational design. |
+| architecture-decision-records | architecture | Consequential decisions and review triggers. |
+| html-architecture-diagrams | architecture | Self-contained HTML rendering foundation. |
+| c4-html-diagrams | architecture-diagram | Optional context, container, component and dynamic views. |
+| erd-html-diagrams | architecture-diagram | Optional MER/ERD conceptual, logical or physical views. |
+| uml-html-diagrams | architecture-diagram | Optional sequence, state, activity, class or deployment views. |
 | diagnose-bug | diagnosis | Diagnosis only unless used inside an implementation workflow. |
 | tdd | implementation | Behavior-first red-green-refactor with vertical tracer bullets. |
 | git-branch-management | git | Prepares governed Git plans; every write remains gated. |
 | github-label-manager | github | Audits predefined labels and prepares approved create plans. |
 | gridwork-release-publisher | release | Dry-run release plans by default. |
+
+## Stack Pack Skills
+
+The `nextjs-springboot-postgresql` stack pack provides:
+
+| Technology | Skills |
+|---|---|
+| Next.js | `nextjs-frontend-guidance`, `nextjs-ui-design`, `nextjs-performance` |
+| Spring Boot | `springboot-backend-guidance`, `springboot-performance` |
+| PostgreSQL | `postgresql-persistence-guidance`, `postgresql-performance` |
+| Docker | `dockerfile-authoring`, `docker-compose-local-guidance`, `docker-compose-optimization` |
+
+Stack skills never generate product code during `init`. They may guide or modify confirmed scoped files only inside the active agent and workflow permissions.

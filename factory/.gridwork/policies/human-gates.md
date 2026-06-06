@@ -7,7 +7,10 @@
 - Branch push, PR creation, merge or release creation.
 - Local branch creation, staging and commit when proposed by an agent.
 - Creating or editing GitHub labels.
+- Consequential architecture decisions and promotion of architecture drafts to approved docs.
 - Dependency changes.
+- Infrastructure file creation or modification outside an approved work order.
+- Performance or load testing against shared environments.
 - Secret access.
 - Destructive file operations.
 - Deploy.

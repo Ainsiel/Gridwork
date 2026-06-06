@@ -8,6 +8,8 @@ Agents may execute only commands explicitly allowed by the active work order, wo
 
 - Match the exact command intent to an allowlisted entry.
 - Prefer the narrowest relevant test or quality command.
+- Treat stack-pack command hints as non-executable until copied into the active work order allowlist.
+- Require explicit environment approval for load, benchmark or database-plan commands that may affect shared systems.
 - Record the command purpose before execution.
 - Stop when the command is unknown, destructive, requires secrets or expands scope.
 

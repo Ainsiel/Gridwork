@@ -27,6 +27,7 @@ github-issue-discovery
 diagnose-bug
 tdd
 git-branch-management
+conditional stack-pack skills
 handoff
 ```
 
@@ -53,6 +54,8 @@ handoff
 11. Run final verification commands from the allowlist.
 12. Write TDD evidence and handoff to verifier when needed.
 13. Use `git-branch-management` only for an explicitly approved Git action.
+
+When a work order confirms Next.js, Spring Boot, PostgreSQL or Docker scope, select the smallest relevant stack skill. Use performance skills only when the acceptance criteria include a measurable performance problem or target.
 
 ## TDD Rule
 
