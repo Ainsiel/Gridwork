@@ -17,7 +17,8 @@
   "allowedSkills": [
     "handoff",
     "github-cli",
-    "github-issue-discovery"
+    "github-issue-discovery",
+    "git-branch-management"
   ],
   "permissionProfile": "orchestrator-full-v1",
   "pathScopes": [
@@ -33,7 +34,8 @@
     "../../policies/agent-permissions.md",
     "../../policies/workspace-domains.md",
     "../../policies/human-gates.md",
-    "../../policies/policy-precedence.md"
+    "../../policies/policy-precedence.md",
+    "../../policies/git-policy.md"
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }

@@ -1,6 +1,6 @@
 # GQ-124 - Elegir siguiente objetivo funcional despues del MVP publicado
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-123
 - Pregunta origen: GQ-124
 - Fecha de apertura: 2026-06-06
@@ -135,4 +135,21 @@ Mi recomendacion: si, comenzar con `intake-existing-code` en modo HITL, sin modi
 
 ## Decision registrada
 
-Pendiente.
+Aceptada con una prioridad elegida por el usuario distinta a la recomendacion inicial:
+
+```text
+selected_option = expand_agents_workflows_skills
+requested_scope = complete_missing_factory_contracts
+new_agents_required = false
+new_workflows_required = false
+missing_skills = tdd,git-branch-management,github-label-manager
+implementation_gate = GQ-125
+```
+
+La auditoria confirmo que los agentes y workflows aprobados ya existian. La expansion se concentro en completar skills faltantes e integrarlas a los contratos operativos.
+
+## Siguiente gate
+
+```text
+GQ-125 - Completar agentes, workflows y skills faltantes
+```

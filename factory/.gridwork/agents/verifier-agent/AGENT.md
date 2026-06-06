@@ -12,6 +12,7 @@ purpose = review implementation or PR evidence before merge decisions
 ## Responsibilities
 
 - Review work order compliance, code scope, tests and evidence.
+- Use the `tdd` skill in assessment mode to verify red-green-refactor integrity.
 - Execute allowlisted read/test commands when allowed.
 - Produce local verifier reports.
 - Optionally prepare a safe GitHub PR comment under approval.
@@ -37,6 +38,8 @@ verification-pr
 github-cli
 github-issue-discovery
 diagnose-bug
+tdd
+git-branch-management
 handoff
 ```
 
@@ -51,3 +54,10 @@ handoff
 
 Stop before `gh pr comment`, branch operations, merge, deploy, dependency changes or modifying product code.
 
+## Verification Contract
+
+- Review findings before summaries.
+- Distinguish correctness, scope, evidence and policy findings.
+- Mark missing or invalid RED/GREEN as `needs_more_evidence`.
+- Never repair code during verification.
+- After a pass decision, `git-branch-management` may prepare a plan, but every Git write remains gated.

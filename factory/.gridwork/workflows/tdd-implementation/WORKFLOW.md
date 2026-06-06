@@ -25,6 +25,8 @@ mode = afk
 ```text
 github-issue-discovery
 diagnose-bug
+tdd
+git-branch-management
 handoff
 ```
 
@@ -39,14 +41,18 @@ handoff
 ## Phases
 
 1. Read the work order and confirm scope.
-2. Define the red phase before editing product code.
-3. Add or update behavior tests through public interfaces when feasible.
-4. Run the narrow allowlisted test and record the failing result.
-5. Implement the smallest green change.
-6. Run allowlisted tests and record the passing result.
-7. Refactor without changing behavior.
-8. Run final verification commands from the allowlist.
-9. Write TDD evidence and handoff to verifier when needed.
+2. Validate the work-order contract and command allowlist.
+3. Use `tdd` to create a prioritized behavior plan.
+4. Define the first red phase before editing product code.
+5. Add or update one behavior test through a public interface.
+6. Run the narrow allowlisted test and record the expected failing result.
+7. Implement the smallest green change.
+8. Run the same relevant test and record the passing result.
+9. Repeat one vertical behavior cycle at a time.
+10. Refactor only while green and without changing behavior.
+11. Run final verification commands from the allowlist.
+12. Write TDD evidence and handoff to verifier when needed.
+13. Use `git-branch-management` only for an explicitly approved Git action.
 
 ## TDD Rule
 
@@ -61,10 +67,15 @@ For fullstack vertical slices, prefer a tracer bullet that crosses the visible u
 
 Stop before dependency changes, scope changes, unknown commands, destructive operations, branch push, PR creation, deploy or secret access.
 
+Branch creation, staging, commit, push and PR creation are separate gates. Merge is manual in v1.
+
 ## Artifacts
 
 ```text
 .factory/runs/<run-id>/artifacts/tdd/tdd-evidence.md
+.factory/runs/<run-id>/artifacts/tdd/tdd-plan.md
+.factory/runs/<run-id>/artifacts/implementation-summary.md
+.factory/runs/<run-id>/artifacts/git/git-action-plan.md
 .factory/runs/<run-id>/artifacts/tdd/command-summary.md
 .factory/runs/<run-id>/handoffs/implementer-to-verifier.md
 ```
@@ -72,4 +83,3 @@ Stop before dependency changes, scope changes, unknown commands, destructive ope
 ## Completion Criteria
 
 The workflow can close when implementation, evidence and final checks are ready for `verification-pr`.
-

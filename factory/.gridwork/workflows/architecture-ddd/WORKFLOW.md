@@ -24,6 +24,7 @@ supporting_agents = orchestrator,planner-agent
 ```text
 html-architecture-diagrams
 backlog-planning
+github-label-manager
 github-actions-cicd
 handoff
 ```
@@ -36,6 +37,7 @@ handoff
 4. Produce ADRs for important decisions.
 5. Produce HTML diagrams when visual representation helps.
 6. Use `backlog-planning` to prepare vertical-slice issue drafts after approval.
+7. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
 
 ## Human Gates
 
@@ -57,4 +59,3 @@ HTML diagrams must be self-contained local files without CDN or build step.
 ## Completion Criteria
 
 The workflow can close when architecture outputs are approved or when backlog drafts are ready for review.
-

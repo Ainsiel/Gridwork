@@ -9,6 +9,7 @@ Create local backlog drafts from approved requirements and architecture.
 - Prefer vertical slices that can be tested end to end.
 - Include acceptance criteria and expected tests.
 - Use only labels from `policies/github-labels.json`.
+- Use `github-label-manager` to audit missing predefined labels before a publish plan.
 - Write drafts locally before any GitHub write.
 - Delegate AFK implementation only after user approval.
 
@@ -24,5 +25,5 @@ Create local backlog drafts from approved requirements and architecture.
 
 - Do not publish GitHub issues directly.
 - Do not invent labels.
+- Do not mark a draft publishable while it references an unknown label.
 - Do not split work horizontally by layer when it harms verification.
-

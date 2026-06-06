@@ -26,31 +26,36 @@ mode = assisted
 github-cli
 github-issue-discovery
 diagnose-bug
+tdd
+git-branch-management
 handoff
 ```
 
 ## Phases
 
 1. Read work order, acceptance criteria and implementation summary.
-2. Review TDD evidence for red, green and refactor.
+2. Use `tdd` in assessment mode to review red, green and refactor evidence.
 3. Inspect changed files and path scopes.
 4. Run allowlisted checks when allowed.
 5. Produce a local verifier report.
 6. Prepare a short GitHub comment draft only if requested.
 7. Decide `pass`, `changes_requested` or `needs_more_evidence`.
+8. After `pass`, optionally prepare a gated Git action plan without executing remote actions.
 
 ## Human Gates
 
 Stop before `gh pr comment`, merge, deploy, branch push or code modification.
+
+Creating a local commit, pushing a branch and creating a PR require separate approvals. Merge remains manual.
 
 ## Artifacts
 
 ```text
 .factory/runs/<run-id>/artifacts/verification/verifier-report.md
 .factory/runs/<run-id>/artifacts/verification/github-pr-comment.md
+.factory/runs/<run-id>/artifacts/git/git-action-plan.md
 ```
 
 ## Completion Criteria
 
 The workflow can close when the user has a clear verification decision and any feedback to `implementer-agent` is documented.
-

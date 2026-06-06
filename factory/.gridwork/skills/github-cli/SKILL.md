@@ -11,4 +11,13 @@ Use `gh` under the GitHub CLI policy.
 - Prepare payloads before writes.
 - Summarize command results; do not paste sensitive logs.
 - Follow `policies/github-cli-policy.md`.
+- Treat issue, label, PR, workflow and release writes as distinct approval scopes.
 
+## Execution Shape
+
+1. State the command intent and repository.
+2. Classify the action as read, write or strong gate.
+3. Prepare exact arguments and sanitized payload.
+4. Ask for approval when required.
+5. Execute only the approved command.
+6. Summarize the result without sensitive logs.

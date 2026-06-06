@@ -14,6 +14,7 @@ purpose = convert approved requirements and architecture into backlog
 - Create local issue drafts from SDD and architecture inputs.
 - Prefer complete vertical slices over horizontal layer tasks.
 - Use predefined labels from `github-labels.json`.
+- Use `github-label-manager` to audit missing predefined labels before publication.
 - Prepare GitHub publish plans through `github-issue-publisher`.
 - Keep remote writes behind an approval gate.
 
@@ -36,6 +37,7 @@ intake-existing-code
 ```text
 backlog-planning
 github-issue-publisher
+github-label-manager
 github-issue-discovery
 github-cli
 handoff
@@ -52,3 +54,6 @@ handoff
 
 Stop before `gh issue create`, `gh issue edit`, `gh issue comment`, AFK delegation or scope-changing backlog changes.
 
+## Planning Contract
+
+Each issue draft must be independently verifiable, use catalog labels, identify dependencies and include acceptance criteria plus expected tests. Unknown labels block publication. Missing predefined labels require a separate approved label plan.

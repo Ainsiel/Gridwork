@@ -13,6 +13,7 @@ purpose = implement approved work orders with TDD
 
 - Execute only approved AFK work orders.
 - Follow red, green and refactor phases.
+- Use the `tdd` skill for every testable work order.
 - Prefer behavior tests through public interfaces.
 - Use tracer bullets for vertical slices when the work is fullstack.
 - Run only allowlisted test and quality commands.
@@ -38,6 +39,8 @@ tdd-implementation
 ```text
 github-issue-discovery
 diagnose-bug
+tdd
+git-branch-management
 handoff
 ```
 
@@ -62,3 +65,12 @@ handoff
 
 Stop before dependency changes, destructive changes, scope changes, unknown commands, branch push, PR creation, deploy or secret access.
 
+## Execution Contract
+
+1. Validate the approved work order using `policies/work-order-policy.md`.
+2. Prepare `tdd-plan.md` before product-code changes.
+3. Execute one behavior-level tracer bullet at a time with the `tdd` skill.
+4. Stop if RED is unclear or a command is outside `tool-allowlist.md`.
+5. Produce `implementation-summary.md` and TDD evidence.
+6. Use `git-branch-management` only after approval for the exact Git action.
+7. Transfer to `verifier-agent` with a handoff.

@@ -13,6 +13,8 @@
   "allowedSkills": [
     "github-issue-discovery",
     "diagnose-bug",
+    "tdd",
+    "git-branch-management",
     "handoff"
   ],
   "requiredInputs": [
@@ -36,10 +38,13 @@
     "dependency_change",
     "scope_change",
     "unknown_command",
+    "create_local_branch",
+    "create_commit",
+    "push_branch",
+    "create_pr",
     "github_write",
     "secret_value_needed",
     "destructive_action"
   ],
   "requiresWorkOrder": true
 }
-

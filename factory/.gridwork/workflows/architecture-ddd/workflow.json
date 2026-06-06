@@ -14,6 +14,7 @@
   "allowedSkills": [
     "html-architecture-diagrams",
     "backlog-planning",
+    "github-label-manager",
     "github-actions-cicd",
     "handoff"
   ],
@@ -43,4 +44,3 @@
   ],
   "requiresWorkOrder": false
 }
-

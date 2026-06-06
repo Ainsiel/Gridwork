@@ -901,5 +901,33 @@ No se publicara una version solo para probar infraestructura. El siguiente objet
 - GQ-122 ejecuto el dry-run remoto con exito; el paso Publish fue omitido y npm latest sigue en `0.1.0`.
 - GQ-123 queda como siguiente gate para decidir cuando publicar la primera release CLI automatizada.
 - GQ-123 decidio esperar un cambio funcional real antes de publicar `0.1.1`.
-- GQ-124 queda como siguiente gate para elegir el objetivo funcional posterior al MVP.
+- GQ-124 eligio completar contratos faltantes antes del dogfooding.
+- GQ-125 audito el roster completo y agrego las skills `tdd`, `git-branch-management` y `github-label-manager`.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
+
+## Resultado GQ-125 contratos faltantes
+
+```text
+agents_promised = 6
+agents_actual = 6
+agents_missing = none
+workflows_promised = 5
+workflows_actual = 5
+workflows_missing = none
+skills_promised = 12
+skills_actual_core = 13
+skills_missing = none
+added_skills = tdd,git-branch-management,github-label-manager
+stack_skills = 4
+contract_graph_validation = pass
+npm_test = pass
+npm_test_count = 27
+npm_pack_cli_dry_run = pass
+factory_ascii_check = pass
+factory_release_dry_run = pass
+factory_release_bundle_file_count = 127
+remote_publish = not_executed
+next_gate = GQ-126
+```
+
+La fabrica conserva el roster aprobado y completa sus contratos operativos. El siguiente gate recomendado es dogfooding end-to-end antes de preparar una nueva release de fabrica.

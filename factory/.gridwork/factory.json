@@ -118,6 +118,21 @@
       "contract": "skills/diagnose-bug/SKILL.md"
     },
     {
+      "id": "tdd",
+      "manifest": "skills/tdd/skill.json",
+      "contract": "skills/tdd/SKILL.md"
+    },
+    {
+      "id": "git-branch-management",
+      "manifest": "skills/git-branch-management/skill.json",
+      "contract": "skills/git-branch-management/SKILL.md"
+    },
+    {
+      "id": "github-label-manager",
+      "manifest": "skills/github-label-manager/skill.json",
+      "contract": "skills/github-label-manager/SKILL.md"
+    },
+    {
       "id": "gridwork-release-publisher",
       "manifest": "skills/gridwork-release-publisher/skill.json",
       "contract": "skills/gridwork-release-publisher/SKILL.md"
@@ -134,7 +149,10 @@
     "policies/policy-precedence.md",
     "policies/security-secrets-redaction.md",
     "policies/github-labels.json",
-    "policies/tdd-evidence-policy.md"
+    "policies/tdd-evidence-policy.md",
+    "policies/git-policy.md",
+    "policies/work-order-policy.md",
+    "policies/tool-allowlist.md"
   ],
   "schemas": [
     "schemas/factory.schema.json",
@@ -161,7 +179,11 @@
     "templates/github-pr-comment.md",
     "templates/handoff.md",
     "templates/github-issue-draft.md",
-    "templates/github-issue-publish-plan.md"
+    "templates/github-issue-publish-plan.md",
+    "templates/tdd-plan.md",
+    "templates/implementation-summary.md",
+    "templates/git-action-plan.md",
+    "templates/github-label-plan.md"
   ],
   "stackPacks": [
     {

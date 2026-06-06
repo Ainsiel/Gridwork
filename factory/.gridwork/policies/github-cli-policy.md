@@ -14,6 +14,7 @@ gh pr list
 gh repo view
 gh run list
 gh run view
+gh label list
 ```
 
 Record the command summary in runtime tool-call logs when a run exists.
@@ -29,6 +30,8 @@ gh issue comment
 gh pr create
 gh pr comment
 gh pr edit
+gh label create
+gh label edit
 ```
 
 Prepare the payload first. Do not execute the write until the user approves.
@@ -43,6 +46,7 @@ gh release create
 gh workflow run
 gh secret set
 gh repo delete
+gh label delete
 ```
 
 ## Secrets

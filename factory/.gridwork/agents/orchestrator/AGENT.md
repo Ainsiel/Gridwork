@@ -43,6 +43,7 @@ verification-pr
 handoff
 github-cli
 github-issue-discovery
+git-branch-management
 ```
 
 Using a skill never raises permissions.
@@ -97,6 +98,10 @@ Stop and ask before:
 ## Handoff
 
 Use the `handoff` skill only when another agent or another session must continue the work.
+
+## Git Coordination
+
+After verification passes, the orchestrator may use `git-branch-management` to prepare a Git action plan. It must keep branch creation, commit, push and PR creation as separate approval gates. It never merges in v1.
 
 ## Routing Matrix
 

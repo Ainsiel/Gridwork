@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
@@ -54,6 +54,11 @@ async function readFactoryManifest() {
 async function readJson(relativePath) {
   const json = await readFile(resolve(factoryRoot, relativePath), "utf8");
   return JSON.parse(json);
+}
+
+async function directoryNames(relativePath) {
+  const entries = await readdir(resolve(factoryRoot, relativePath), { withFileTypes: true });
+  return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
 }
 
 async function collectManifestPaths() {
@@ -166,8 +171,132 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     ]
   );
 
+  assert.deepEqual(
+    manifest.skills.map((skill) => skill.id).sort(),
+    [
+      "backlog-planning",
+      "diagnose-bug",
+      "git-branch-management",
+      "github-actions-cicd",
+      "github-cli",
+      "github-issue-discovery",
+      "github-issue-publisher",
+      "github-label-manager",
+      "gridwork-release-publisher",
+      "handoff",
+      "html-architecture-diagrams",
+      "sdd-requirements",
+      "tdd"
+    ]
+  );
+
   assert.equal(manifest.stackPacks[0].id, "nextjs-springboot-postgresql");
   assert.equal(manifest.stackPacks[0].generatesProductCode, false);
+});
+
+test("full-v1 catalog registers every core agent, workflow and skill directory", async () => {
+  const manifest = await readFactoryManifest();
+
+  assert.deepEqual(
+    await directoryNames("agents"),
+    manifest.agents.map((entry) => entry.id).sort()
+  );
+  assert.deepEqual(
+    await directoryNames("workflows"),
+    manifest.workflows.map((entry) => entry.id).sort()
+  );
+  assert.deepEqual(
+    await directoryNames("skills"),
+    manifest.skills.map((entry) => entry.id).sort()
+  );
+});
+
+test("full-v1 agent, workflow and skill references are internally consistent", async () => {
+  const manifest = await readFactoryManifest();
+  const agents = new Map();
+  const workflows = new Map();
+  const skills = new Map();
+
+  for (const entry of manifest.agents) {
+    agents.set(entry.id, {
+      entry,
+      value: await readJson(entry.manifest)
+    });
+  }
+  for (const entry of manifest.workflows) {
+    workflows.set(entry.id, {
+      entry,
+      value: await readJson(entry.manifest)
+    });
+  }
+  for (const entry of manifest.skills) {
+    skills.set(entry.id, {
+      entry,
+      value: await readJson(entry.manifest)
+    });
+  }
+
+  for (const [agentId, { entry, value }] of agents) {
+    for (const workflowId of value.allowedWorkflows) {
+      assert.equal(workflows.has(workflowId), true, `${agentId} references missing workflow ${workflowId}`);
+    }
+    for (const skillId of value.allowedSkills) {
+      assert.equal(skills.has(skillId), true, `${agentId} references missing skill ${skillId}`);
+      assert.equal(
+        skills.get(skillId).value.allowedAgents.includes(agentId),
+        true,
+        `${skillId} does not allow agent ${agentId}`
+      );
+    }
+    for (const policyRef of value.policyRefs) {
+      assert.equal(
+        await fileExists(resolve(factoryRoot, dirname(entry.manifest), policyRef)),
+        true,
+        `${agentId} references missing policy ${policyRef}`
+      );
+    }
+  }
+
+  for (const [workflowId, { value }] of workflows) {
+    assert.equal(agents.has(value.primaryAgent), true, `${workflowId} references missing primary agent`);
+    assert.equal(
+      agents.get(value.primaryAgent).value.allowedWorkflows.includes(workflowId),
+      true,
+      `${value.primaryAgent} does not allow primary workflow ${workflowId}`
+    );
+    for (const agentId of value.participatingAgents) {
+      assert.equal(agents.has(agentId), true, `${workflowId} references missing agent ${agentId}`);
+    }
+    for (const skillId of value.allowedSkills) {
+      assert.equal(skills.has(skillId), true, `${workflowId} references missing skill ${skillId}`);
+      assert.equal(
+        skills.get(skillId).value.allowedWorkflows.includes(workflowId),
+        true,
+        `${skillId} does not allow workflow ${workflowId}`
+      );
+      assert.equal(
+        skills.get(skillId).value.allowedAgents.some((agentId) => value.participatingAgents.includes(agentId)),
+        true,
+        `${workflowId} has no participating agent allowed to use ${skillId}`
+      );
+    }
+  }
+
+  for (const [skillId, { entry, value }] of skills) {
+    for (const agentId of value.allowedAgents) {
+      assert.equal(agents.has(agentId), true, `${skillId} references missing agent ${agentId}`);
+    }
+    for (const workflowId of value.allowedWorkflows) {
+      assert.equal(workflows.has(workflowId), true, `${skillId} references missing workflow ${workflowId}`);
+    }
+    for (const policyRef of value.toolPolicyRefs ?? []) {
+      assert.equal(
+        await fileExists(resolve(factoryRoot, dirname(entry.manifest), policyRef)),
+        true,
+        `${skillId} references missing tool policy ${policyRef}`
+      );
+    }
+  }
 });
 
 test("full-v1 factory does not include product code folders", async () => {
@@ -183,4 +312,3 @@ test("installed docs point to orchestrator prompt without run command", async ()
   assert.match(quickstart, /\.gridwork\/agents\/orchestrator\/PROMPT\.md/);
   assert.doesNotMatch(prompt, /gridwork run/);
 });
-

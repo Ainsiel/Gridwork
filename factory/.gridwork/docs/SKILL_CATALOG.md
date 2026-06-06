@@ -11,5 +11,7 @@
 | github-issue-discovery | github | Read-only discovery and normalization. |
 | html-architecture-diagrams | architecture | Self-contained HTML diagrams. |
 | diagnose-bug | diagnosis | Diagnosis only unless used inside an implementation workflow. |
+| tdd | implementation | Behavior-first red-green-refactor with vertical tracer bullets. |
+| git-branch-management | git | Prepares governed Git plans; every write remains gated. |
+| github-label-manager | github | Audits predefined labels and prepares approved create plans. |
 | gridwork-release-publisher | release | Dry-run release plans by default. |
-

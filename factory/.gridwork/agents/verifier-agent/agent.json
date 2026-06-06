@@ -13,6 +13,8 @@
     "github-cli",
     "github-issue-discovery",
     "diagnose-bug",
+    "tdd",
+    "git-branch-management",
     "handoff"
   ],
   "permissionProfile": "verifier-assisted-readonly",
@@ -29,8 +31,9 @@
     "../../policies/path-scopes.md",
     "../../policies/agent-permissions.md",
     "../../policies/human-gates.md",
-    "../../policies/tdd-evidence-policy.md"
+    "../../policies/tdd-evidence-policy.md",
+    "../../policies/git-policy.md",
+    "../../policies/tool-allowlist.md"
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }
-

@@ -12,6 +12,8 @@
   "allowedSkills": [
     "github-issue-discovery",
     "diagnose-bug",
+    "tdd",
+    "git-branch-management",
     "handoff"
   ],
   "permissionProfile": "implementer-afk-tdd",
@@ -29,8 +31,10 @@
     "../../policies/workspace-domains.md",
     "../../policies/human-gates.md",
     "../../policies/policy-precedence.md",
-    "../../policies/tdd-evidence-policy.md"
+    "../../policies/tdd-evidence-policy.md",
+    "../../policies/git-policy.md",
+    "../../policies/work-order-policy.md",
+    "../../policies/tool-allowlist.md"
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }
-

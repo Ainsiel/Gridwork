@@ -125,7 +125,9 @@
 | GQ-121 | Validamos pipeline CLI antes de publicar 0.1.1? | `GQ-121_validate_cli_pipeline_before_v011.md` | accepted | `publish-cli.yml` ajustado para `workflow_dispatch` dry-run; validaciones locales pass; dry-run remoto pasa a GQ-122 |
 | GQ-122 | Ejecutamos dry-run remoto de publish-cli.yml? | `GQ-122_run_remote_publish_cli_dry_run.md` | accepted | run `27066803619` success; validaciones pass; Publish skipped; npm latest sigue `0.1.0` |
 | GQ-123 | Cuando publicamos la primera release CLI automatizada? | `GQ-123_first_automated_cli_release_timing.md` | accepted | esperar al siguiente cambio funcional real; no publicar ni taggear `0.1.1` ahora |
-| GQ-124 | Cual es el siguiente objetivo funcional despues del MVP? | `GQ-124_next_functional_objective_after_mvp.md` | pending | recomendar dogfooding end-to-end de `0.1.0` en repositorio sandbox separado |
+| GQ-124 | Cual es el siguiente objetivo funcional despues del MVP? | `GQ-124_next_functional_objective_after_mvp.md` | accepted | completar contratos faltantes antes del dogfooding |
+| GQ-125 | Que agentes, workflows y skills faltan por implementar? | `GQ-125_complete_missing_factory_contracts.md` | accepted | roster completo; se agregan `tdd`, `git-branch-management` y `github-label-manager` |
+| GQ-126 | Como validar la fabrica expandida antes de otra release? | `GQ-126_validate_expanded_factory_dogfooding.md` | pending | dogfooding end-to-end en repositorio sandbox separado |
 
 ## Convencion de IDs
 
@@ -136,7 +138,7 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-124 - Cual es el siguiente objetivo funcional despues del MVP?
+GQ-126 - Validar la fabrica expandida mediante dogfooding end-to-end
 ```
 
 ## Guias operativas

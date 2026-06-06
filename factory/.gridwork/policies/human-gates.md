@@ -5,6 +5,8 @@
 - AFK delegation.
 - GitHub write commands.
 - Branch push, PR creation, merge or release creation.
+- Local branch creation, staging and commit when proposed by an agent.
+- Creating or editing GitHub labels.
 - Dependency changes.
 - Secret access.
 - Destructive file operations.
@@ -24,4 +26,3 @@ When a run exists, record gates in:
 ## Approval Shape
 
 Approval must name the action, scope and target. Broad approval does not authorize unrelated side effects.
-
