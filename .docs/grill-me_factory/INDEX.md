@@ -124,7 +124,8 @@
 | GQ-120 | Configuramos trusted publishing npm para releases CLI futuras? | `GQ-120_configure_npm_trusted_publishing.md` | accepted | `trusted_publishing_strategy = npm_trusted_publisher_github_actions`; configuracion confirmada por usuario |
 | GQ-121 | Validamos pipeline CLI antes de publicar 0.1.1? | `GQ-121_validate_cli_pipeline_before_v011.md` | accepted | `publish-cli.yml` ajustado para `workflow_dispatch` dry-run; validaciones locales pass; dry-run remoto pasa a GQ-122 |
 | GQ-122 | Ejecutamos dry-run remoto de publish-cli.yml? | `GQ-122_run_remote_publish_cli_dry_run.md` | accepted | run `27066803619` success; validaciones pass; Publish skipped; npm latest sigue `0.1.0` |
-| GQ-123 | Cuando publicamos la primera release CLI automatizada? | `GQ-123_first_automated_cli_release_timing.md` | pending | recomendar esperar al siguiente cambio funcional real antes de publicar `0.1.1` |
+| GQ-123 | Cuando publicamos la primera release CLI automatizada? | `GQ-123_first_automated_cli_release_timing.md` | accepted | esperar al siguiente cambio funcional real; no publicar ni taggear `0.1.1` ahora |
+| GQ-124 | Cual es el siguiente objetivo funcional despues del MVP? | `GQ-124_next_functional_objective_after_mvp.md` | pending | recomendar dogfooding end-to-end de `0.1.0` en repositorio sandbox separado |
 
 ## Convencion de IDs
 
@@ -135,7 +136,7 @@
 ## Proxima pregunta activa
 
 ```text
-GQ-123 - Cuando publicamos la primera release CLI automatizada?
+GQ-124 - Cual es el siguiente objetivo funcional despues del MVP?
 ```
 
 ## Guias operativas

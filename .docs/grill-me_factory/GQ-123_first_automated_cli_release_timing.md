@@ -1,6 +1,6 @@
 # GQ-123 - Decidir cuando publicar la primera release CLI automatizada
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-122
 - Pregunta origen: GQ-123
 - Fecha de apertura: 2026-06-06
@@ -107,4 +107,21 @@ Mi recomendacion: si, mantener `0.1.0` como latest y continuar con el siguiente 
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+selected_option = wait_for_next_meaningful_cli_change
+first_automated_cli_release = next_meaningful_cli_change
+publish_gridwork_0_1_1_now = false
+create_cli_v0_1_1_tag_now = false
+npm_latest_remains = 0.1.0
+trusted_publishing_e2e_publish_test = deferred_until_meaningful_release
+```
+
+No se publicara `gridwork@0.1.1` solo para probar infraestructura. La siguiente release CLI automatizada debe incluir una correccion o mejora funcional verificable.
+
+## Siguiente gate
+
+```text
+GQ-124 - Elegir siguiente objetivo funcional despues del MVP publicado
+```

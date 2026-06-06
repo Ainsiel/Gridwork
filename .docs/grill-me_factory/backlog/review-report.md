@@ -857,6 +857,19 @@ next_gate = GQ-123
 
 El dry-run remoto confirma que GitHub Actions valida correctamente la CLI sin publicar. La autorizacion OIDC de npm se probara durante la primera release automatizada real.
 
+## Decision GQ-123 primera release automatizada
+
+```text
+first_automated_cli_release = next_meaningful_cli_change
+publish_gridwork_0_1_1_now = false
+create_cli_v0_1_1_tag_now = false
+npm_latest_remains = 0.1.0
+trusted_publishing_e2e_publish_test = deferred_until_meaningful_release
+next_gate = GQ-124
+```
+
+No se publicara una version solo para probar infraestructura. El siguiente objetivo recomendado es dogfooding end-to-end de la version publica `0.1.0` para descubrir el primer conjunto de mejoras funcionales justificadas.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -887,4 +900,6 @@ El dry-run remoto confirma que GitHub Actions valida correctamente la CLI sin pu
 - GQ-121 ajusto `publish-cli.yml` para dry-run manual y paso validaciones locales; GQ-122 queda pendiente para ejecutar el dry-run remoto.
 - GQ-122 ejecuto el dry-run remoto con exito; el paso Publish fue omitido y npm latest sigue en `0.1.0`.
 - GQ-123 queda como siguiente gate para decidir cuando publicar la primera release CLI automatizada.
+- GQ-123 decidio esperar un cambio funcional real antes de publicar `0.1.1`.
+- GQ-124 queda como siguiente gate para elegir el objetivo funcional posterior al MVP.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.
