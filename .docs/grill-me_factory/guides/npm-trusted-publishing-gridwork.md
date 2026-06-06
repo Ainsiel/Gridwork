@@ -135,6 +135,17 @@ publish_step_condition = github.event_name == 'push'
 
 Ese modo debe usarse antes de preparar `0.1.1`.
 
+Primer dry-run remoto verificado:
+
+```text
+run_id = 27066803619
+run_url = https://github.com/Ainsiel/Gridwork/actions/runs/27066803619
+event = workflow_dispatch
+result = success
+publish_step = skipped
+npm_latest_after_run = 0.1.0
+```
+
 ## Como se probara en una version futura
 
 La prueba real no debe hacerse con `0.1.0`, porque esa version ya existe.

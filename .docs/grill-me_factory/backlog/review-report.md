@@ -31,7 +31,7 @@ npm_package_gridwork_v0_1_0_published = true
 npx_gridwork_v0_1_0_smoke_completed = true
 trusted_publisher_configured = true
 publish_cli_workflow_dispatch_repair_completed = true
-remote_publish_cli_dry_run_completed = false
+remote_publish_cli_dry_run_completed = true
 source_commit_preparation_completed = true
 review_model = batch_review_with_per_draft_checklist
 review_scope = phase_0_full_review_plus_phase_1_light_audit
@@ -829,6 +829,34 @@ next_gate = GQ-122
 
 El workflow queda listo localmente para correr en seco desde GitHub Actions. El siguiente gate requiere push remoto y ejecucion manual del workflow con `dry_run=true`; no debe crear tag ni publicar npm.
 
+## Resultado GQ-122 dry-run remoto publish-cli
+
+```text
+workflow_fix_pushed = true
+branch = factory/0.1.0
+workflow = publish-cli.yml
+workflow_event = workflow_dispatch
+workflow_input_dry_run = true
+run_id = 27066803619
+run_url = https://github.com/Ainsiel/Gridwork/actions/runs/27066803619
+head_sha = a2b3e2fcd943f6ea2c4902aa4bdb6c1461e014b5
+run_status = completed
+run_conclusion = success
+install = success
+validate_trusted_publishing_runtime = success
+validate_event_and_package_metadata = success
+validate_official_factory_source = success
+build = success
+test = success
+pack_dry_run = success
+publish = skipped
+npm_latest_after_run = 0.1.0
+cli_tag_created = false
+next_gate = GQ-123
+```
+
+El dry-run remoto confirma que GitHub Actions valida correctamente la CLI sin publicar. La autorizacion OIDC de npm se probara durante la primera release automatizada real.
+
 ## Notas
 
 - Este reporte fue creado por la decision GQ-092.
@@ -857,4 +885,6 @@ El workflow queda listo localmente para correr en seco desde GitHub Actions. El 
 - GQ-120 acepto trusted publishing con GitHub Actions; configuracion fue confirmada por el usuario.
 - GQ-121 queda como siguiente gate: validar el pipeline CLI en dry-run antes de publicar `0.1.1`.
 - GQ-121 ajusto `publish-cli.yml` para dry-run manual y paso validaciones locales; GQ-122 queda pendiente para ejecutar el dry-run remoto.
+- GQ-122 ejecuto el dry-run remoto con exito; el paso Publish fue omitido y npm latest sigue en `0.1.0`.
+- GQ-123 queda como siguiente gate para decidir cuando publicar la primera release CLI automatizada.
 - Decision GQ-093: este review debe completarse antes de implementar fase 0 localmente.

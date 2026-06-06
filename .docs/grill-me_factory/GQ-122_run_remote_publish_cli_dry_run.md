@@ -1,6 +1,6 @@
 # GQ-122 - Ejecutar dry-run remoto de publish-cli.yml
 
-- Estado: pending
+- Estado: accepted
 - Fuente: GQ-121
 - Pregunta origen: GQ-122
 - Fecha de apertura: 2026-06-05
@@ -114,4 +114,75 @@ Mi recomendacion: si, pero solo con aprobacion explicita para push remoto.
 
 ## Decision registrada
 
-Pendiente.
+Aceptada:
+
+```text
+selected_option = push_workflow_fix_then_run_remote_dry_run
+workflow_fix_pushed = true
+workflow_ref = factory/0.1.0
+workflow_dispatch_dry_run = success
+npm_publish = false
+create_cli_tag = false
+```
+
+## Ejecucion remota
+
+Se subieron los commits pendientes de `factory/0.1.0` y se ejecuto:
+
+```bash
+gh workflow run publish-cli.yml --ref factory/0.1.0 -f dry_run=true
+```
+
+Resultado:
+
+```text
+run_id = 27066803619
+run_url = https://github.com/Ainsiel/Gridwork/actions/runs/27066803619
+event = workflow_dispatch
+head_branch = factory/0.1.0
+head_sha = a2b3e2fcd943f6ea2c4902aa4bdb6c1461e014b5
+status = completed
+conclusion = success
+```
+
+Pasos:
+
+```text
+checkout = success
+setup_node = success
+install = success
+validate_trusted_publishing_runtime = success
+validate_event_and_package_metadata = success
+validate_official_factory_source = success
+build = success
+test = success
+pack_dry_run = success
+resolve_npm_dist_tag = success
+publish = skipped
+```
+
+Verificacion posterior:
+
+```text
+npm_latest_before = 0.1.0
+npm_latest_after = 0.1.0
+npm_package_published_by_dry_run = false
+cli_tag_created = false
+```
+
+## Interpretacion
+
+El pipeline remoto funciona en modo dry-run y mantiene la frontera de seguridad:
+
+```text
+workflow_dispatch valida pero no publica
+push de tag cli-v<version> es el unico evento que puede publicar
+```
+
+El dry-run no prueba la autorizacion OIDC de `npm publish`; esa verificacion ocurrira durante la primera release CLI automatizada real.
+
+## Siguiente gate
+
+```text
+GQ-123 - Decidir cuando publicar la primera release CLI automatizada
+```
