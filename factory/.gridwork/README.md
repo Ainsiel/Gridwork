@@ -17,6 +17,7 @@ This folder contains the factory contracts that an agent can read by chat:
 Runtime reports live in `.factory/` at the repository root. That folder is local runtime state and should stay ignored by Git.
 
 Start with `QUICKSTART.md`. There is no `gridwork run` command in v1.
+Use `docs/WORKFLOW_GUIDE.md` for practical workflow examples and approval guidance.
 
 The full profile includes a backlog manager for local/GitHub backlog questions and
 task selection, plus technology-agnostic integration testing guidance.

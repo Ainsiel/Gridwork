@@ -71,6 +71,11 @@
       "contract": "workflows/backlog-management/WORKFLOW.md"
     },
     {
+      "id": "backlog-task-delivery",
+      "manifest": "workflows/backlog-task-delivery/workflow.json",
+      "contract": "workflows/backlog-task-delivery/WORKFLOW.md"
+    },
+    {
       "id": "tdd-implementation",
       "manifest": "workflows/tdd-implementation/workflow.json",
       "contract": "workflows/tdd-implementation/WORKFLOW.md"

@@ -9,7 +9,8 @@
     "backlog-manager-agent"
   ],
   "allowedWorkflows": [
-    "backlog-management"
+    "backlog-management",
+    "backlog-task-delivery"
   ],
   "requiredInputs": [
     "backlog_sources",

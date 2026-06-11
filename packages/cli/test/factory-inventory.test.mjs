@@ -166,6 +166,7 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     [
       "architecture-ddd",
       "backlog-management",
+      "backlog-task-delivery",
       "ideation-from-zero",
       "intake-existing-code",
       "tdd-implementation",
@@ -248,6 +249,28 @@ test("backlog manager can inspect backlog and prepare an approved implementation
   assert.ok(skill.humanGates.includes("afk_delegation"));
   assert.ok(workflow.producedOutputs.includes("work_order_candidate"));
   assert.ok(workflow.producedOutputs.includes("implementation_handoff"));
+});
+
+test("backlog task delivery composes selection, approved implementation and verification", async () => {
+  const workflow = await readJson("workflows/backlog-task-delivery/workflow.json");
+  const contract = await readFile(
+    resolve(factoryRoot, "workflows/backlog-task-delivery/WORKFLOW.md"),
+    "utf8"
+  );
+
+  assert.equal(workflow.primaryAgent, "orchestrator");
+  assert.deepEqual(workflow.participatingAgents, [
+    "orchestrator",
+    "backlog-manager-agent",
+    "implementer-agent",
+    "verifier-agent"
+  ]);
+  assert.ok(workflow.humanGates.includes("work_order_approval"));
+  assert.ok(workflow.humanGates.includes("afk_delegation"));
+  assert.ok(workflow.humanGates.includes("github_write"));
+  assert.ok(workflow.producedOutputs.includes("verification_decision"));
+  assert.match(contract, /backlog-management -> tdd-implementation -> verification-pr/);
+  assert.match(contract, /does\s+not approve the resulting work order/);
 });
 
 test("integration testing is core and FastAPI guidance is available in the stack pack", async () => {
@@ -445,6 +468,21 @@ test("installed docs point to orchestrator prompt without run command", async ()
 
   assert.match(quickstart, /\.gridwork\/agents\/orchestrator\/PROMPT\.md/);
   assert.doesNotMatch(prompt, /gridwork run/);
+});
+
+test("workflow usage guide covers every workflow with examples and approval guidance", async () => {
+  const manifest = await readFactoryManifest();
+  const guide = await readFile(resolve(factoryRoot, "docs/WORKFLOW_GUIDE.md"), "utf8");
+  const quickstart = await readFile(resolve(factoryRoot, "QUICKSTART.md"), "utf8");
+
+  for (const workflow of manifest.workflows) {
+    assert.match(guide, new RegExp(workflow.id), `guide should cover ${workflow.id}`);
+  }
+
+  assert.match(guide, /## End-To-End Examples/);
+  assert.match(guide, /## Useful Approval Phrases/);
+  assert.match(guide, /Approve AFK delegation/);
+  assert.match(quickstart, /\.gridwork\/docs\/WORKFLOW_GUIDE\.md/);
 });
 
 test("architecture diagram template is self-contained", async () => {

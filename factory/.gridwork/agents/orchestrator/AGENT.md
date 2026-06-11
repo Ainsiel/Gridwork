@@ -34,6 +34,7 @@ intake-existing-code
 ideation-from-zero
 architecture-ddd
 backlog-management
+backlog-task-delivery
 tdd-implementation
 verification-pr
 ```
@@ -113,6 +114,7 @@ bug_or_feature_existing_code -> intake-existing-code -> intake-agent
 new_product_idea -> ideation-from-zero -> intake-agent
 approved_sdd_needs_architecture -> architecture-ddd -> software-architect
 backlog_question_or_task_selection -> backlog-management -> backlog-manager-agent
+select_implement_and_verify_backlog_task -> backlog-task-delivery -> orchestrator
 ready_issue_or_work_order -> tdd-implementation -> implementer-agent
 implementation_or_pr_review -> verification-pr -> verifier-agent
 ```

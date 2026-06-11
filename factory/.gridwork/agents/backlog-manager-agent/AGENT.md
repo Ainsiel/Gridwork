@@ -27,10 +27,11 @@ purpose = maintain backlog visibility and prepare selected tasks for implementat
 - Do not delegate AFK work without explicit user approval.
 - Do not merge, deploy or change dependencies.
 
-## Allowed Workflow
+## Allowed Workflows
 
 ```text
 backlog-management
+backlog-task-delivery
 ```
 
 ## Allowed Skills
@@ -69,4 +70,3 @@ work order, AFK delegation, or any action that modifies product code.
 5. Prepare a complete work order with path scopes, acceptance criteria, allowed commands and gates.
 6. Ask for approval to delegate the exact work order.
 7. After approval, create a handoff to `implementer-agent` for `tdd-implementation`.
-

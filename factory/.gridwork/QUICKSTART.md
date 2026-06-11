@@ -7,3 +7,6 @@
 5. Approve any write, GitHub side effect or AFK delegation only when you are ready.
 
 Gridwork installs governance, agents, workflows, skills, policies, stack guidance, schemas and templates. It does not create frontend, backend, database, Docker or application code.
+
+For workflow selection, examples and approval guidance, open
+`.gridwork/docs/WORKFLOW_GUIDE.md`.

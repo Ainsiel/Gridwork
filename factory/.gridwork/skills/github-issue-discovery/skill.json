@@ -15,6 +15,7 @@
   "allowedWorkflows": [
     "intake-existing-code",
     "backlog-management",
+    "backlog-task-delivery",
     "tdd-implementation",
     "verification-pr"
   ],

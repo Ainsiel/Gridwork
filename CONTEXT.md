@@ -42,7 +42,7 @@ factory version = 0.1.0
 factory profile = full-v1
 generated product code = false
 agents = 7
-workflows = 6
+workflows = 7
 core skills = 28
 stack skills = 12
 ```
@@ -56,6 +56,7 @@ stack skills = 12
 | Factory distribuible | `factory/.gridwork/` |
 | Inventario principal de factory | `factory/.gridwork/factory.json` |
 | Contratos humanos | archivos `AGENT.md`, `WORKFLOW.md`, `SKILL.md` y politicas |
+| Guia practica de workflows | `factory/.gridwork/docs/WORKFLOW_GUIDE.md` |
 | Contratos estructurados | archivos `agent.json`, `workflow.json`, `skill.json` y schemas |
 | Inventario validado por el instalador | `packages/cli/src/init/constants.ts` |
 | Comportamiento esperado | `packages/cli/test/*.test.mjs` |
@@ -84,7 +85,7 @@ factory/.gridwork/             fuente versionada de la factory instalable
   skills/                      28 skills centrales
   stack-packs/                 stack pack Next.js/Spring Boot/FastAPI/PostgreSQL/Docker
   templates/                   plantillas de runtime, arquitectura y releases
-  workflows/                   6 playbooks
+  workflows/                   7 playbooks
   factory.json                 inventario y activacion principal
 
 packages/cli/
@@ -125,7 +126,7 @@ npm run pack:cli:dry-run
 ```
 
 `npm test` construye primero el CLI y luego ejecuta las pruebas. La revision actual
-ejecuto 32 pruebas: todas pasaron.
+ejecuto 34 pruebas: todas pasaron.
 
 ## Arquitectura del CLI
 
@@ -304,6 +305,7 @@ hace merge.
 | `ideation-from-zero` | interactive | intake-agent | requisitos normalizados y SDD draft |
 | `architecture-ddd` | interactive | software-architect | arquitectura, ADRs y backlog draft |
 | `backlog-management` | interactive | backlog-manager-agent | snapshot, gaps, seleccion y work order candidate |
+| `backlog-task-delivery` | hybrid | orchestrator | seleccion, implementacion TDD y verificacion |
 | `tdd-implementation` | afk | implementer-agent | implementacion y evidencia RED/GREEN |
 | `verification-pr` | hybrid | verifier-agent | decision pass/changes/evidence |
 
@@ -315,6 +317,7 @@ solicitud
   -> intake o ideation
   -> architecture-ddd cuando aplica
   -> backlog-management para consultar o seleccionar trabajo
+  -> backlog-task-delivery para seleccionar, implementar y verificar una tarea
   -> work order aprobada
   -> tdd-implementation
   -> verification-pr
@@ -413,7 +416,7 @@ describen manifests de factory, agentes, workflows, skills y lockfile.
 
 ## Pruebas y CI
 
-Las 32 pruebas cubren:
+Las 34 pruebas cubren:
 
 - ayuda del CLI y ausencia de `gridwork run`;
 - instalacion local full-v1;
@@ -423,6 +426,7 @@ Las 32 pruebas cubren:
 - instalacion remota verificada, cache y ZIP traversal;
 - inventario completo, JSON parseable y referencias cruzadas;
 - capacidades del backlog manager, pruebas de integracion y skills FastAPI;
+- cobertura de todos los workflows en la guia practica instalada;
 - instrucciones accionables de todos los skills;
 - ausencia de carpetas de producto;
 - template HTML autocontenido;
@@ -503,8 +507,8 @@ Revision ejecutada:
 
 ```text
 npm test
-tests = 32
-pass = 32
+tests = 34
+pass = 34
 fail = 0
 
 npm run pack:cli:dry-run

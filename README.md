@@ -28,6 +28,12 @@ Then open:
 
 Paste or reference that prompt in your coding agent chat and describe the work you want to perform. The orchestrator will propose a workflow, responsible agent, missing context, and approval gates before acting.
 
+For workflow selection, prompts and end-to-end examples, read:
+
+```text
+.gridwork/docs/WORKFLOW_GUIDE.md
+```
+
 ## What Init Installs
 
 ```text
@@ -68,6 +74,7 @@ Installation does not create a frontend, backend, database, Dockerfile, Compose 
 | `ideation-from-zero` | interactive | Turn a product idea into structured requirements and an SDD |
 | `architecture-ddd` | interactive | Design the system from an approved SDD |
 | `backlog-management` | interactive | Inspect local/GitHub backlog and prepare selected tasks |
+| `backlog-task-delivery` | hybrid | Select, implement and verify one ready backlog task |
 | `tdd-implementation` | AFK | Implement an approved work order through RED, GREEN, and REFACTOR |
 | `verification-pr` | hybrid | Verify implementation evidence before merge decisions |
 
@@ -77,6 +84,7 @@ The backlog manager can answer requests such as:
 What is the current local and GitHub backlog?
 Which tasks are ready, blocked or missing?
 Take the next ready task and prepare it for implementation.
+Buscame una tarea del backlog pendiente, implementalo y verificalo.
 ```
 
 Selecting a task prepares a work order candidate. Approval of the work order and AFK
@@ -178,7 +186,7 @@ factory = factory-v0.1.0 published on GitHub
 factory_profile = full-v1
 generated_product_code = false
 agents = 7
-workflows = 6
+workflows = 7
 core_skills = 28
 stack_skills = 12
 ```

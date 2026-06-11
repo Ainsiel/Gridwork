@@ -7,7 +7,8 @@
   "mode": "interactive",
   "contract": "AGENT.md",
   "allowedWorkflows": [
-    "backlog-management"
+    "backlog-management",
+    "backlog-task-delivery"
   ],
   "allowedSkills": [
     "backlog-management",
