@@ -42,6 +42,12 @@ dependencies
 risks and rollout notes
 catalog labels
 definition of done
+visible frontend behavior when applicable
+affected frontend feature and route
+server/client boundary
+frontend state ownership
+API consumption contract
+expected frontend and accessibility tests
 ```
 
 ## Ordering

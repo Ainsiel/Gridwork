@@ -200,6 +200,10 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "diagnose-bug",
       "domain-driven-design",
       "erd-html-diagrams",
+      "frontend-api-contract-consumption",
+      "frontend-architecture-design",
+      "frontend-state-strategy",
+      "frontend-testing-strategy",
       "git-branch-management",
       "github-actions-cicd",
       "github-cli",
@@ -236,6 +240,9 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "dockerfile-authoring",
       "fastapi-backend-guidance",
       "fastapi-performance",
+      "nextjs-app-router-architecture",
+      "nextjs-auth-session-guidance",
+      "nextjs-data-fetching-and-cache",
       "nextjs-frontend-guidance",
       "nextjs-performance",
       "nextjs-ui-design",
@@ -346,6 +353,34 @@ test("integration testing is core and FastAPI guidance is available in the stack
   assert.ok(stackPack.technologies.includes("fastapi"));
   assert.ok(stackPack.skills.includes("skills/fastapi-backend-guidance/skill.json"));
   assert.ok(stackPack.skills.includes("skills/fastapi-performance/skill.json"));
+});
+
+test("frontend architecture is explicit and Next.js has specialized architecture skills", async () => {
+  const architecture = await readJson("workflows/architecture-ddd/workflow.json");
+  const foundation = await readJson("workflows/architecture-foundation/workflow.json");
+  const verification = await readJson("workflows/verification-pr/workflow.json");
+  const manifest = await readFactoryManifest();
+  const stackPack = await readJson(manifest.stackPacks[0].manifest);
+
+  for (const output of [
+    "frontend_architecture",
+    "route_ownership_map",
+    "server_client_boundary_map",
+    "frontend_state_strategy",
+    "frontend_api_consumption_contract",
+    "frontend_test_strategy",
+    "frontend_security_boundary"
+  ]) {
+    assert.ok(architecture.producedOutputs.includes(output), `architecture should produce ${output}`);
+  }
+
+  assert.ok(foundation.allowedSkills.includes("frontend-architecture-design"));
+  assert.ok(foundation.allowedSkills.includes("nextjs-app-router-architecture"));
+  assert.ok(verification.allowedSkills.includes("frontend-testing-strategy"));
+  assert.ok(verification.allowedSkills.includes("nextjs-data-fetching-and-cache"));
+  assert.ok(stackPack.skills.includes("skills/nextjs-app-router-architecture/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/nextjs-auth-session-guidance/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/nextjs-data-fetching-and-cache/skill.json"));
 });
 
 test("AFK work order template contains the contract required for backlog handoff", async () => {

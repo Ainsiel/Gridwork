@@ -12,6 +12,10 @@
 | contract-first-boundaries | architecture-foundation | Materializes only required contracts with known consumers. |
 | composition-root-wiring | architecture-foundation | Assembles approved components outside domain behavior. |
 | architecture-conformance-verification | architecture-testing | Verifies structure against approved architecture and anti-speculation rules. |
+| frontend-architecture-design | frontend-architecture | Defines feature boundaries, route ownership and public surfaces. |
+| frontend-state-strategy | frontend-architecture | Assigns URL, server, local, global and persistent state ownership. |
+| frontend-api-contract-consumption | frontend-architecture | Defines typed API consumption, DTO mapping and frontend error behavior. |
+| frontend-testing-strategy | testing | Defines frontend behavior, integration, contract, accessibility and E2E coverage. |
 | work-order-branch-lifecycle | git | Binds one work order to one feature branch from develop. |
 | pull-request-lifecycle | github | Governs feature and release PR state through approved merge. |
 | ci-status-evaluation | cicd | Evaluates required checks for the exact PR head SHA. |
@@ -48,7 +52,7 @@ The `nextjs-springboot-postgresql` stack pack provides:
 
 | Technology | Skills |
 |---|---|
-| Next.js | `nextjs-frontend-guidance`, `nextjs-ui-design`, `nextjs-performance` |
+| Next.js | `nextjs-frontend-guidance`, `nextjs-app-router-architecture`, `nextjs-auth-session-guidance`, `nextjs-data-fetching-and-cache`, `nextjs-ui-design`, `nextjs-performance` |
 | Spring Boot | `springboot-backend-guidance`, `springboot-performance` |
 | FastAPI | `fastapi-backend-guidance`, `fastapi-performance` |
 | PostgreSQL | `postgresql-persistence-guidance`, `postgresql-performance` |

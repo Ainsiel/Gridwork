@@ -30,4 +30,8 @@ There is no agent workflow named `cicd-release` in v1. CI/CD is handled as GitHu
 
 `architecture-ddd` starts with an adaptive grill-me. DDD strategic design is central; Clean Architecture, patterns, APIs, data models, stack guidance and C4/ERD/UML HTML diagrams are optional capabilities selected only when needed.
 
+When a frontend is present, `architecture-ddd` must also produce explicit frontend
+feature boundaries, route ownership, execution boundaries, state strategy, API
+consumption, security boundary and test strategy.
+
 `architecture-foundation` materializes approved boundaries as a minimal executable structure, required contracts, composition root and architecture tests. It explicitly forbids business behavior and speculative abstractions.

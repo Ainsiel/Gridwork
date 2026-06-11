@@ -43,8 +43,8 @@ factory profile = full-v1
 generated product code = false
 agents = 9
 workflows = 10
-core skills = 39
-stack skills = 12
+core skills = 43
+stack skills = 15
 ```
 
 ## Fuentes de verdad
@@ -82,7 +82,7 @@ factory/.gridwork/             fuente versionada de la factory instalable
   docs/                        catalogos instalados
   policies/                    reglas, permisos, gates y labels
   schemas/                     schemas JSON permisivos
-  skills/                      39 skills centrales
+  skills/                      43 skills centrales
   stack-packs/                 stack pack Next.js/Spring Boot/FastAPI/PostgreSQL/Docker
   templates/                   plantillas de runtime, arquitectura y releases
   workflows/                   10 playbooks
@@ -126,7 +126,7 @@ npm run pack:cli:dry-run
 ```
 
 `npm test` construye primero el CLI y luego ejecuta las pruebas. La revision actual
-ejecuto 37 pruebas: todas pasaron.
+ejecuto 38 pruebas: todas pasaron.
 
 ## Arquitectura del CLI
 
@@ -331,7 +331,7 @@ solicitud
 
 ### Skills centrales
 
-Los 39 skills centrales se agrupan asi:
+Los 43 skills centrales se agrupan asi:
 
 - requisitos y planificacion: `sdd-requirements`, `backlog-planning`,
   `backlog-management`;
@@ -340,6 +340,8 @@ Los 39 skills centrales se agrupan asi:
   modelo relacional y ADRs;
 - foundation: planificacion, scaffolding minimo, contratos con consumidores conocidos,
   composition root, pruebas de limites y verificacion de conformidad;
+- frontend: limites de features/rutas, estrategia de estado, consumo API tipado y
+  estrategia de pruebas frontend;
 - diagramas: base HTML autocontenida y variantes C4, ERD y UML;
 - diagnostico, implementacion y pruebas: `diagnose-bug`, `tdd`,
   `integration-test-design`, `integration-testing`;
@@ -355,9 +357,9 @@ Cada skill tiene:
 
 ### Stack pack
 
-El unico stack pack mantiene el id `nextjs-springboot-postgresql` e incluye 12 skills:
+El unico stack pack mantiene el id `nextjs-springboot-postgresql` e incluye 15 skills:
 
-- Next.js: frontend, UI y performance;
+- Next.js: frontend, App Router, auth/sesion, datos/cache, UI y performance;
 - Spring Boot: backend y performance;
 - FastAPI: backend y performance;
 - PostgreSQL: persistencia y performance;
@@ -424,7 +426,7 @@ describen manifests de factory, agentes, workflows, skills y lockfile.
 
 ## Pruebas y CI
 
-Las 37 pruebas cubren:
+Las 38 pruebas cubren:
 
 - ayuda del CLI y ausencia de `gridwork run`;
 - instalacion local full-v1;
@@ -515,8 +517,8 @@ Revision ejecutada:
 
 ```text
 npm test
-tests = 37
-pass = 37
+tests = 38
+pass = 38
 fail = 0
 
 npm run pack:cli:dry-run

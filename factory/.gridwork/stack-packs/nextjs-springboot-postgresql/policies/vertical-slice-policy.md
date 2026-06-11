@@ -8,5 +8,13 @@ Prefer issues that can be tested as a complete behavior:
 - persistence or migration when needed;
 - tests and acceptance criteria.
 
-Avoid splitting work only by frontend/backend/database if that makes the issue hard to verify.
+For Next.js slices also record:
 
+- affected feature and route;
+- Server/Client Component boundary;
+- state ownership;
+- API consumption and error behavior;
+- loading, empty, unauthorized and stale states;
+- frontend behavior, accessibility and end-to-end tests.
+
+Avoid splitting work only by frontend/backend/database if that makes the issue hard to verify.

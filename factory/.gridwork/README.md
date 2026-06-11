@@ -22,4 +22,4 @@ Use `docs/WORKFLOW_GUIDE.md` for practical workflow examples and approval guidan
 The full profile includes a backlog manager for local/GitHub backlog questions and
 task selection, an architecture foundation agent for approved executable structure,
 a release manager for governed production promotion, and technology-agnostic
-integration testing guidance.
+integration and frontend architecture guidance.

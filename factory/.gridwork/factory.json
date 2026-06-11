@@ -163,6 +163,26 @@
       "contract": "skills/architecture-conformance-verification/SKILL.md"
     },
     {
+      "id": "frontend-architecture-design",
+      "manifest": "skills/frontend-architecture-design/skill.json",
+      "contract": "skills/frontend-architecture-design/SKILL.md"
+    },
+    {
+      "id": "frontend-state-strategy",
+      "manifest": "skills/frontend-state-strategy/skill.json",
+      "contract": "skills/frontend-state-strategy/SKILL.md"
+    },
+    {
+      "id": "frontend-api-contract-consumption",
+      "manifest": "skills/frontend-api-contract-consumption/skill.json",
+      "contract": "skills/frontend-api-contract-consumption/SKILL.md"
+    },
+    {
+      "id": "frontend-testing-strategy",
+      "manifest": "skills/frontend-testing-strategy/skill.json",
+      "contract": "skills/frontend-testing-strategy/SKILL.md"
+    },
+    {
       "id": "work-order-branch-lifecycle",
       "manifest": "skills/work-order-branch-lifecycle/skill.json",
       "contract": "skills/work-order-branch-lifecycle/SKILL.md"

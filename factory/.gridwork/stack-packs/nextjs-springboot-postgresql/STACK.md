@@ -28,7 +28,7 @@ When feasible, issues should include UI, API/application behavior, domain behavi
 ## Skills
 
 ```text
-Next.js = frontend guidance, UI design, performance
+Next.js = frontend guidance, App Router architecture, auth/session, data/cache, UI design, performance
 Spring Boot = backend guidance, performance
 FastAPI = backend guidance, performance
 PostgreSQL = persistence guidance, performance

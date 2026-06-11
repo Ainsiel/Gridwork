@@ -21,10 +21,12 @@ before functional backlog tasks are implemented.
 6. Use `contract-first-boundaries` only for confirmed boundaries needed by the first slices.
 7. Use `composition-root-wiring` for minimal executable assembly.
 8. Use `module-boundary-enforcement` and integration testing skills to protect dependency rules.
-9. Run approved compile, startup and test commands.
-10. Use `architecture-conformance-verification` and produce a conformance report.
-11. Use `backlog-planning` to prepare the first functional vertical slices.
-12. Hand the foundation to `implementer-agent`; business behavior begins in `tdd-implementation`.
+9. When Next.js is approved, materialize route groups, layouts, public feature surfaces,
+   API-client boundary and auth/session boundaries without functional screens.
+10. Run approved compile, startup and test commands.
+11. Use `architecture-conformance-verification` and produce a conformance report.
+12. Use `backlog-planning` to prepare the first functional vertical slices.
+13. Hand the foundation to `implementer-agent`; business behavior begins in `tdd-implementation`.
 
 ## Forbidden Foundation Output
 

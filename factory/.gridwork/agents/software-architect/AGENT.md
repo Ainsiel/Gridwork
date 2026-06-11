@@ -46,6 +46,10 @@ relational-data-modeling
 architecture-decision-records
 integration-test-design
 integration-testing
+frontend-architecture-design
+frontend-state-strategy
+frontend-api-contract-consumption
+frontend-testing-strategy
 html-architecture-diagrams
 c4-html-diagrams
 erd-html-diagrams
@@ -53,6 +57,9 @@ uml-html-diagrams
 backlog-planning
 github-actions-cicd
 nextjs-frontend-guidance
+nextjs-app-router-architecture
+nextjs-auth-session-guidance
+nextjs-data-fetching-and-cache
 nextjs-ui-design
 nextjs-performance
 springboot-backend-guidance
@@ -91,5 +98,6 @@ Stop before committing architectural decisions with uncertain requirements, writ
 5. Record consequential decisions through `architecture-decision-records`.
 6. Use stack skills after detecting versions, conventions and real paths.
 7. Ask for approval before copying drafts from `.factory/` to approved docs.
+8. When a frontend exists, define route ownership, server/client boundaries, state ownership, API consumption, auth boundaries and frontend testing explicitly.
 
 The default recommendation is the simplest architecture that satisfies confirmed drivers. Do not force every optional skill or diagram into every design.

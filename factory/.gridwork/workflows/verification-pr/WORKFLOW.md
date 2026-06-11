@@ -47,10 +47,12 @@ handoff
 5. Inspect changed files and path scopes.
 6. Run allowlisted checks when allowed.
 7. Use `architecture-conformance-verification` when architecture or foundation boundaries are in scope.
-8. Produce a local verifier report.
-9. Prepare a gated GitHub review only if requested.
-10. Decide `pass`, `changes_requested`, `needs_more_evidence`, `blocked_by_ci` or `blocked_by_branch_state`.
-11. After `pass`, hand the exact approved SHA back to `feature-pr-delivery`.
+8. When frontend scope exists, review feature ownership, route/server-client boundaries,
+   state ownership, API/error behavior, auth boundaries, cache semantics, accessibility and tests.
+9. Produce a local verifier report.
+10. Prepare a gated GitHub review only if requested.
+11. Decide `pass`, `changes_requested`, `needs_more_evidence`, `blocked_by_ci` or `blocked_by_branch_state`.
+12. After `pass`, hand the exact approved SHA back to `feature-pr-delivery`.
 
 Use relevant stack skills in review mode. A performance improvement cannot pass without comparable before/after evidence; infrastructure changes cannot pass without configuration and lifecycle validation.
 

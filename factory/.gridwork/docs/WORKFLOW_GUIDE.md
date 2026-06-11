@@ -187,7 +187,18 @@ data/
 adrs/
 optional self-contained HTML diagrams
 integration-test-strategy.md
+frontend/frontend-architecture.md
+frontend/route-ownership-map.md
+frontend/server-client-boundary-map.md
+frontend/state-strategy.md
+frontend/api-consumption-contract.md
+frontend/test-strategy.md
+frontend/security-boundary.md
 ```
+
+When the system has a frontend, architecture is incomplete until it explains feature
+ownership, routes, server/client execution boundaries, state ownership, API/error
+consumption, session/security boundaries and frontend tests.
 
 Drafts stay under `.factory/runs/<run-id>/artifacts/architecture/`. Promotion to
 `docs/architecture/` or `docs/adr/` requires approval.
@@ -218,6 +229,8 @@ contracts required by known consumers or the first slices
 minimal composition root
 architecture and dependency-boundary tests
 conformance report and first-slice backlog inputs
+approved frontend route groups, layouts and public feature surfaces
+frontend boundary tests and API-client boundary
 ```
 
 Forbidden output:
@@ -228,6 +241,7 @@ generic CRUD
 complete repository adapters
 future module placeholders
 interfaces without known consumers
+functional screens or speculative global state
 ```
 
 Typical transition:
@@ -385,6 +399,17 @@ When the confirmed backend is FastAPI, it may also use:
 ```text
 fastapi-backend-guidance
 fastapi-performance
+```
+
+For a Next.js slice, the work order should also state:
+
+```text
+affected feature and route
+Server/Client Component boundary
+URL, server, local or global state ownership
+API/error consumption contract
+loading, empty, unauthorized and stale states
+frontend behavior, accessibility and E2E tests
 ```
 
 The workflow stops before dependency changes, scope changes, unknown commands,

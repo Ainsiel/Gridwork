@@ -53,10 +53,12 @@ handoff
 5. Record consequential decisions as ADRs.
 6. Produce C4, ERD, UML or other HTML diagrams only when they answer a defined question.
 7. Review the complete design for traceability, simplicity, risks and contradictions.
-8. Ask for approval before promoting architecture drafts to `docs/architecture/` or `docs/adr/`.
-9. Prepare materialization constraints and hand approved architecture to `architecture-foundation`.
-10. Use `backlog-planning` for functional vertical-slice drafts after foundation, or earlier only when their foundation dependency is explicit.
-11. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
+8. When a frontend exists, explicitly design feature boundaries, route ownership,
+   server/client boundaries, state ownership, API consumption, auth/security and tests.
+9. Ask for approval before promoting architecture drafts to `docs/architecture/` or `docs/adr/`.
+10. Prepare materialization constraints and hand approved architecture to `architecture-foundation`.
+11. Use `backlog-planning` for functional vertical-slice drafts after foundation, or earlier only when their foundation dependency is explicit.
+12. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
 
 ## Optional Skill Rule
 

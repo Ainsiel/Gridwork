@@ -23,8 +23,10 @@ Key capability assignments:
 - `orchestrator` may prepare Git action plans after verification, but never merges.
 - `orchestrator` coordinates approved feature PR merges to `develop`; `release-manager-agent` coordinates approved release merges to `main`.
 - `software-architect` starts with `architecture-grill-me`, then selects only architecture and diagram skills justified by confirmed drivers.
+- When a frontend exists, `software-architect` explicitly designs feature/route ownership, state, API consumption, auth boundaries and tests.
 - `architecture-foundation-agent` creates only the approved minimal executable structure, required contracts, composition root and architecture tests.
 - `software-architect`, `architecture-foundation-agent`, `implementer-agent` and `verifier-agent` may use integration testing and stack-pack skills after technology and paths are confirmed.
+- `architecture-foundation-agent` materializes approved frontend boundaries without functional screens; implementer and verifier apply the frontend strategy per slice.
 
 Ask `backlog-manager-agent` for the current backlog, remaining or blocked tasks,
 missing work, or a recommended next task. A request to take a task prepares a work

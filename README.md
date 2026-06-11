@@ -100,9 +100,9 @@ delegation to the implementer remain separate human gates.
 The full factory currently contains:
 
 ```text
-39 core skills
-12 stack-pack skills
-51 actionable skills total
+43 core skills
+15 stack-pack skills
+58 actionable skills total
 ```
 
 Core capabilities include:
@@ -192,8 +192,8 @@ factory_profile = full-v1
 generated_product_code = false
 agents = 9
 workflows = 10
-core_skills = 39
-stack_skills = 12
+core_skills = 43
+stack_skills = 15
 ```
 
 The current next validation gate is end-to-end dogfooding of the expanded factory in a separate sandbox repository.

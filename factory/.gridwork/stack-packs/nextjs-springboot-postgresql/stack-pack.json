@@ -37,6 +37,9 @@
   ],
   "skills": [
     "skills/nextjs-frontend-guidance/skill.json",
+    "skills/nextjs-app-router-architecture/skill.json",
+    "skills/nextjs-auth-session-guidance/skill.json",
+    "skills/nextjs-data-fetching-and-cache/skill.json",
     "skills/nextjs-ui-design/skill.json",
     "skills/nextjs-performance/skill.json",
     "skills/springboot-backend-guidance/skill.json",
