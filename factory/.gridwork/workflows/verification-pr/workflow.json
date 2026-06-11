@@ -18,7 +18,10 @@
     "tdd",
     "integration-test-design",
     "integration-testing",
+    "architecture-conformance-verification",
     "git-branch-management",
+    "pull-request-lifecycle",
+    "ci-status-evaluation",
     "nextjs-frontend-guidance",
     "nextjs-ui-design",
     "nextjs-performance",
@@ -36,7 +39,9 @@
   "requiredInputs": [
     "implementation_summary",
     "work_order",
-    "tdd_evidence"
+    "tdd_evidence",
+    "pull_request",
+    "successful_required_checks_for_head_sha"
   ],
   "producedOutputs": [
     "verifier_report",

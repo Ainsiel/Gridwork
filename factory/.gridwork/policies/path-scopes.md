@@ -30,6 +30,12 @@ Non-sensitive project files used to understand a request.
 
 Agents may read only after routing and only when the active workflow needs context.
 
+### approved_architecture_foundation_write
+
+Exact product, test and infrastructure paths listed in an approved architecture
+foundation plan. This scope permits minimal structure and architecture tests, not
+business behavior or speculative abstractions.
+
 ## Forbidden By Default
 
 Agents must not touch:

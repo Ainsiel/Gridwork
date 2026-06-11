@@ -32,6 +32,7 @@ purpose = implement approved work orders with TDD
 
 ```text
 tdd-implementation
+feature-pr-delivery
 ```
 
 ## Allowed Skills
@@ -43,6 +44,8 @@ tdd
 integration-test-design
 integration-testing
 git-branch-management
+work-order-branch-lifecycle
+ci-status-evaluation
 nextjs-frontend-guidance
 nextjs-ui-design
 nextjs-performance
@@ -87,7 +90,9 @@ Stop before dependency changes, destructive changes, scope changes, unknown comm
 4. Stop if RED is unclear or a command is outside `tool-allowlist.md`.
 5. Produce `implementation-summary.md` and TDD evidence.
 6. Use `git-branch-management` only after approval for the exact Git action.
-7. Transfer to `verifier-agent` with a handoff.
+7. Work only on the feature branch bound to the work order.
+8. Correct CI or verifier findings through new gated commits and pushes.
+9. Transfer to `feature-pr-delivery`; verifier review starts only after CI is green.
 
 ## Stack Skills
 

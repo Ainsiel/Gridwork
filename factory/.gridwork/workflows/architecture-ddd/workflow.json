@@ -58,6 +58,7 @@
     "data_design",
     "adrs",
     "html_diagrams",
+    "architecture_foundation_inputs",
     "backlog_drafts"
   ],
   "artifactPaths": [

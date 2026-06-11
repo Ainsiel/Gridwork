@@ -5,6 +5,9 @@ run_id = <run-id>
 workflow = verification-pr
 agent = verifier-agent
 decision = pass | changes_requested | needs_more_evidence
+pull_request =
+reviewed_sha =
+ci_status =
 ```
 
 ## Scope Review
@@ -19,6 +22,14 @@ decision = pass | changes_requested | needs_more_evidence
 
 <test findings>
 
+## Required Checks
+
+<current-head required check findings>
+
+## Architecture Conformance
+
+<architecture findings>
+
 ## Policy Review
 
 <policy findings>
@@ -30,4 +41,3 @@ decision = pass | changes_requested | needs_more_evidence
 ## Recommendation
 
 <recommendation>
-

@@ -61,10 +61,12 @@ Installation does not create a frontend, backend, database, Dockerfile, Compose 
 | Orchestrator | Routes requests, delegates work, and enforces policies |
 | Intake Agent | Refines ideas, bugs, and changes through interactive grill-me sessions |
 | Software Architect | Designs DDD architecture and selects optional architecture skills |
+| Architecture Foundation Agent | Materializes approved structure, contracts and architecture tests without business behavior |
 | Planner Agent | Creates vertical-slice backlog drafts and governed GitHub plans |
 | Backlog Manager Agent | Answers backlog questions, selects ready tasks, and prepares implementation handoffs |
 | Implementer Agent | Executes approved AFK work orders using TDD |
 | Verifier Agent | Reviews scope, behavior, evidence, and policy compliance |
+| Release Manager Agent | Promotes verified develop state to main and observes production deployment |
 
 ### Workflows
 
@@ -73,10 +75,13 @@ Installation does not create a frontend, backend, database, Dockerfile, Compose 
 | `intake-existing-code` | interactive | Refine bugs, improvements, and features for an existing codebase |
 | `ideation-from-zero` | interactive | Turn a product idea into structured requirements and an SDD |
 | `architecture-ddd` | interactive | Design the system from an approved SDD |
+| `architecture-foundation` | hybrid | Materialize approved structure and boundaries without business behavior |
 | `backlog-management` | interactive | Inspect local/GitHub backlog and prepare selected tasks |
 | `backlog-task-delivery` | hybrid | Select, implement and verify one ready backlog task |
 | `tdd-implementation` | AFK | Implement an approved work order through RED, GREEN, and REFACTOR |
 | `verification-pr` | hybrid | Verify implementation evidence before merge decisions |
+| `feature-pr-delivery` | hybrid | Run feature PR CI, verifier cycles and approved merge to develop |
+| `release-promotion` | hybrid | Promote develop to main and verify production deployment |
 
 The backlog manager can answer requests such as:
 
@@ -95,9 +100,9 @@ delegation to the implementer remain separate human gates.
 The full factory currently contains:
 
 ```text
-28 core skills
+39 core skills
 12 stack-pack skills
-40 actionable skills total
+51 actionable skills total
 ```
 
 Core capabilities include:
@@ -185,9 +190,9 @@ cli = gridwork@0.1.0 published on npm
 factory = factory-v0.1.0 published on GitHub
 factory_profile = full-v1
 generated_product_code = false
-agents = 7
-workflows = 7
-core_skills = 28
+agents = 9
+workflows = 10
+core_skills = 39
 stack_skills = 12
 ```
 

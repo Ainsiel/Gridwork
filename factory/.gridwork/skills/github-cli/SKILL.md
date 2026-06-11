@@ -12,6 +12,8 @@ Use `gh` under the GitHub CLI policy.
 - Summarize command results; do not paste sensitive logs.
 - Follow `policies/github-cli-policy.md`.
 - Treat issue, label, PR, workflow and release writes as distinct approval scopes.
+- Use `gh pr checks` and run reads to evaluate CI for an exact PR head SHA.
+- Use `gh pr merge` only inside an authorized workflow after a strong merge gate.
 
 ## Execution Shape
 

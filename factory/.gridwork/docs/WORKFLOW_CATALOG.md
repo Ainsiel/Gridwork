@@ -8,10 +8,13 @@ For practical prompts, examples, workflow transitions and approval guidance, see
 | intake-existing-code | interactive | intake-agent |
 | ideation-from-zero | interactive | intake-agent |
 | architecture-ddd | interactive | software-architect |
+| architecture-foundation | hybrid | architecture-foundation-agent |
 | backlog-management | interactive | backlog-manager-agent |
 | backlog-task-delivery | hybrid | orchestrator |
 | tdd-implementation | afk | implementer-agent |
 | verification-pr | hybrid | verifier-agent |
+| feature-pr-delivery | hybrid | orchestrator |
+| release-promotion | hybrid | release-manager-agent |
 
 There is no agent workflow named `cicd-release` in v1. CI/CD is handled as GitHub Actions YAML with the `github-actions-cicd` skill.
 
@@ -19,6 +22,12 @@ There is no agent workflow named `cicd-release` in v1. CI/CD is handled as GitHu
 
 `backlog-management` consolidates local drafts and governed GitHub issue reads, answers backlog questions and prepares an approved task handoff to `tdd-implementation`.
 
-`backlog-task-delivery` composes `backlog-management`, `tdd-implementation` and `verification-pr` for a single request to select, implement and verify a ready task. Work-order approval and AFK delegation remain explicit gates.
+`backlog-task-delivery` composes `backlog-management`, `tdd-implementation`, `feature-pr-delivery` and `verification-pr` for a single request to select, implement, verify and merge a ready task into `develop`. Work-order approval and AFK delegation remain explicit gates.
+
+`feature-pr-delivery` keeps a feature PR open through CI and verifier correction cycles, then performs an approved squash merge to `develop`.
+
+`release-promotion` governs `develop -> main`, full release CI, production approval and deployment verification.
 
 `architecture-ddd` starts with an adaptive grill-me. DDD strategic design is central; Clean Architecture, patterns, APIs, data models, stack guidance and C4/ERD/UML HTML diagrams are optional capabilities selected only when needed.
+
+`architecture-foundation` materializes approved boundaries as a minimal executable structure, required contracts, composition root and architecture tests. It explicitly forbids business behavior and speculative abstractions.

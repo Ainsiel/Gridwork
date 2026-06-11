@@ -9,14 +9,17 @@
     "orchestrator",
     "planner-agent",
     "backlog-manager-agent",
-    "verifier-agent"
+    "verifier-agent",
+    "release-manager-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
     "backlog-management",
     "backlog-task-delivery",
     "architecture-ddd",
-    "verification-pr"
+    "verification-pr",
+    "feature-pr-delivery",
+    "release-promotion"
   ],
   "requiredInputs": [
     "command_intent",

@@ -20,4 +20,6 @@ Start with `QUICKSTART.md`. There is no `gridwork run` command in v1.
 Use `docs/WORKFLOW_GUIDE.md` for practical workflow examples and approval guidance.
 
 The full profile includes a backlog manager for local/GitHub backlog questions and
-task selection, plus technology-agnostic integration testing guidance.
+task selection, an architecture foundation agent for approved executable structure,
+a release manager for governed production promotion, and technology-agnostic
+integration testing guidance.

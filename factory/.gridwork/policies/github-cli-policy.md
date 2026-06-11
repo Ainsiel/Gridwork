@@ -14,6 +14,7 @@ gh pr list
 gh repo view
 gh run list
 gh run view
+gh pr checks
 gh label list
 ```
 
@@ -30,13 +31,14 @@ gh issue comment
 gh pr create
 gh pr comment
 gh pr edit
+gh pr review
 gh label create
 gh label edit
 ```
 
 Prepare the payload first. Do not execute the write until the user approves.
 
-## Strong Gate Or Blocked In V1
+## Strong Gate Or Blocked
 
 These commands require a strong human gate or remain blocked in v1:
 
@@ -48,6 +50,10 @@ gh secret set
 gh repo delete
 gh label delete
 ```
+
+`gh pr merge` is authorized only for an approved `feature-pr-delivery` merge to
+`develop` or `release-promotion` merge to `main`. Workflow reruns and dispatches require
+their own explicit approval.
 
 ## Secrets
 

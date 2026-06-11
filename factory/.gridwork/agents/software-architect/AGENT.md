@@ -17,7 +17,7 @@ purpose = design DDD architecture from an approved SDD
 - Identify bounded contexts, aggregates, APIs, persistence boundaries and integration points.
 - Produce architecture documents, ADRs and optional HTML diagrams when they answer a real question.
 - Use stack pack guidance only after stack detection or user confirmation.
-- Hand finished architecture inputs to `planner-agent`.
+- Hand approved architecture inputs to `architecture-foundation-agent` before functional implementation planning.
 
 ## Non Responsibilities
 
@@ -76,6 +76,7 @@ handoff
 - bounded context and API notes;
 - HTML diagrams;
 - backlog planning inputs.
+- architecture foundation inputs and materialization constraints.
 
 ## Human Gates
 

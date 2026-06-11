@@ -151,11 +151,13 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
   assert.deepEqual(
     manifest.agents.map((agent) => agent.id).sort(),
     [
+      "architecture-foundation-agent",
       "backlog-manager-agent",
       "implementer-agent",
       "intake-agent",
       "orchestrator",
       "planner-agent",
+      "release-manager-agent",
       "software-architect",
       "verifier-agent"
     ]
@@ -165,10 +167,13 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     manifest.workflows.map((workflow) => workflow.id).sort(),
     [
       "architecture-ddd",
+      "architecture-foundation",
       "backlog-management",
       "backlog-task-delivery",
+      "feature-pr-delivery",
       "ideation-from-zero",
       "intake-existing-code",
+      "release-promotion",
       "tdd-implementation",
       "verification-pr"
     ]
@@ -178,13 +183,19 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     manifest.skills.map((skill) => skill.id).sort(),
     [
       "api-contract-design",
+      "architecture-conformance-verification",
       "architecture-decision-records",
+      "architecture-foundation-planning",
       "architecture-grill-me",
       "architecture-pattern-selection",
       "backlog-management",
       "backlog-planning",
       "c4-html-diagrams",
+      "ci-status-evaluation",
       "clean-architecture",
+      "composition-root-wiring",
+      "contract-first-boundaries",
+      "deployment-verification",
       "design-pattern-selection",
       "diagnose-bug",
       "domain-driven-design",
@@ -200,11 +211,16 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "html-architecture-diagrams",
       "integration-test-design",
       "integration-testing",
+      "module-boundary-enforcement",
+      "project-scaffolding",
+      "pull-request-lifecycle",
       "relational-data-modeling",
+      "release-promotion",
       "sdd-requirements",
       "tdd",
       "ubiquitous-language",
       "uml-html-diagrams"
+      ,"work-order-branch-lifecycle"
     ]
   );
 
@@ -269,8 +285,53 @@ test("backlog task delivery composes selection, approved implementation and veri
   assert.ok(workflow.humanGates.includes("afk_delegation"));
   assert.ok(workflow.humanGates.includes("github_write"));
   assert.ok(workflow.producedOutputs.includes("verification_decision"));
-  assert.match(contract, /backlog-management -> tdd-implementation -> verification-pr/);
+  assert.match(contract, /backlog-management -> tdd-implementation -> feature-pr-delivery -> verification-pr/);
   assert.match(contract, /does\s+not approve the resulting work order/);
+});
+
+test("architecture foundation materializes approved boundaries without business behavior", async () => {
+  const agent = await readJson("agents/architecture-foundation-agent/agent.json");
+  const workflow = await readJson("workflows/architecture-foundation/workflow.json");
+  const policy = await readFile(
+    resolve(factoryRoot, "policies/architecture-foundation-policy.md"),
+    "utf8"
+  );
+
+  assert.equal(workflow.primaryAgent, "architecture-foundation-agent");
+  assert.ok(agent.allowedSkills.includes("project-scaffolding"));
+  assert.ok(agent.allowedSkills.includes("contract-first-boundaries"));
+  assert.ok(agent.allowedSkills.includes("module-boundary-enforcement"));
+  assert.ok(workflow.humanGates.includes("foundation_plan_approval"));
+  assert.ok(workflow.humanGates.includes("product_structure_write"));
+  assert.ok(workflow.producedOutputs.includes("architecture_tests"));
+  assert.match(policy, /known consumer or first slice/);
+  assert.match(policy, /Business rules or user-facing feature behavior/);
+});
+
+test("feature PR delivery requires green CI for the current SHA before verifier review", async () => {
+  const workflow = await readJson("workflows/feature-pr-delivery/workflow.json");
+  const contract = await readFile(resolve(factoryRoot, "workflows/feature-pr-delivery/WORKFLOW.md"), "utf8");
+  const verifier = await readFile(resolve(factoryRoot, "workflows/verification-pr/WORKFLOW.md"), "utf8");
+
+  assert.equal(workflow.primaryAgent, "orchestrator");
+  assert.ok(workflow.allowedSkills.includes("ci-status-evaluation"));
+  assert.ok(workflow.humanGates.includes("merge_to_develop"));
+  assert.match(contract, /keep the PR open, mark `ci_failed`/);
+  assert.match(contract, /only when required checks pass for the current SHA/);
+  assert.match(verifier, /Block with `blocked_by_ci`/);
+});
+
+test("release promotion is restricted to develop to main with full CI and production approval", async () => {
+  const workflow = await readJson("workflows/release-promotion/workflow.json");
+  const contract = await readFile(resolve(factoryRoot, "workflows/release-promotion/WORKFLOW.md"), "utf8");
+  const policy = await readFile(resolve(factoryRoot, "policies/delivery-lifecycle-policy.md"), "utf8");
+
+  assert.equal(workflow.primaryAgent, "release-manager-agent");
+  assert.ok(workflow.humanGates.includes("merge_to_main"));
+  assert.ok(workflow.humanGates.includes("production_approval"));
+  assert.match(contract, /develop -> release PR -> full CI -> main -> production deployment/);
+  assert.match(policy, /Feature branches start from `develop` and target `develop`/);
+  assert.match(policy, /Release PRs start from\s+`develop` and target `main`/);
 });
 
 test("integration testing is core and FastAPI guidance is available in the stack pack", async () => {
@@ -298,6 +359,10 @@ test("AFK work order template contains the contract required for backlog handoff
     "## Path Scopes",
     "## Acceptance Criteria",
     "## Allowed Commands",
+    "base_branch",
+    "feature_branch",
+    "target_branch",
+    "Required PR checks",
     "## Gates",
     "## Definition Of Done"
   ]) {

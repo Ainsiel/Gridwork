@@ -7,6 +7,10 @@ base_branch =
 target_branch =
 risk_level =
 approval_required = true
+work_order_id =
+pull_request =
+head_sha =
+required_checks =
 ```
 
 ## Proposed Action
@@ -16,6 +20,8 @@ approval_required = true
 - Push target:
 - PR title:
 - PR body reference:
+- Merge strategy:
+- Branch cleanup:
 
 ## Protection Checks
 
@@ -23,3 +29,5 @@ approval_required = true
 - Direct push to main/develop avoided:
 - Destructive commands absent:
 - Release tag action absent:
+- Required CI passed for current SHA:
+- Verifier approval current:

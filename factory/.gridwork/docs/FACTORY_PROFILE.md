@@ -9,8 +9,8 @@ generated_product_code = false
 
 ## Includes
 
-- seven agents;
-- seven workflows;
+- nine agents;
+- ten workflows;
 - implemented core skills for requirements, architecture, planning, implementation, verification and operations;
 - GitHub CLI and issue skills;
 - policies, labels and gates;

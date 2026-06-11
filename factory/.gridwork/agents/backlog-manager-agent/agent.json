@@ -17,6 +17,7 @@
     "github-issue-publisher",
     "github-label-manager",
     "github-cli",
+    "work-order-branch-lifecycle",
     "handoff"
   ],
   "permissionProfile": "backlog-manager-assisted",

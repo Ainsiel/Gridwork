@@ -9,19 +9,24 @@
     "orchestrator",
     "intake-agent",
     "software-architect",
+    "architecture-foundation-agent",
     "planner-agent",
     "backlog-manager-agent",
     "implementer-agent",
-    "verifier-agent"
+    "verifier-agent",
+    "release-manager-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
     "ideation-from-zero",
     "architecture-ddd",
+    "architecture-foundation",
     "backlog-management",
     "backlog-task-delivery",
     "tdd-implementation",
-    "verification-pr"
+    "verification-pr",
+    "feature-pr-delivery",
+    "release-promotion"
   ],
   "requiredInputs": [
     "run_id",

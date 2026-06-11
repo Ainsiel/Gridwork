@@ -26,7 +26,7 @@ Do not treat read access as permission to write.
 4. List exact files proposed for staging; never use broad staging without explicit approval.
 5. Ask separately for branch creation, staging/commit, push and PR creation.
 6. Execute only the approved action and record a concise result.
-7. Leave merge as a manual human action in v1.
+7. Execute a merge only inside `feature-pr-delivery` or `release-promotion` after the exact strong gate.
 
 ## Branch Rules
 
@@ -42,7 +42,8 @@ Without an issue:
 feature/<run-short-id>-<short-slug>
 ```
 
-Do not push directly to `main` or `develop`. If required branch policy is unclear, stop.
+Feature branches start from and target `develop`. Release PRs start from `develop` and
+target `main`. Do not push directly to `main` or `develop`.
 
 ## Gates
 
@@ -52,7 +53,7 @@ stage exact files = approval
 local commit = approval
 push branch = separate approval
 create PR = separate approval
-merge = prohibited for agents in v1
+merge to develop/main = separate strong approval in an authorized workflow
 ```
 
 ## Forbidden

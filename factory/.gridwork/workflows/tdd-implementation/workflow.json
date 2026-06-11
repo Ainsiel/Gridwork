@@ -17,6 +17,8 @@
     "integration-test-design",
     "integration-testing",
     "git-branch-management",
+    "work-order-branch-lifecycle",
+    "ci-status-evaluation",
     "nextjs-frontend-guidance",
     "nextjs-ui-design",
     "nextjs-performance",
@@ -42,7 +44,8 @@
     "green_phase_evidence",
     "refactor_summary",
     "implementation_summary",
-    "verification_handoff"
+    "verification_handoff",
+    "feature_pr_delivery_handoff"
   ],
   "artifactPaths": [
     ".factory/runs/<run-id>/",

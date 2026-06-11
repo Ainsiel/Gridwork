@@ -31,6 +31,7 @@
     "tdd_evidence",
     "verifier_report",
     "verification_decision",
+    "merge_to_develop_record",
     "delivery_summary"
   ],
   "artifactPaths": [

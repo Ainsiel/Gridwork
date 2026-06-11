@@ -7,11 +7,13 @@
   "category": "planning",
   "allowedAgents": [
     "software-architect",
+    "architecture-foundation-agent",
     "planner-agent",
     "backlog-manager-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
+    "architecture-foundation",
     "intake-existing-code",
     "backlog-management"
   ],

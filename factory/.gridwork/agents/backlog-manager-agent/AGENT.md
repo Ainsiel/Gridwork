@@ -16,6 +16,7 @@ purpose = maintain backlog visibility and prepare selected tasks for implementat
 - Reconcile local and remote items without silently treating either source as authoritative.
 - Recommend the next ready task using value, dependency, risk and scope evidence.
 - When the user asks to take a task, validate readiness and prepare an implementation work order.
+- Bind every delegated work order to one proposed `feature/<work-order-id>-<slug>` branch from `develop`.
 - Request explicit approval before delegating an approved work order to `implementer-agent`.
 - Use governed GitHub CLI reads and prepare approved write plans when requested.
 
@@ -43,6 +44,7 @@ github-issue-discovery
 github-issue-publisher
 github-label-manager
 github-cli
+work-order-branch-lifecycle
 handoff
 ```
 

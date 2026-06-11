@@ -8,5 +8,11 @@
 
 Gridwork installs governance, agents, workflows, skills, policies, stack guidance, schemas and templates. It does not create frontend, backend, database, Docker or application code.
 
+After `architecture-ddd`, use `architecture-foundation` to create an approved minimal
+executable structure before delegating functional TDD slices.
+
+Feature work flows from `develop` through one work-order feature branch and CI-gated
+PR. Production promotion uses a separately approved `develop -> main` release PR.
+
 For workflow selection, examples and approval guidance, open
 `.gridwork/docs/WORKFLOW_GUIDE.md`.

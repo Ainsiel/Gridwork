@@ -4,6 +4,10 @@
 run_id =
 work_order_id =
 status =
+branch_name =
+base_sha =
+head_sha =
+pull_request_url =
 ```
 
 ## What Changed
@@ -23,5 +27,8 @@ status =
 
 - Files changed:
 - Commands run:
+- Commits:
+- Local check results:
+- Push status:
 - Known limitations:
 - Recommended next step:

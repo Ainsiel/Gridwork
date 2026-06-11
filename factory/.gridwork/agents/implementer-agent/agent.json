@@ -7,7 +7,8 @@
   "mode": "afk",
   "contract": "AGENT.md",
   "allowedWorkflows": [
-    "tdd-implementation"
+    "tdd-implementation",
+    "feature-pr-delivery"
   ],
   "allowedSkills": [
     "github-issue-discovery",
@@ -16,6 +17,8 @@
     "integration-test-design",
     "integration-testing",
     "git-branch-management",
+    "work-order-branch-lifecycle",
+    "ci-status-evaluation",
     "nextjs-frontend-guidance",
     "nextjs-ui-design",
     "nextjs-performance",

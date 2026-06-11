@@ -8,11 +8,14 @@
   "allowedAgents": [
     "orchestrator",
     "implementer-agent",
-    "verifier-agent"
+    "verifier-agent",
+    "release-manager-agent"
   ],
   "allowedWorkflows": [
     "tdd-implementation",
-    "verification-pr"
+    "verification-pr",
+    "feature-pr-delivery",
+    "release-promotion"
   ],
   "requiredInputs": [
     "run_id",

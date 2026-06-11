@@ -24,14 +24,20 @@ First read these Gridwork files from the installed `.gridwork/` folder:
 - `.gridwork/workflows/ideation-from-zero/WORKFLOW.md`
 - `.gridwork/workflows/architecture-ddd/workflow.json`
 - `.gridwork/workflows/architecture-ddd/WORKFLOW.md`
+- `.gridwork/workflows/architecture-foundation/workflow.json`
+- `.gridwork/workflows/architecture-foundation/WORKFLOW.md`
 - `.gridwork/workflows/backlog-management/workflow.json`
 - `.gridwork/workflows/backlog-management/WORKFLOW.md`
 - `.gridwork/workflows/backlog-task-delivery/workflow.json`
 - `.gridwork/workflows/backlog-task-delivery/WORKFLOW.md`
+- `.gridwork/workflows/feature-pr-delivery/workflow.json`
+- `.gridwork/workflows/feature-pr-delivery/WORKFLOW.md`
 - `.gridwork/workflows/tdd-implementation/workflow.json`
 - `.gridwork/workflows/tdd-implementation/WORKFLOW.md`
 - `.gridwork/workflows/verification-pr/workflow.json`
 - `.gridwork/workflows/verification-pr/WORKFLOW.md`
+- `.gridwork/workflows/release-promotion/workflow.json`
+- `.gridwork/workflows/release-promotion/WORKFLOW.md`
 - `.gridwork/skills/handoff/skill.json`
 - `.gridwork/skills/handoff/SKILL.md`
 

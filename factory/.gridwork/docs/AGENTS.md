@@ -5,10 +5,12 @@
 | orchestrator | interactive | Route requests, enforce gates and delegate. |
 | intake-agent | interactive | Clarify ideas, bugs, features and improvements. |
 | software-architect | interactive | Design DDD architecture and ADRs. |
+| architecture-foundation-agent | hybrid | Materialize approved architecture without business behavior. |
 | planner-agent | hybrid | Create backlog drafts and publish plans. |
 | backlog-manager-agent | interactive | Inspect, manage and select work from local and GitHub backlog. |
 | implementer-agent | afk | Implement approved work orders with TDD. |
 | verifier-agent | hybrid | Review evidence and PRs without modifying code. |
+| release-manager-agent | hybrid | Promote verified develop state to main and observe production deployment. |
 
 Skills never raise agent permissions.
 
@@ -19,8 +21,10 @@ Key capability assignments:
 - `planner-agent` uses `github-label-manager` to audit predefined labels before issue publication.
 - `backlog-manager-agent` maintains a unified local/GitHub backlog view and prepares approved implementation handoffs.
 - `orchestrator` may prepare Git action plans after verification, but never merges.
+- `orchestrator` coordinates approved feature PR merges to `develop`; `release-manager-agent` coordinates approved release merges to `main`.
 - `software-architect` starts with `architecture-grill-me`, then selects only architecture and diagram skills justified by confirmed drivers.
-- `software-architect`, `implementer-agent` and `verifier-agent` may use integration testing and stack-pack skills after technology and paths are confirmed.
+- `architecture-foundation-agent` creates only the approved minimal executable structure, required contracts, composition root and architecture tests.
+- `software-architect`, `architecture-foundation-agent`, `implementer-agent` and `verifier-agent` may use integration testing and stack-pack skills after technology and paths are confirmed.
 
 Ask `backlog-manager-agent` for the current backlog, remaining or blocked tasks,
 missing work, or a recommended next task. A request to take a task prepares a work

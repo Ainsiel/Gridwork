@@ -13,6 +13,11 @@ path_scopes
 allowed_commands
 human_gates
 definition_of_done
+base_branch
+feature_branch
+target_branch
+required_local_checks
+required_pr_checks
 ```
 
 If a required field is missing, set:

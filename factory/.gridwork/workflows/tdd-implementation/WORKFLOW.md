@@ -55,7 +55,9 @@ handoff
 10. Refactor only while green and without changing behavior.
 11. Run final verification commands from the allowlist.
 12. Write TDD evidence and handoff to verifier when needed.
-13. Use `git-branch-management` only for an explicitly approved Git action.
+13. Correct CI or verifier findings on the same work-order feature branch.
+14. Use `git-branch-management` only for an explicitly approved Git action.
+15. Hand completed local implementation to `feature-pr-delivery`.
 
 When a work order confirms Next.js, Spring Boot, FastAPI, PostgreSQL or Docker scope, select the smallest relevant stack skill. Use `integration-testing` when behavior must cross real component boundaries. Use performance skills only when the acceptance criteria include a measurable performance problem or target.
 
@@ -87,4 +89,4 @@ Branch creation, staging, commit, push and PR creation are separate gates. Merge
 
 ## Completion Criteria
 
-The workflow can close when implementation, evidence and final checks are ready for `verification-pr`.
+The workflow can close when implementation, evidence and local checks are ready for `feature-pr-delivery`.

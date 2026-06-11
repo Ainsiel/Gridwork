@@ -6,6 +6,17 @@
 | sdd-requirements | requirements | Generates SDD drafts from ideation. |
 | backlog-planning | planning | Creates local vertical-slice issue drafts. |
 | backlog-management | planning | Maintains backlog visibility and prepares selected tasks for implementation. |
+| architecture-foundation-planning | architecture-foundation | Converts approved architecture into an exact minimal materialization plan. |
+| project-scaffolding | architecture-foundation | Creates approved minimal executable structure without business behavior. |
+| module-boundary-enforcement | architecture-testing | Creates tests for approved dependency and module boundaries. |
+| contract-first-boundaries | architecture-foundation | Materializes only required contracts with known consumers. |
+| composition-root-wiring | architecture-foundation | Assembles approved components outside domain behavior. |
+| architecture-conformance-verification | architecture-testing | Verifies structure against approved architecture and anti-speculation rules. |
+| work-order-branch-lifecycle | git | Binds one work order to one feature branch from develop. |
+| pull-request-lifecycle | github | Governs feature and release PR state through approved merge. |
+| ci-status-evaluation | cicd | Evaluates required checks for the exact PR head SHA. |
+| release-promotion | release | Coordinates verified promotion from develop to main. |
+| deployment-verification | deployment | Observes production deployment and smoke-check evidence. |
 | github-actions-cicd | cicd | Draft-only by default. |
 | github-cli | tooling | Governed `gh` usage. |
 | github-issue-publisher | github | Publishes approved issue drafts with approval. |

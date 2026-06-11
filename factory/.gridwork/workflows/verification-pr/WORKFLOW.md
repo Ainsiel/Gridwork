@@ -2,7 +2,8 @@
 
 ## Purpose
 
-Review implementation or PR evidence before the user decides whether to push, open PR, merge or return work to the implementer.
+Review the current PR head after required CI passes, then approve it for governed merge
+or return actionable findings to the implementer.
 
 ## When To Use
 
@@ -29,21 +30,27 @@ diagnose-bug
 tdd
 integration-test-design
 integration-testing
+architecture-conformance-verification
 git-branch-management
+pull-request-lifecycle
+ci-status-evaluation
 conditional stack-pack skills
 handoff
 ```
 
 ## Phases
 
-1. Read work order, acceptance criteria and implementation summary.
-2. Use `tdd` in assessment mode to review red, green and refactor evidence.
-3. Inspect changed files and path scopes.
-4. Run allowlisted checks when allowed.
-5. Produce a local verifier report.
-6. Prepare a short GitHub comment draft only if requested.
-7. Decide `pass`, `changes_requested` or `needs_more_evidence`.
-8. After `pass`, optionally prepare a gated Git action plan without executing remote actions.
+1. Confirm the PR, current head SHA and successful required CI checks.
+2. Block with `blocked_by_ci` when checks are pending, failing, stale or unknown.
+3. Read work order, acceptance criteria and implementation summary.
+4. Use `tdd` in assessment mode to review red, green and refactor evidence.
+5. Inspect changed files and path scopes.
+6. Run allowlisted checks when allowed.
+7. Use `architecture-conformance-verification` when architecture or foundation boundaries are in scope.
+8. Produce a local verifier report.
+9. Prepare a gated GitHub review only if requested.
+10. Decide `pass`, `changes_requested`, `needs_more_evidence`, `blocked_by_ci` or `blocked_by_branch_state`.
+11. After `pass`, hand the exact approved SHA back to `feature-pr-delivery`.
 
 Use relevant stack skills in review mode. A performance improvement cannot pass without comparable before/after evidence; infrastructure changes cannot pass without configuration and lifecycle validation.
 
@@ -51,7 +58,7 @@ Use relevant stack skills in review mode. A performance improvement cannot pass 
 
 Stop before `gh pr comment`, merge, deploy, branch push or code modification.
 
-Creating a local commit, pushing a branch and creating a PR require separate approvals. Merge remains manual.
+Creating a local commit, pushing a branch, creating a PR, publishing review and merging require separate approvals.
 
 ## Artifacts
 
@@ -63,4 +70,5 @@ Creating a local commit, pushing a branch and creating a PR require separate app
 
 ## Completion Criteria
 
-The workflow can close when the user has a clear verification decision and any feedback to `implementer-agent` is documented.
+The workflow can close when the current CI-green SHA has a clear verification decision
+and any feedback to `implementer-agent` is documented.

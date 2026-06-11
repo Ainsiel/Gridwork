@@ -54,8 +54,9 @@ handoff
 6. Produce C4, ERD, UML or other HTML diagrams only when they answer a defined question.
 7. Review the complete design for traceability, simplicity, risks and contradictions.
 8. Ask for approval before promoting architecture drafts to `docs/architecture/` or `docs/adr/`.
-9. Use `backlog-planning` to prepare vertical-slice issue drafts after architecture approval.
-10. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
+9. Prepare materialization constraints and hand approved architecture to `architecture-foundation`.
+10. Use `backlog-planning` for functional vertical-slice drafts after foundation, or earlier only when their foundation dependency is explicit.
+11. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
 
 ## Optional Skill Rule
 
@@ -100,4 +101,4 @@ optional api/, data/, diagrams/ and structure/ outputs
 
 ## Completion Criteria
 
-The workflow can close when architecture outputs are approved or when backlog drafts are ready for review.
+The workflow can close when architecture outputs are approved and ready for `architecture-foundation`.

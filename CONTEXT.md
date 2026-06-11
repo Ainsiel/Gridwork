@@ -41,9 +41,9 @@ cli package = gridwork@0.1.0
 factory version = 0.1.0
 factory profile = full-v1
 generated product code = false
-agents = 7
-workflows = 7
-core skills = 28
+agents = 9
+workflows = 10
+core skills = 39
 stack skills = 12
 ```
 
@@ -82,10 +82,10 @@ factory/.gridwork/             fuente versionada de la factory instalable
   docs/                        catalogos instalados
   policies/                    reglas, permisos, gates y labels
   schemas/                     schemas JSON permisivos
-  skills/                      28 skills centrales
+  skills/                      39 skills centrales
   stack-packs/                 stack pack Next.js/Spring Boot/FastAPI/PostgreSQL/Docker
   templates/                   plantillas de runtime, arquitectura y releases
-  workflows/                   7 playbooks
+  workflows/                   10 playbooks
   factory.json                 inventario y activacion principal
 
 packages/cli/
@@ -126,7 +126,7 @@ npm run pack:cli:dry-run
 ```
 
 `npm test` construye primero el CLI y luego ejecuta las pruebas. La revision actual
-ejecuto 34 pruebas: todas pasaron.
+ejecuto 37 pruebas: todas pasaron.
 
 ## Arquitectura del CLI
 
@@ -304,10 +304,13 @@ hace merge.
 | `intake-existing-code` | interactive | intake-agent | solicitud aclarada y siguiente paso |
 | `ideation-from-zero` | interactive | intake-agent | requisitos normalizados y SDD draft |
 | `architecture-ddd` | interactive | software-architect | arquitectura, ADRs y backlog draft |
+| `architecture-foundation` | hybrid | architecture-foundation-agent | estructura ejecutable minima, contratos y pruebas de arquitectura |
 | `backlog-management` | interactive | backlog-manager-agent | snapshot, gaps, seleccion y work order candidate |
 | `backlog-task-delivery` | hybrid | orchestrator | seleccion, implementacion TDD y verificacion |
 | `tdd-implementation` | afk | implementer-agent | implementacion y evidencia RED/GREEN |
 | `verification-pr` | hybrid | verifier-agent | decision pass/changes/evidence |
+| `feature-pr-delivery` | hybrid | orchestrator | PR feature, CI, verificacion y merge a develop |
+| `release-promotion` | hybrid | release-manager-agent | promocion develop-main y verificacion de deploy |
 
 Flujo conceptual frecuente:
 
@@ -316,28 +319,33 @@ solicitud
   -> orchestrator
   -> intake o ideation
   -> architecture-ddd cuando aplica
+  -> architecture-foundation para materializar limites aprobados sin logica de negocio
   -> backlog-management para consultar o seleccionar trabajo
   -> backlog-task-delivery para seleccionar, implementar y verificar una tarea
   -> work order aprobada
   -> tdd-implementation
-  -> verification-pr
+  -> feature-pr-delivery y verification-pr
+  -> release-promotion para develop -> main -> produccion
   -> acciones Git separadas y aprobadas
 ```
 
 ### Skills centrales
 
-Los 28 skills centrales se agrupan asi:
+Los 39 skills centrales se agrupan asi:
 
 - requisitos y planificacion: `sdd-requirements`, `backlog-planning`,
   `backlog-management`;
 - arquitectura: `architecture-grill-me`, `ubiquitous-language`,
   `domain-driven-design`, `clean-architecture`, seleccion de patrones, contratos API,
   modelo relacional y ADRs;
+- foundation: planificacion, scaffolding minimo, contratos con consumidores conocidos,
+  composition root, pruebas de limites y verificacion de conformidad;
 - diagramas: base HTML autocontenida y variantes C4, ERD y UML;
 - diagnostico, implementacion y pruebas: `diagnose-bug`, `tdd`,
   `integration-test-design`, `integration-testing`;
 - GitHub/Git/CI: CLI gobernado, discovery/publish de issues, labels,
-  `git-branch-management`, `github-actions-cicd`;
+  `git-branch-management`, ramas por work order, ciclo de PR, evaluacion CI,
+  promocion de release, verificacion de deployment y `github-actions-cicd`;
 - operacion: `handoff` y `gridwork-release-publisher`.
 
 Cada skill tiene:
@@ -416,7 +424,7 @@ describen manifests de factory, agentes, workflows, skills y lockfile.
 
 ## Pruebas y CI
 
-Las 34 pruebas cubren:
+Las 37 pruebas cubren:
 
 - ayuda del CLI y ausencia de `gridwork run`;
 - instalacion local full-v1;
@@ -507,8 +515,8 @@ Revision ejecutada:
 
 ```text
 npm test
-tests = 34
-pass = 34
+tests = 37
+pass = 37
 fail = 0
 
 npm run pack:cli:dry-run

@@ -29,6 +29,11 @@
       "contract": "agents/software-architect/AGENT.md"
     },
     {
+      "id": "architecture-foundation-agent",
+      "manifest": "agents/architecture-foundation-agent/agent.json",
+      "contract": "agents/architecture-foundation-agent/AGENT.md"
+    },
+    {
       "id": "planner-agent",
       "manifest": "agents/planner-agent/agent.json",
       "contract": "agents/planner-agent/AGENT.md"
@@ -47,6 +52,11 @@
       "id": "verifier-agent",
       "manifest": "agents/verifier-agent/agent.json",
       "contract": "agents/verifier-agent/AGENT.md"
+    },
+    {
+      "id": "release-manager-agent",
+      "manifest": "agents/release-manager-agent/agent.json",
+      "contract": "agents/release-manager-agent/AGENT.md"
     }
   ],
   "workflows": [
@@ -64,6 +74,11 @@
       "id": "architecture-ddd",
       "manifest": "workflows/architecture-ddd/workflow.json",
       "contract": "workflows/architecture-ddd/WORKFLOW.md"
+    },
+    {
+      "id": "architecture-foundation",
+      "manifest": "workflows/architecture-foundation/workflow.json",
+      "contract": "workflows/architecture-foundation/WORKFLOW.md"
     },
     {
       "id": "backlog-management",
@@ -84,6 +99,16 @@
       "id": "verification-pr",
       "manifest": "workflows/verification-pr/workflow.json",
       "contract": "workflows/verification-pr/WORKFLOW.md"
+    },
+    {
+      "id": "feature-pr-delivery",
+      "manifest": "workflows/feature-pr-delivery/workflow.json",
+      "contract": "workflows/feature-pr-delivery/WORKFLOW.md"
+    },
+    {
+      "id": "release-promotion",
+      "manifest": "workflows/release-promotion/workflow.json",
+      "contract": "workflows/release-promotion/WORKFLOW.md"
     }
   ],
   "skills": [
@@ -106,6 +131,61 @@
       "id": "backlog-management",
       "manifest": "skills/backlog-management/skill.json",
       "contract": "skills/backlog-management/SKILL.md"
+    },
+    {
+      "id": "architecture-foundation-planning",
+      "manifest": "skills/architecture-foundation-planning/skill.json",
+      "contract": "skills/architecture-foundation-planning/SKILL.md"
+    },
+    {
+      "id": "project-scaffolding",
+      "manifest": "skills/project-scaffolding/skill.json",
+      "contract": "skills/project-scaffolding/SKILL.md"
+    },
+    {
+      "id": "module-boundary-enforcement",
+      "manifest": "skills/module-boundary-enforcement/skill.json",
+      "contract": "skills/module-boundary-enforcement/SKILL.md"
+    },
+    {
+      "id": "contract-first-boundaries",
+      "manifest": "skills/contract-first-boundaries/skill.json",
+      "contract": "skills/contract-first-boundaries/SKILL.md"
+    },
+    {
+      "id": "composition-root-wiring",
+      "manifest": "skills/composition-root-wiring/skill.json",
+      "contract": "skills/composition-root-wiring/SKILL.md"
+    },
+    {
+      "id": "architecture-conformance-verification",
+      "manifest": "skills/architecture-conformance-verification/skill.json",
+      "contract": "skills/architecture-conformance-verification/SKILL.md"
+    },
+    {
+      "id": "work-order-branch-lifecycle",
+      "manifest": "skills/work-order-branch-lifecycle/skill.json",
+      "contract": "skills/work-order-branch-lifecycle/SKILL.md"
+    },
+    {
+      "id": "pull-request-lifecycle",
+      "manifest": "skills/pull-request-lifecycle/skill.json",
+      "contract": "skills/pull-request-lifecycle/SKILL.md"
+    },
+    {
+      "id": "ci-status-evaluation",
+      "manifest": "skills/ci-status-evaluation/skill.json",
+      "contract": "skills/ci-status-evaluation/SKILL.md"
+    },
+    {
+      "id": "release-promotion",
+      "manifest": "skills/release-promotion/skill.json",
+      "contract": "skills/release-promotion/SKILL.md"
+    },
+    {
+      "id": "deployment-verification",
+      "manifest": "skills/deployment-verification/skill.json",
+      "contract": "skills/deployment-verification/SKILL.md"
     },
     {
       "id": "github-actions-cicd",
@@ -244,6 +324,8 @@
     "policies/work-order-policy.md",
     "policies/tool-allowlist.md",
     "policies/architecture-design-policy.md",
+    "policies/architecture-foundation-policy.md",
+    "policies/delivery-lifecycle-policy.md",
     "policies/diagram-html-policy.md",
     "policies/stack-skill-policy.md"
   ],
@@ -283,6 +365,14 @@
     "templates/integration-test-evidence.md",
     "templates/architecture-questionnaire.md",
     "templates/architecture-overview.md",
+    "templates/architecture-foundation-plan.md",
+    "templates/architecture-conformance-report.md",
+    "templates/ci-failure-handoff.md",
+    "templates/release-promotion-report.md",
+    "templates/github-actions-feature-pr-ci.yml",
+    "templates/github-actions-release-pr-ci.yml",
+    "templates/github-actions-deploy-production.yml",
+    "templates/github-rulesets-plan.md",
     "templates/bounded-context-canvas.md",
     "templates/adr.md",
     "templates/pattern-decision.md",

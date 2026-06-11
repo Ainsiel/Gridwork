@@ -33,10 +33,13 @@ purpose = route user requests to the correct workflow, agent and skill set
 intake-existing-code
 ideation-from-zero
 architecture-ddd
+architecture-foundation
 backlog-management
 backlog-task-delivery
+feature-pr-delivery
 tdd-implementation
 verification-pr
+release-promotion
 ```
 
 ## Allowed Skills
@@ -113,10 +116,13 @@ For `architecture-ddd`, route first to `architecture-grill-me`. Let `software-ar
 bug_or_feature_existing_code -> intake-existing-code -> intake-agent
 new_product_idea -> ideation-from-zero -> intake-agent
 approved_sdd_needs_architecture -> architecture-ddd -> software-architect
+approved_architecture_needs_executable_foundation -> architecture-foundation -> architecture-foundation-agent
 backlog_question_or_task_selection -> backlog-management -> backlog-manager-agent
 select_implement_and_verify_backlog_task -> backlog-task-delivery -> orchestrator
+implemented_work_order_needs_pr_delivery -> feature-pr-delivery -> orchestrator
 ready_issue_or_work_order -> tdd-implementation -> implementer-agent
 implementation_or_pr_review -> verification-pr -> verifier-agent
+promote_develop_to_production -> release-promotion -> release-manager-agent
 ```
 
 If routing confidence is low, ask before creating artifacts or delegating.

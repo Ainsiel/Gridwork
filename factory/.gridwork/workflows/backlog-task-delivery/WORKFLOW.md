@@ -29,7 +29,7 @@ mode = hybrid
 ## Composed Workflows
 
 ```text
-backlog-management -> tdd-implementation -> verification-pr
+backlog-management -> tdd-implementation -> feature-pr-delivery -> verification-pr
 ```
 
 Each composed workflow keeps its own skills, permissions, artifacts and human gates.
@@ -46,13 +46,14 @@ The parent workflow does not grant stack or remote-write permissions.
    `tdd-implementation`.
 6. Stop at any implementation gate, including scope, dependency, unknown command,
    destructive or Git action changes.
-7. Hand implementation summary and TDD evidence to `verifier-agent` through
-   `verification-pr`.
-8. Produce `pass`, `changes_requested` or `needs_more_evidence`.
-9. When changes are requested, return documented feedback to the implementer without
+7. Deliver the feature branch through `feature-pr-delivery`.
+8. Require successful regression CI for the current PR head SHA before verifier review.
+9. Hand implementation summary and TDD evidence to `verifier-agent` through `verification-pr`.
+10. Produce `pass`, `changes_requested`, `needs_more_evidence` or a blocking CI state.
+11. When changes are requested, return documented feedback to the implementer without
    silently expanding scope.
-10. Produce a final delivery summary. Keep GitHub writes, commits, pushes, PR creation,
-    merge and deployment behind separate approvals.
+12. After CI and verifier pass, request merge approval and squash merge into `develop`.
+13. Produce a final delivery summary. Keep each Git/GitHub write and deployment behind separate approvals.
 
 ## Approval Boundary
 
@@ -81,6 +82,5 @@ deployment or secret access.
 
 ## Completion Criteria
 
-The workflow closes when one selected task has a documented verification decision and
-delivery summary, or when a gate or verifier decision clearly documents why delivery
-cannot continue.
+The workflow closes when one selected task is merged into `develop`, or when a gate,
+CI result or verifier decision clearly documents why delivery cannot continue.

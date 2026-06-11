@@ -36,10 +36,13 @@ The orchestrator must wait before code changes, GitHub writes or AFK delegation.
 | A bug, feature or improvement in existing code needs clarification | `intake-existing-code` | `intake-agent` | interactive |
 | A new product idea needs requirements and an SDD | `ideation-from-zero` | `intake-agent` | interactive |
 | An approved SDD needs architecture and technical decisions | `architecture-ddd` | `software-architect` | interactive |
+| Approved architecture must become an executable foundation | `architecture-foundation` | `architecture-foundation-agent` | hybrid |
 | You want backlog status, gaps or a task selected | `backlog-management` | `backlog-manager-agent` | interactive |
 | You want a pending task selected, implemented and verified | `backlog-task-delivery` | `orchestrator` | hybrid |
 | An approved work order is ready to implement | `tdd-implementation` | `implementer-agent` | AFK |
+| A completed work order must pass PR CI and merge to develop | `feature-pr-delivery` | `orchestrator` | hybrid |
 | An implementation or PR needs review | `verification-pr` | `verifier-agent` | hybrid |
+| Verified develop state must be promoted to production | `release-promotion` | `release-manager-agent` | hybrid |
 
 When uncertain, describe the outcome instead of naming a workflow. The orchestrator
 should route the request and explain its choice.
@@ -189,6 +192,52 @@ integration-test-strategy.md
 Drafts stay under `.factory/runs/<run-id>/artifacts/architecture/`. Promotion to
 `docs/architecture/` or `docs/adr/` requires approval.
 
+## Architecture Foundation
+
+Use `architecture-foundation` after architecture and ADRs are approved, before
+functional slices are delegated to the implementer.
+
+Good requests:
+
+```text
+Materialize the approved architecture as a minimal executable foundation.
+Create the approved FastAPI module boundaries and architecture tests, but no business logic.
+Prepare the project structure and required contracts for the first vertical slice.
+```
+
+The foundation agent first produces an exact plan containing paths, required contracts,
+known consumers, composition-root wiring, architecture tests, commands and exclusions.
+The user must approve that plan and the product-structure write before files change.
+
+Allowed output:
+
+```text
+minimal executable project structure
+approved module and bounded-context boundaries
+contracts required by known consumers or the first slices
+minimal composition root
+architecture and dependency-boundary tests
+conformance report and first-slice backlog inputs
+```
+
+Forbidden output:
+
+```text
+business rules
+generic CRUD
+complete repository adapters
+future module placeholders
+interfaces without known consumers
+```
+
+Typical transition:
+
+```text
+architecture-ddd -> architecture-foundation -> backlog-management
+                                  |
+                                  -> tdd-implementation for approved functional slices
+```
+
 ## Backlog Management
 
 Use `backlog-management` to inspect, reconcile and manage local drafts and GitHub
@@ -276,7 +325,7 @@ GitHub writes and Git actions remain separately gated.
 After both approvals, the orchestrator composes:
 
 ```text
-backlog-management -> tdd-implementation -> verification-pr
+    backlog-management -> tdd-implementation -> feature-pr-delivery -> verification-pr
 ```
 
 The broad initial request does not approve the selected work order, AFK delegation,
@@ -341,6 +390,19 @@ fastapi-performance
 The workflow stops before dependency changes, scope changes, unknown commands,
 destructive actions, commit, push, PR creation or deployment.
 
+## Feature PR Delivery
+
+Use `feature-pr-delivery` after local implementation checks pass.
+
+```text
+develop -> feature/<work-order-id>-<slug> -> PR to develop
+        -> feature / regression-gate -> verifier -> squash merge to develop
+```
+
+Commit, push, PR creation, PR review, merge and branch deletion are separate gates.
+When CI fails, the PR remains open with `ci_failed`; failures return to the implementer.
+Every corrective push invalidates prior CI evidence and verifier approval.
+
 ## Verification PR
 
 Use `verification-pr` after implementation or when asking for a review of an
@@ -371,10 +433,25 @@ Possible decisions:
 pass
 changes_requested
 needs_more_evidence
+blocked_by_ci
+blocked_by_branch_state
 ```
 
 Missing or invalid RED/GREEN evidence should produce `needs_more_evidence`.
 GitHub PR comments, commits, pushes, PR creation and merge remain separately gated.
+
+## Release Promotion
+
+Use `release-promotion` when verified changes in `develop` are ready for production.
+
+```text
+develop -> release PR to main -> release / release-gate
+        -> production approval -> merge to main -> production deployment
+```
+
+Feature branches must never target `main`. The release manager coordinates the release,
+but does not repair code or bypass failed checks. Deployment verification must reference
+the exact SHA merged into `main`.
 
 Key artifacts:
 
@@ -394,14 +471,20 @@ Key artifacts:
 2. "I approve the SDD. Design the architecture."
    -> architecture-ddd
 
-3. "Show the resulting backlog and recommend the first tracer task."
+3. "Materialize the approved architecture without business logic."
+   -> architecture-foundation
+
+4. "Show the resulting backlog and recommend the first tracer task."
    -> backlog-management
 
-4. "Approve the work order and delegate it."
+5. "Approve the work order and delegate it."
    -> tdd-implementation
 
-5. "Verify the implementation."
-   -> verification-pr
+6. "Deliver the feature PR through CI and verification."
+   -> feature-pr-delivery and verification-pr
+
+7. "Promote verified develop state to production."
+   -> release-promotion
 ```
 
 ### Existing Bug To Verified Fix
@@ -457,10 +540,16 @@ Good:
 ```text
 Approve read-only GitHub issue discovery for owner/repo.
 Approve promotion of these architecture drafts to docs/architecture/.
+Approve this architecture foundation plan and its exact product-structure writes.
 Approve work order GW-18 exactly as written.
 Approve AFK delegation of GW-18 to implementer-agent.
 Approve creating GitHub issues from drafts GW-21 and GW-22.
 Approve staging only the listed files.
+Approve push of feature/GW-18-create-todo.
+Approve creation of the feature PR targeting develop.
+Approve squash merge of PR 42 into develop.
+Approve creation of the develop-to-main release PR.
+Approve production promotion and merge to main.
 ```
 
 Too broad:
