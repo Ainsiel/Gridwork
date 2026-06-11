@@ -39,12 +39,16 @@ github-cli
 github-issue-discovery
 diagnose-bug
 tdd
+integration-test-design
+integration-testing
 git-branch-management
 nextjs-frontend-guidance
 nextjs-ui-design
 nextjs-performance
 springboot-backend-guidance
 springboot-performance
+fastapi-backend-guidance
+fastapi-performance
 postgresql-persistence-guidance
 postgresql-performance
 dockerfile-authoring

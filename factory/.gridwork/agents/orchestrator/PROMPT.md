@@ -24,6 +24,8 @@ First read these Gridwork files from the installed `.gridwork/` folder:
 - `.gridwork/workflows/ideation-from-zero/WORKFLOW.md`
 - `.gridwork/workflows/architecture-ddd/workflow.json`
 - `.gridwork/workflows/architecture-ddd/WORKFLOW.md`
+- `.gridwork/workflows/backlog-management/workflow.json`
+- `.gridwork/workflows/backlog-management/WORKFLOW.md`
 - `.gridwork/workflows/tdd-implementation/workflow.json`
 - `.gridwork/workflows/tdd-implementation/WORKFLOW.md`
 - `.gridwork/workflows/verification-pr/workflow.json`

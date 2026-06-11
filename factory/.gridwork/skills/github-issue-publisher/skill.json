@@ -6,11 +6,13 @@
   "description": "Publishes approved local issue drafts to GitHub in small batches using governed `gh` commands.",
   "category": "github",
   "allowedAgents": [
-    "planner-agent"
+    "planner-agent",
+    "backlog-manager-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
-    "intake-existing-code"
+    "intake-existing-code",
+    "backlog-management"
   ],
   "requiredInputs": [
     "approved_issue_drafts",
@@ -36,4 +38,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

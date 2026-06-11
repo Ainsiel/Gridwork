@@ -26,6 +26,8 @@ mode = afk
 github-issue-discovery
 diagnose-bug
 tdd
+integration-test-design
+integration-testing
 git-branch-management
 conditional stack-pack skills
 handoff
@@ -55,7 +57,7 @@ handoff
 12. Write TDD evidence and handoff to verifier when needed.
 13. Use `git-branch-management` only for an explicitly approved Git action.
 
-When a work order confirms Next.js, Spring Boot, PostgreSQL or Docker scope, select the smallest relevant stack skill. Use performance skills only when the acceptance criteria include a measurable performance problem or target.
+When a work order confirms Next.js, Spring Boot, FastAPI, PostgreSQL or Docker scope, select the smallest relevant stack skill. Use `integration-testing` when behavior must cross real component boundaries. Use performance skills only when the acceptance criteria include a measurable performance problem or target.
 
 ## TDD Rule
 

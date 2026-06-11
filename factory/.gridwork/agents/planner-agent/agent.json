@@ -8,7 +8,8 @@
   "contract": "AGENT.md",
   "allowedWorkflows": [
     "architecture-ddd",
-    "intake-existing-code"
+    "intake-existing-code",
+    "backlog-management"
   ],
   "allowedSkills": [
     "backlog-planning",

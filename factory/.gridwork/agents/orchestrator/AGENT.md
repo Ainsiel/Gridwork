@@ -33,6 +33,7 @@ purpose = route user requests to the correct workflow, agent and skill set
 intake-existing-code
 ideation-from-zero
 architecture-ddd
+backlog-management
 tdd-implementation
 verification-pr
 ```
@@ -111,6 +112,7 @@ For `architecture-ddd`, route first to `architecture-grill-me`. Let `software-ar
 bug_or_feature_existing_code -> intake-existing-code -> intake-agent
 new_product_idea -> ideation-from-zero -> intake-agent
 approved_sdd_needs_architecture -> architecture-ddd -> software-architect
+backlog_question_or_task_selection -> backlog-management -> backlog-manager-agent
 ready_issue_or_work_order -> tdd-implementation -> implementer-agent
 implementation_or_pr_review -> verification-pr -> verifier-agent
 ```

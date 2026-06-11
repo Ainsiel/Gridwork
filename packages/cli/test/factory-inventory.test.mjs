@@ -151,6 +151,7 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
   assert.deepEqual(
     manifest.agents.map((agent) => agent.id).sort(),
     [
+      "backlog-manager-agent",
       "implementer-agent",
       "intake-agent",
       "orchestrator",
@@ -164,6 +165,7 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     manifest.workflows.map((workflow) => workflow.id).sort(),
     [
       "architecture-ddd",
+      "backlog-management",
       "ideation-from-zero",
       "intake-existing-code",
       "tdd-implementation",
@@ -178,6 +180,7 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "architecture-decision-records",
       "architecture-grill-me",
       "architecture-pattern-selection",
+      "backlog-management",
       "backlog-planning",
       "c4-html-diagrams",
       "clean-architecture",
@@ -194,6 +197,8 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "gridwork-release-publisher",
       "handoff",
       "html-architecture-diagrams",
+      "integration-test-design",
+      "integration-testing",
       "relational-data-modeling",
       "sdd-requirements",
       "tdd",
@@ -212,6 +217,8 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "docker-compose-local-guidance",
       "docker-compose-optimization",
       "dockerfile-authoring",
+      "fastapi-backend-guidance",
+      "fastapi-performance",
       "nextjs-frontend-guidance",
       "nextjs-performance",
       "nextjs-ui-design",
@@ -226,6 +233,52 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
     const stackSkill = await readJson(`stack-packs/${manifest.stackPacks[0].id}/${skillManifest}`);
     assert.equal(stackSkill.generatesOnInit, false, `${stackSkill.id} must not generate code during init`);
     assert.equal(stackSkill.permissionsInheritedOnly, true, `${stackSkill.id} must inherit permissions`);
+  }
+});
+
+test("backlog manager can inspect backlog and prepare an approved implementation handoff", async () => {
+  const agent = await readJson("agents/backlog-manager-agent/agent.json");
+  const workflow = await readJson("workflows/backlog-management/workflow.json");
+  const skill = await readJson("skills/backlog-management/skill.json");
+
+  assert.equal(workflow.primaryAgent, "backlog-manager-agent");
+  assert.ok(agent.allowedSkills.includes("github-cli"));
+  assert.ok(agent.allowedSkills.includes("github-issue-discovery"));
+  assert.ok(agent.allowedSkills.includes("handoff"));
+  assert.ok(skill.humanGates.includes("afk_delegation"));
+  assert.ok(workflow.producedOutputs.includes("work_order_candidate"));
+  assert.ok(workflow.producedOutputs.includes("implementation_handoff"));
+});
+
+test("integration testing is core and FastAPI guidance is available in the stack pack", async () => {
+  const manifest = await readFactoryManifest();
+  const integration = await readJson("skills/integration-testing/skill.json");
+  const stackPack = await readJson(manifest.stackPacks[0].manifest);
+
+  assert.ok(manifest.skills.some((skill) => skill.id === "integration-testing"));
+  assert.ok(manifest.skills.some((skill) => skill.id === "integration-test-design"));
+  assert.ok(integration.allowedWorkflows.includes("tdd-implementation"));
+  assert.ok(integration.allowedWorkflows.includes("verification-pr"));
+  assert.ok(stackPack.technologies.includes("fastapi"));
+  assert.ok(stackPack.skills.includes("skills/fastapi-backend-guidance/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/fastapi-performance/skill.json"));
+});
+
+test("AFK work order template contains the contract required for backlog handoff", async () => {
+  const template = await readFile(resolve(factoryRoot, "templates/work-order-afk.md"), "utf8");
+
+  for (const required of [
+    "work_order_id",
+    "run_id",
+    "workflow",
+    "agent",
+    "## Path Scopes",
+    "## Acceptance Criteria",
+    "## Allowed Commands",
+    "## Gates",
+    "## Definition Of Done"
+  ]) {
+    assert.match(template, new RegExp(required), `work order template should include ${required}`);
   }
 });
 

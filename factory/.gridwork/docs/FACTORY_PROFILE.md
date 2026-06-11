@@ -9,13 +9,13 @@ generated_product_code = false
 
 ## Includes
 
-- six agents;
-- five workflows;
+- seven agents;
+- six workflows;
 - implemented core skills for requirements, architecture, planning, implementation, verification and operations;
 - GitHub CLI and issue skills;
 - policies, labels and gates;
 - templates for runs, work orders and reports;
-- Next.js + Spring Boot + PostgreSQL + Docker skills for design, implementation, performance and verification.
+- Next.js + Spring Boot/FastAPI + PostgreSQL + Docker skills for design, implementation, performance and verification.
 
 ## Rule
 

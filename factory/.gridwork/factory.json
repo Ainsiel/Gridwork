@@ -34,6 +34,11 @@
       "contract": "agents/planner-agent/AGENT.md"
     },
     {
+      "id": "backlog-manager-agent",
+      "manifest": "agents/backlog-manager-agent/agent.json",
+      "contract": "agents/backlog-manager-agent/AGENT.md"
+    },
+    {
       "id": "implementer-agent",
       "manifest": "agents/implementer-agent/agent.json",
       "contract": "agents/implementer-agent/AGENT.md"
@@ -61,6 +66,11 @@
       "contract": "workflows/architecture-ddd/WORKFLOW.md"
     },
     {
+      "id": "backlog-management",
+      "manifest": "workflows/backlog-management/workflow.json",
+      "contract": "workflows/backlog-management/WORKFLOW.md"
+    },
+    {
       "id": "tdd-implementation",
       "manifest": "workflows/tdd-implementation/workflow.json",
       "contract": "workflows/tdd-implementation/WORKFLOW.md"
@@ -86,6 +96,11 @@
       "id": "backlog-planning",
       "manifest": "skills/backlog-planning/skill.json",
       "contract": "skills/backlog-planning/SKILL.md"
+    },
+    {
+      "id": "backlog-management",
+      "manifest": "skills/backlog-management/skill.json",
+      "contract": "skills/backlog-management/SKILL.md"
     },
     {
       "id": "github-actions-cicd",
@@ -183,6 +198,16 @@
       "contract": "skills/tdd/SKILL.md"
     },
     {
+      "id": "integration-testing",
+      "manifest": "skills/integration-testing/skill.json",
+      "contract": "skills/integration-testing/SKILL.md"
+    },
+    {
+      "id": "integration-test-design",
+      "manifest": "skills/integration-test-design/skill.json",
+      "contract": "skills/integration-test-design/SKILL.md"
+    },
+    {
       "id": "git-branch-management",
       "manifest": "skills/git-branch-management/skill.json",
       "contract": "skills/git-branch-management/SKILL.md"
@@ -247,6 +272,10 @@
     "templates/implementation-summary.md",
     "templates/git-action-plan.md",
     "templates/github-label-plan.md",
+    "templates/backlog-snapshot.md",
+    "templates/task-selection.md",
+    "templates/integration-test-strategy.md",
+    "templates/integration-test-evidence.md",
     "templates/architecture-questionnaire.md",
     "templates/architecture-overview.md",
     "templates/bounded-context-canvas.md",

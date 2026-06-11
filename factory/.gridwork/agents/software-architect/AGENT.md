@@ -44,6 +44,8 @@ design-pattern-selection
 api-contract-design
 relational-data-modeling
 architecture-decision-records
+integration-test-design
+integration-testing
 html-architecture-diagrams
 c4-html-diagrams
 erd-html-diagrams
@@ -55,6 +57,8 @@ nextjs-ui-design
 nextjs-performance
 springboot-backend-guidance
 springboot-performance
+fastapi-backend-guidance
+fastapi-performance
 postgresql-persistence-guidance
 postgresql-performance
 dockerfile-authoring

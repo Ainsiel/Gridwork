@@ -30,6 +30,7 @@ purpose = convert approved requirements and architecture into backlog
 ```text
 architecture-ddd
 intake-existing-code
+backlog-management
 ```
 
 ## Allowed Skills

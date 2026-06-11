@@ -27,6 +27,8 @@ github-cli
 github-issue-discovery
 diagnose-bug
 tdd
+integration-test-design
+integration-testing
 git-branch-management
 conditional stack-pack skills
 handoff

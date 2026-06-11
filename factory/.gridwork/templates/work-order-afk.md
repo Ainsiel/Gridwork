@@ -1,5 +1,6 @@
 ---
 work_order_id: <YYYYMMDD-HHMM-slug>
+run_id: <run-id>
 workflow: tdd-implementation
 agent: implementer-agent
 status: draft
@@ -17,9 +18,17 @@ approved_by_user: false
 
 <allowed files and behavior>
 
+## Path Scopes
+
+- <confirmed path>
+
 ## Acceptance Criteria
 
 - [ ] <criterion>
+
+## Allowed Commands
+
+- `<confirmed command>`
 
 ## TDD Plan
 
@@ -43,3 +52,9 @@ approved_by_user: false
 - github_write
 - secret_value_needed
 
+## Definition Of Done
+
+- [ ] Acceptance criteria are satisfied.
+- [ ] RED and GREEN evidence is recorded.
+- [ ] Allowlisted final checks pass.
+- [ ] Implementation summary and verifier handoff are ready.

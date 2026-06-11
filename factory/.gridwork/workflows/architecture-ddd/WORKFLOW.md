@@ -31,6 +31,8 @@ design-pattern-selection
 api-contract-design
 relational-data-modeling
 architecture-decision-records
+integration-test-design
+integration-testing
 html-architecture-diagrams
 c4-html-diagrams
 erd-html-diagrams

@@ -5,6 +5,7 @@
 | handoff | handoff | Required only on agent or session transfer. |
 | sdd-requirements | requirements | Generates SDD drafts from ideation. |
 | backlog-planning | planning | Creates local vertical-slice issue drafts. |
+| backlog-management | planning | Maintains backlog visibility and prepares selected tasks for implementation. |
 | github-actions-cicd | cicd | Draft-only by default. |
 | github-cli | tooling | Governed `gh` usage. |
 | github-issue-publisher | github | Publishes approved issue drafts with approval. |
@@ -24,6 +25,8 @@
 | uml-html-diagrams | architecture-diagram | Optional sequence, state, activity, class or deployment views. |
 | diagnose-bug | diagnosis | Diagnosis only unless used inside an implementation workflow. |
 | tdd | implementation | Behavior-first red-green-refactor with vertical tracer bullets. |
+| integration-test-design | testing | Technology-agnostic integration boundary and scenario design. |
+| integration-testing | testing | Technology-agnostic tests across meaningful real boundaries. |
 | git-branch-management | git | Prepares governed Git plans; every write remains gated. |
 | github-label-manager | github | Audits predefined labels and prepares approved create plans. |
 | gridwork-release-publisher | release | Dry-run release plans by default. |
@@ -36,6 +39,7 @@ The `nextjs-springboot-postgresql` stack pack provides:
 |---|---|
 | Next.js | `nextjs-frontend-guidance`, `nextjs-ui-design`, `nextjs-performance` |
 | Spring Boot | `springboot-backend-guidance`, `springboot-performance` |
+| FastAPI | `fastapi-backend-guidance`, `fastapi-performance` |
 | PostgreSQL | `postgresql-persistence-guidance`, `postgresql-performance` |
 | Docker | `dockerfile-authoring`, `docker-compose-local-guidance`, `docker-compose-optimization` |
 

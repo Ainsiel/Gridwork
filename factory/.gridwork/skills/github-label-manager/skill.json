@@ -6,11 +6,13 @@
   "description": "Compares the local label catalog with GitHub and prepares approved plans for creating missing predefined labels.",
   "category": "github",
   "allowedAgents": [
-    "planner-agent"
+    "planner-agent",
+    "backlog-manager-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
-    "intake-existing-code"
+    "intake-existing-code",
+    "backlog-management"
   ],
   "requiredInputs": [
     "repo",

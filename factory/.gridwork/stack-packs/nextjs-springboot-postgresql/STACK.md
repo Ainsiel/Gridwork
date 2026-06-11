@@ -1,4 +1,4 @@
-# Next.js + Spring Boot + PostgreSQL Stack Pack
+# Next.js + Spring Boot/FastAPI + PostgreSQL Stack Pack
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Provide guidance for agents working in projects that use:
 
 ```text
 frontend = Next.js
-backend = Spring Boot
+backend = Spring Boot or FastAPI
 database = PostgreSQL
 local_environment = Docker Compose recommended
 architecture_style = DDD + vertical slices
@@ -30,6 +30,7 @@ When feasible, issues should include UI, API/application behavior, domain behavi
 ```text
 Next.js = frontend guidance, UI design, performance
 Spring Boot = backend guidance, performance
+FastAPI = backend guidance, performance
 PostgreSQL = persistence guidance, performance
 Docker = Dockerfile authoring, Compose local guidance, Compose optimization
 ```

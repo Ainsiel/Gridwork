@@ -1,15 +1,17 @@
 {
   "kind": "gridwork.stack-pack",
   "id": "nextjs-springboot-postgresql",
-  "name": "Next.js + Spring Boot + PostgreSQL",
+  "name": "Next.js + Spring Boot/FastAPI + PostgreSQL",
   "version": "0.1.0",
-  "description": "Stack skill pack for designing, implementing and verifying fullstack vertical slices with Next.js, Spring Boot, PostgreSQL and Docker.",
+  "description": "Stack skill pack for designing, implementing and verifying fullstack vertical slices with Next.js, Spring Boot or FastAPI, PostgreSQL and Docker.",
   "generatesProductCode": false,
   "pathsAreHintsOnly": true,
   "skillsExpandPermissions": false,
   "technologies": [
     "nextjs",
     "springboot",
+    "fastapi",
+    "python",
     "postgresql",
     "docker",
     "docker-compose"
@@ -39,6 +41,8 @@
     "skills/nextjs-performance/skill.json",
     "skills/springboot-backend-guidance/skill.json",
     "skills/springboot-performance/skill.json",
+    "skills/fastapi-backend-guidance/skill.json",
+    "skills/fastapi-performance/skill.json",
     "skills/postgresql-persistence-guidance/skill.json",
     "skills/postgresql-performance/skill.json",
     "skills/dockerfile-authoring/skill.json",

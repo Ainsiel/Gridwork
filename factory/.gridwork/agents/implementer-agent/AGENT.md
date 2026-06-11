@@ -40,12 +40,16 @@ tdd-implementation
 github-issue-discovery
 diagnose-bug
 tdd
+integration-test-design
+integration-testing
 git-branch-management
 nextjs-frontend-guidance
 nextjs-ui-design
 nextjs-performance
 springboot-backend-guidance
 springboot-performance
+fastapi-backend-guidance
+fastapi-performance
 postgresql-persistence-guidance
 postgresql-performance
 dockerfile-authoring
@@ -87,4 +91,4 @@ Stop before dependency changes, destructive changes, scope changes, unknown comm
 
 ## Stack Skills
 
-Use a stack skill only when the work order confirms the technology, relevant path and allowed commands. Apply general guidance before specialized optimization skills. Performance skills require a baseline. Docker and dependency changes remain gated. Stack skills never authorize work outside the work order.
+Use a stack skill only when the work order confirms the technology, relevant path and allowed commands. Apply general guidance before specialized optimization skills. Use `integration-testing` when acceptance criteria require behavior across real boundaries. Performance skills require a baseline. Docker and dependency changes remain gated. Stack skills never authorize work outside the work order.

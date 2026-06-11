@@ -26,6 +26,12 @@ Can write architecture drafts and approved architecture docs. Can use stack skil
 
 Can create local issue drafts and publish plans. GitHub writes require approval.
 
+### backlog-manager-assisted
+
+Can read local backlog artifacts and governed GitHub issue data, write backlog reports,
+prepare work order candidates and handoffs. GitHub writes, work-order approval and AFK
+delegation require separate approval.
+
 ### implementer-afk-tdd
 
 Can modify scoped product, test and infrastructure files only when an approved work order exists. May use confirmed stack skills. Must follow TDD and command allowlists.

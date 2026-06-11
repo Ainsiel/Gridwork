@@ -56,6 +56,7 @@ Installation does not create a frontend, backend, database, Dockerfile, Compose 
 | Intake Agent | Refines ideas, bugs, and changes through interactive grill-me sessions |
 | Software Architect | Designs DDD architecture and selects optional architecture skills |
 | Planner Agent | Creates vertical-slice backlog drafts and governed GitHub plans |
+| Backlog Manager Agent | Answers backlog questions, selects ready tasks, and prepares implementation handoffs |
 | Implementer Agent | Executes approved AFK work orders using TDD |
 | Verifier Agent | Reviews scope, behavior, evidence, and policy compliance |
 
@@ -66,17 +67,29 @@ Installation does not create a frontend, backend, database, Dockerfile, Compose 
 | `intake-existing-code` | interactive | Refine bugs, improvements, and features for an existing codebase |
 | `ideation-from-zero` | interactive | Turn a product idea into structured requirements and an SDD |
 | `architecture-ddd` | interactive | Design the system from an approved SDD |
+| `backlog-management` | interactive | Inspect local/GitHub backlog and prepare selected tasks |
 | `tdd-implementation` | AFK | Implement an approved work order through RED, GREEN, and REFACTOR |
 | `verification-pr` | hybrid | Verify implementation evidence before merge decisions |
+
+The backlog manager can answer requests such as:
+
+```text
+What is the current local and GitHub backlog?
+Which tasks are ready, blocked or missing?
+Take the next ready task and prepare it for implementation.
+```
+
+Selecting a task prepares a work order candidate. Approval of the work order and AFK
+delegation to the implementer remain separate human gates.
 
 ### Skills
 
 The full factory currently contains:
 
 ```text
-25 core skills
-10 stack-pack skills
-35 actionable skills total
+28 core skills
+12 stack-pack skills
+40 actionable skills total
 ```
 
 Core capabilities include:
@@ -87,12 +100,15 @@ Core capabilities include:
 - optional self-contained HTML diagrams for C4, MER/ERD, and UML;
 - vertical-slice backlog planning and governed GitHub issue operations;
 - diagnosis, TDD, verification, Git branch management, and release planning;
+- technology-agnostic integration test strategy, implementation, and assessment;
+- unified local/GitHub backlog management and approved task selection;
 - GitHub Actions CI/CD design.
 
 The included `nextjs-springboot-postgresql` stack pack provides:
 
 - Next.js architecture guidance, UI design, and performance analysis;
 - Spring Boot architecture guidance and performance analysis;
+- FastAPI architecture guidance and performance analysis;
 - PostgreSQL persistence and performance guidance;
 - Dockerfile authoring, Docker Compose local environments, and Compose optimization.
 
@@ -161,10 +177,10 @@ cli = gridwork@0.1.0 published on npm
 factory = factory-v0.1.0 published on GitHub
 factory_profile = full-v1
 generated_product_code = false
-agents = 6
-workflows = 5
-core_skills = 25
-stack_skills = 10
+agents = 7
+workflows = 6
+core_skills = 28
+stack_skills = 12
 ```
 
 The current next validation gate is end-to-end dogfooding of the expanded factory in a separate sandbox repository.

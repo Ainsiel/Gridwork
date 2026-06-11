@@ -29,6 +29,7 @@ orchestrator
 intake-agent
 software-architect
 planner-agent
+backlog-manager-agent
 implementer-agent
 verifier-agent
 ```
@@ -39,6 +40,7 @@ verifier-agent
 intake-existing-code
 ideation-from-zero
 architecture-ddd
+backlog-management
 tdd-implementation
 verification-pr
 ```

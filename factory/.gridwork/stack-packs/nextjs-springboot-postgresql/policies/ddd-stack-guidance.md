@@ -17,6 +17,7 @@ Recommended mapping:
 ```text
 Next.js route and feature UI -> consumer of application contracts
 Spring Boot bounded-context module -> use cases and domain policy
+FastAPI router/application module -> consumer and implementation of use-case contracts
 PostgreSQL schema ownership -> bounded-context data ownership
 Docker Compose -> local runtime mechanism, never a domain boundary
 ```
