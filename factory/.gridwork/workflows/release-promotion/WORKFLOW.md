@@ -13,7 +13,7 @@ develop -> release PR -> full CI -> main -> production deployment
 1. Confirm source is `develop`, target is `main`, and release scope is known.
 2. Prepare included work orders, release notes and a release PR plan.
 3. Request approval to create the release PR.
-4. Wait for `release / release-gate`, including full unit, integration, architecture,
+4. Wait for `release / full-regression-gate`, including full unit, integration, architecture,
    regression, end-to-end, migration and production-build checks when applicable.
 5. Block promotion when checks fail; return failures to the responsible work stream.
 6. Request explicit production approval only after release CI and review pass.

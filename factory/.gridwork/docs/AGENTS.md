@@ -11,6 +11,7 @@
 | implementer-agent | afk | Implement approved work orders with TDD. |
 | verifier-agent | hybrid | Review evidence and PRs without modifying code. |
 | release-manager-agent | hybrid | Promote verified develop state to main and observe production deployment. |
+| platform-engineer-agent | hybrid | Bootstrap the monorepo and operate approved delivery infrastructure. |
 
 Skills never raise agent permissions.
 
@@ -27,6 +28,7 @@ Key capability assignments:
 - `architecture-foundation-agent` creates only the approved minimal executable structure, required contracts, composition root and architecture tests.
 - `software-architect`, `architecture-foundation-agent`, `implementer-agent` and `verifier-agent` may use integration testing and stack-pack skills after technology and paths are confirmed.
 - `architecture-foundation-agent` materializes approved frontend boundaries without functional screens; implementer and verifier apply the frontend strategy per slice.
+- `platform-engineer-agent` creates approved framework scaffolds, root quality commands, Compose environments and GitHub Actions without implementing business behavior.
 
 Ask `backlog-manager-agent` for the current backlog, remaining or blocked tasks,
 missing work, or a recommended next task. A request to take a task prepares a work

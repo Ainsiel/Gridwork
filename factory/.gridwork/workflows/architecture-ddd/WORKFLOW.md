@@ -40,6 +40,9 @@ uml-html-diagrams
 backlog-planning
 github-label-manager
 github-actions-cicd
+monorepo-layout-design
+docker-compose-environment-strategy
+rollback-planning
 conditional stack-pack skills
 handoff
 ```
@@ -56,9 +59,10 @@ handoff
 8. When a frontend exists, explicitly design feature boundaries, route ownership,
    server/client boundaries, state ownership, API consumption, auth/security and tests.
 9. Ask for approval before promoting architecture drafts to `docs/architecture/` or `docs/adr/`.
-10. Prepare materialization constraints and hand approved architecture to `architecture-foundation`.
-11. Use `backlog-planning` for functional vertical-slice drafts after foundation, or earlier only when their foundation dependency is explicit.
-12. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
+10. Define repository boundaries, Compose environments and rollback constraints when the project needs them.
+11. Prepare repository and materialization constraints; route greenfield scaffolding through `repository-bootstrap` before `architecture-foundation`.
+12. Use `backlog-planning` for functional vertical-slice drafts after foundation, or earlier only when their foundation dependency is explicit.
+13. Use `github-label-manager` only to audit predefined labels or prepare an approved missing-label plan.
 
 ## Optional Skill Rule
 
@@ -103,4 +107,4 @@ optional api/, data/, diagrams/ and structure/ outputs
 
 ## Completion Criteria
 
-The workflow can close when architecture outputs are approved and ready for `architecture-foundation`.
+The workflow can close when architecture outputs are approved and ready for `repository-bootstrap` or `architecture-foundation`.

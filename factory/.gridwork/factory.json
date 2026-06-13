@@ -2,7 +2,7 @@
   "kind": "gridwork.factory",
   "id": "gridwork-full-v1",
   "name": "Gridwork Full V1 Factory",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "schemaVersion": "1.0.0",
   "factoryProfile": "full-v1",
   "description": "Full v1 installable Gridwork factory profile with orchestrator, agents, workflows, skills, policies, templates and stack guidance.",
@@ -57,6 +57,11 @@
       "id": "release-manager-agent",
       "manifest": "agents/release-manager-agent/agent.json",
       "contract": "agents/release-manager-agent/AGENT.md"
+    },
+    {
+      "id": "platform-engineer-agent",
+      "manifest": "agents/platform-engineer-agent/agent.json",
+      "contract": "agents/platform-engineer-agent/AGENT.md"
     }
   ],
   "workflows": [
@@ -109,6 +114,21 @@
       "id": "release-promotion",
       "manifest": "workflows/release-promotion/workflow.json",
       "contract": "workflows/release-promotion/WORKFLOW.md"
+    },
+    {
+      "id": "repository-bootstrap",
+      "manifest": "workflows/repository-bootstrap/workflow.json",
+      "contract": "workflows/repository-bootstrap/WORKFLOW.md"
+    },
+    {
+      "id": "delivery-infrastructure",
+      "manifest": "workflows/delivery-infrastructure/workflow.json",
+      "contract": "workflows/delivery-infrastructure/WORKFLOW.md"
+    },
+    {
+      "id": "ci-failure-repair",
+      "manifest": "workflows/ci-failure-repair/workflow.json",
+      "contract": "workflows/ci-failure-repair/WORKFLOW.md"
     }
   ],
   "skills": [
@@ -326,6 +346,66 @@
       "id": "gridwork-release-publisher",
       "manifest": "skills/gridwork-release-publisher/skill.json",
       "contract": "skills/gridwork-release-publisher/SKILL.md"
+    },
+    {
+      "id": "monorepo-layout-design",
+      "manifest": "skills/monorepo-layout-design/skill.json",
+      "contract": "skills/monorepo-layout-design/SKILL.md"
+    },
+    {
+      "id": "repository-bootstrap",
+      "manifest": "skills/repository-bootstrap/skill.json",
+      "contract": "skills/repository-bootstrap/SKILL.md"
+    },
+    {
+      "id": "quality-command-contract",
+      "manifest": "skills/quality-command-contract/skill.json",
+      "contract": "skills/quality-command-contract/SKILL.md"
+    },
+    {
+      "id": "docker-compose-environment-strategy",
+      "manifest": "skills/docker-compose-environment-strategy/skill.json",
+      "contract": "skills/docker-compose-environment-strategy/SKILL.md"
+    },
+    {
+      "id": "github-actions-monorepo-ci",
+      "manifest": "skills/github-actions-monorepo-ci/skill.json",
+      "contract": "skills/github-actions-monorepo-ci/SKILL.md"
+    },
+    {
+      "id": "github-actions-reusable-workflows",
+      "manifest": "skills/github-actions-reusable-workflows/skill.json",
+      "contract": "skills/github-actions-reusable-workflows/SKILL.md"
+    },
+    {
+      "id": "changed-scope-detection",
+      "manifest": "skills/changed-scope-detection/skill.json",
+      "contract": "skills/changed-scope-detection/SKILL.md"
+    },
+    {
+      "id": "ci-failure-diagnosis",
+      "manifest": "skills/ci-failure-diagnosis/skill.json",
+      "contract": "skills/ci-failure-diagnosis/SKILL.md"
+    },
+    {
+      "id": "container-build-and-verification",
+      "manifest": "skills/container-build-and-verification/skill.json",
+      "contract": "skills/container-build-and-verification/SKILL.md"
+    },
+    {
+      "id": "github-rulesets-management",
+      "manifest": "skills/github-rulesets-management/skill.json",
+      "contract": "skills/github-rulesets-management/SKILL.md"
+    },
+    {
+      "id": "github-environments-management",
+      "manifest": "skills/github-environments-management/skill.json",
+      "contract": "skills/github-environments-management/SKILL.md"
+    },
+    {
+      "id": "rollback-planning",
+      "manifest": "skills/rollback-planning/skill.json",
+      "contract": "skills/rollback-planning/SKILL.md"
     }
   ],
   "policies": [
@@ -347,7 +427,8 @@
     "policies/architecture-foundation-policy.md",
     "policies/delivery-lifecycle-policy.md",
     "policies/diagram-html-policy.md",
-    "policies/stack-skill-policy.md"
+    "policies/stack-skill-policy.md",
+    "policies/delivery-infrastructure-policy.md"
   ],
   "schemas": [
     "schemas/factory.schema.json",
@@ -399,7 +480,13 @@
     "templates/api-design.md",
     "templates/data-model-design.md",
     "templates/diagram-notes.md",
-    "templates/architecture-diagram.html"
+    "templates/architecture-diagram.html",
+    "templates/quality-command-contract.md",
+    "templates/compose-environment-plan.md",
+    "templates/github-actions-develop-ci.yml",
+    "templates/github-actions-reusable-frontend-ci.yml",
+    "templates/github-actions-reusable-backend-ci.yml",
+    "templates/github-actions-reusable-integration-ci.yml"
   ],
   "stackPacks": [
     {

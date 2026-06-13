@@ -11,6 +11,10 @@ Gridwork installs governance, agents, workflows, skills, policies, stack guidanc
 After `architecture-ddd`, use `architecture-foundation` to create an approved minimal
 executable structure before delegating functional TDD slices.
 
+For a new monorepo, run `repository-bootstrap` before `architecture-foundation`, then
+run `delivery-infrastructure` before feature PR delivery. Route failed required checks
+through `ci-failure-repair`.
+
 Feature work flows from `develop` through one work-order feature branch and CI-gated
 PR. Production promotion uses a separately approved `develop -> main` release PR.
 

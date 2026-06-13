@@ -52,6 +52,10 @@ Can inspect release scope, PRs, checks and deployment evidence. Can prepare and 
 approved release PR, merge and deployment-observation actions. Cannot implement code,
 bypass checks or access secret values.
 
+### platform-assisted
+
+Can write approved repository scaffolds, `.github/`, containers, Compose, root quality commands and platform documentation. Cannot implement business behavior. Remote GitHub changes and deployment require approval.
+
 ## Remote Actions
 
 GitHub writes, branch push, PR creation, merge, release creation and deploy require

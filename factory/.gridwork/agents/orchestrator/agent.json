@@ -17,7 +17,10 @@
     "feature-pr-delivery",
     "tdd-implementation",
     "verification-pr",
-    "release-promotion"
+    "release-promotion",
+    "repository-bootstrap",
+    "delivery-infrastructure",
+    "ci-failure-repair"
   ],
   "allowedSkills": [
     "handoff",

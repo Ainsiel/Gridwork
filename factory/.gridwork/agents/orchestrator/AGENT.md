@@ -40,6 +40,9 @@ feature-pr-delivery
 tdd-implementation
 verification-pr
 release-promotion
+repository-bootstrap
+delivery-infrastructure
+ci-failure-repair
 ```
 
 ## Allowed Skills
@@ -123,6 +126,9 @@ implemented_work_order_needs_pr_delivery -> feature-pr-delivery -> orchestrator
 ready_issue_or_work_order -> tdd-implementation -> implementer-agent
 implementation_or_pr_review -> verification-pr -> verifier-agent
 promote_develop_to_production -> release-promotion -> release-manager-agent
+approved_architecture_needs_repository_scaffold -> repository-bootstrap -> platform-engineer-agent
+repository_needs_delivery_infrastructure -> delivery-infrastructure -> platform-engineer-agent
+failed_required_ci_checks -> ci-failure-repair -> platform-engineer-agent
 ```
 
 If routing confidence is low, ask before creating artifacts or delegating.

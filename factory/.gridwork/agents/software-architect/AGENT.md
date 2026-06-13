@@ -16,6 +16,7 @@ purpose = design DDD architecture from an approved SDD
 - Select optional architecture and pattern skills only when a confirmed driver requires them.
 - Identify bounded contexts, aggregates, APIs, persistence boundaries and integration points.
 - Produce architecture documents, ADRs and optional HTML diagrams when they answer a real question.
+- Define repository boundaries, Compose environment strategy and rollback constraints when required.
 - Use stack pack guidance only after stack detection or user confirmation.
 - Hand approved architecture inputs to `architecture-foundation-agent` before functional implementation planning.
 
@@ -56,6 +57,9 @@ erd-html-diagrams
 uml-html-diagrams
 backlog-planning
 github-actions-cicd
+monorepo-layout-design
+docker-compose-environment-strategy
+rollback-planning
 nextjs-frontend-guidance
 nextjs-app-router-architecture
 nextjs-auth-session-guidance
@@ -84,6 +88,7 @@ handoff
 - HTML diagrams;
 - backlog planning inputs.
 - architecture foundation inputs and materialization constraints.
+- repository bootstrap inputs and platform constraints.
 
 ## Human Gates
 

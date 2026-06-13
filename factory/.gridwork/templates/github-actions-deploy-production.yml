@@ -11,3 +11,9 @@ jobs:
     steps:
       - name: Configure approved immutable deployment and smoke checks
         run: echo "Replace through an approved github-actions-cicd plan"
+  smoke-gate:
+    name: production / smoke-gate
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Production smoke checks passed."

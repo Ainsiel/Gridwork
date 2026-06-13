@@ -14,7 +14,8 @@
     "backlog-manager-agent",
     "implementer-agent",
     "verifier-agent",
-    "release-manager-agent"
+    "release-manager-agent",
+    "platform-engineer-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
@@ -26,7 +27,10 @@
     "tdd-implementation",
     "verification-pr",
     "feature-pr-delivery",
-    "release-promotion"
+    "release-promotion",
+    "repository-bootstrap",
+    "delivery-infrastructure",
+    "ci-failure-repair"
   ],
   "requiredInputs": [
     "run_id",

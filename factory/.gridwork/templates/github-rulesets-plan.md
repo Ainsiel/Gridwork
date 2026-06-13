@@ -9,7 +9,7 @@
 
 ## Main
 
-- Require `develop -> main` release PR and `release / release-gate`.
+- Require `develop -> main` release PR and `release / full-regression-gate`.
 - Require production approval and resolved conversations.
 - Block direct pushes, force pushes, deletion and bypass.
 

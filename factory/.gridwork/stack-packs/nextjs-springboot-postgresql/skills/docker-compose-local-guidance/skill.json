@@ -9,13 +9,15 @@
     "software-architect",
     "architecture-foundation-agent",
     "implementer-agent",
-    "verifier-agent"
+    "verifier-agent",
+    "platform-engineer-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
     "architecture-foundation",
     "tdd-implementation",
-    "verification-pr"
+    "verification-pr",
+    "repository-bootstrap"
   ],
   "requiredInputs": [
     "confirmed_compose_path",

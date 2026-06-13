@@ -6,7 +6,7 @@
 2. Verify no feature branch is targeting `main`.
 3. Prepare release scope, compatibility notes and release PR body.
 4. Request approval before creating `develop -> main` PR.
-5. Require the full `release / release-gate` on the exact head SHA.
+5. Require the full `release / full-regression-gate` on the exact head SHA.
 6. Summarize release findings and unresolved risks.
 7. Request explicit production approval and separate merge approval.
 8. Record merge SHA and hand off to deployment verification.

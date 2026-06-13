@@ -10,7 +10,8 @@
     "planner-agent",
     "backlog-manager-agent",
     "verifier-agent",
-    "release-manager-agent"
+    "release-manager-agent",
+    "platform-engineer-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
@@ -19,7 +20,9 @@
     "architecture-ddd",
     "verification-pr",
     "feature-pr-delivery",
-    "release-promotion"
+    "release-promotion",
+    "delivery-infrastructure",
+    "ci-failure-repair"
   ],
   "requiredInputs": [
     "command_intent",

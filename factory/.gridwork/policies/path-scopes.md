@@ -36,6 +36,12 @@ Exact product, test and infrastructure paths listed in an approved architecture
 foundation plan. This scope permits minimal structure and architecture tests, not
 business behavior or speculative abstractions.
 
+### delivery_infrastructure_write
+
+Exact repository scaffolds, root task-runner files, `.github/`, container, Compose and
+test-harness paths listed in an approved repository bootstrap or delivery
+infrastructure plan. This scope never authorizes business behavior or secret values.
+
 ## Forbidden By Default
 
 Agents must not touch:

@@ -39,8 +39,14 @@
     },
     {
       "id": "docker_compose_config",
-      "purpose": "Validate docker compose configuration when a compose file already exists.",
+      "purpose": "Validate an approved Docker Compose file combination.",
       "commandHint": "docker compose config",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "fastapi_test",
+      "purpose": "Run FastAPI tests when configured by the project.",
+      "commandHint": "pytest",
       "requiresPathConfirmation": true
     }
   ],

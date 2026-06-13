@@ -2,7 +2,7 @@
 
 Docker Compose is recommended for local development when the project uses PostgreSQL.
 
-`gridwork init` does not generate Compose files. An approved implementation work order may create or modify a confirmed Compose path.
+`gridwork init` does not generate Compose files. An approved `repository-bootstrap` plan or implementation work order may create or modify a confirmed Compose path.
 
 Review existing compose files for:
 

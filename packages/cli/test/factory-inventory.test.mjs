@@ -157,6 +157,7 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "intake-agent",
       "orchestrator",
       "planner-agent",
+      "platform-engineer-agent",
       "release-manager-agent",
       "software-architect",
       "verifier-agent"
@@ -170,10 +171,13 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "architecture-foundation",
       "backlog-management",
       "backlog-task-delivery",
+      "ci-failure-repair",
+      "delivery-infrastructure",
       "feature-pr-delivery",
       "ideation-from-zero",
       "intake-existing-code",
       "release-promotion",
+      "repository-bootstrap",
       "tdd-implementation",
       "verification-pr"
     ]
@@ -191,13 +195,17 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "backlog-management",
       "backlog-planning",
       "c4-html-diagrams",
+      "changed-scope-detection",
+      "ci-failure-diagnosis",
       "ci-status-evaluation",
       "clean-architecture",
       "composition-root-wiring",
+      "container-build-and-verification",
       "contract-first-boundaries",
       "deployment-verification",
       "design-pattern-selection",
       "diagnose-bug",
+      "docker-compose-environment-strategy",
       "domain-driven-design",
       "erd-html-diagrams",
       "frontend-api-contract-consumption",
@@ -206,25 +214,33 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
       "frontend-testing-strategy",
       "git-branch-management",
       "github-actions-cicd",
+      "github-actions-monorepo-ci",
+      "github-actions-reusable-workflows",
       "github-cli",
+      "github-environments-management",
       "github-issue-discovery",
       "github-issue-publisher",
       "github-label-manager",
+      "github-rulesets-management",
       "gridwork-release-publisher",
       "handoff",
       "html-architecture-diagrams",
       "integration-test-design",
       "integration-testing",
       "module-boundary-enforcement",
+      "monorepo-layout-design",
       "project-scaffolding",
       "pull-request-lifecycle",
+      "quality-command-contract",
       "relational-data-modeling",
       "release-promotion",
+      "repository-bootstrap",
+      "rollback-planning",
       "sdd-requirements",
       "tdd",
       "ubiquitous-language",
-      "uml-html-diagrams"
-      ,"work-order-branch-lifecycle"
+      "uml-html-diagrams",
+      "work-order-branch-lifecycle"
     ]
   );
 
@@ -235,21 +251,37 @@ test("full-v1 factory contains expected agents, workflows, skills and stack pack
   assert.deepEqual(
     stackPack.skills.map((skill) => skill.split("/")[1]).sort(),
     [
+      "database-migration-verification",
       "docker-compose-local-guidance",
       "docker-compose-optimization",
       "dockerfile-authoring",
       "fastapi-backend-guidance",
+      "fastapi-ci-quality-gates",
+      "fastapi-container-build",
+      "fastapi-integration-testing",
+      "fastapi-migration-testing",
       "fastapi-performance",
+      "fastapi-project-bootstrap",
       "nextjs-app-router-architecture",
       "nextjs-auth-session-guidance",
+      "nextjs-ci-quality-gates",
+      "nextjs-container-build",
       "nextjs-data-fetching-and-cache",
+      "nextjs-e2e-testing",
       "nextjs-frontend-guidance",
       "nextjs-performance",
+      "nextjs-project-bootstrap",
       "nextjs-ui-design",
+      "postgres-test-environment",
       "postgresql-performance",
       "postgresql-persistence-guidance",
       "springboot-backend-guidance",
-      "springboot-performance"
+      "springboot-ci-quality-gates",
+      "springboot-container-build",
+      "springboot-integration-testing",
+      "springboot-migration-testing",
+      "springboot-performance",
+      "springboot-project-bootstrap"
     ]
   );
 
@@ -339,6 +371,36 @@ test("release promotion is restricted to develop to main with full CI and produc
   assert.match(contract, /develop -> release PR -> full CI -> main -> production deployment/);
   assert.match(policy, /Feature branches start from `develop` and target `develop`/);
   assert.match(policy, /Release PRs start from\s+`develop` and target `main`/);
+});
+
+test("platform engineer bootstraps monorepos and delivery infrastructure without business behavior", async () => {
+  const agent = await readJson("agents/platform-engineer-agent/agent.json");
+  const bootstrap = await readJson("workflows/repository-bootstrap/workflow.json");
+  const delivery = await readJson("workflows/delivery-infrastructure/workflow.json");
+  const repair = await readJson("workflows/ci-failure-repair/workflow.json");
+  const policy = await readFile(resolve(factoryRoot, "policies/delivery-infrastructure-policy.md"), "utf8");
+
+  assert.equal(bootstrap.primaryAgent, "platform-engineer-agent");
+  assert.equal(delivery.primaryAgent, "platform-engineer-agent");
+  assert.equal(repair.primaryAgent, "platform-engineer-agent");
+  assert.ok(agent.allowedSkills.includes("github-actions-monorepo-ci"));
+  assert.ok(agent.allowedSkills.includes("fastapi-project-bootstrap"));
+  assert.match(policy, /Every corrective push invalidates previous CI and verifier evidence/);
+  assert.match(policy, /full regression suite without changed-path shortcuts/);
+});
+
+test("delivery infrastructure includes reusable CI templates and stack-specific bootstrap skills", async () => {
+  const manifest = await readFactoryManifest();
+  const stackPack = await readJson(manifest.stackPacks[0].manifest);
+  const feature = await readFile(resolve(factoryRoot, "templates/github-actions-feature-pr-ci.yml"), "utf8");
+  const release = await readFile(resolve(factoryRoot, "templates/github-actions-release-pr-ci.yml"), "utf8");
+
+  assert.match(feature, /feature \/ regression-gate/);
+  assert.match(release, /release \/ full-regression-gate/);
+  assert.ok(stackPack.skills.includes("skills/nextjs-project-bootstrap/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/fastapi-ci-quality-gates/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/springboot-integration-testing/skill.json"));
+  assert.ok(stackPack.skills.includes("skills/database-migration-verification/skill.json"));
 });
 
 test("integration testing is core and FastAPI guidance is available in the stack pack", async () => {

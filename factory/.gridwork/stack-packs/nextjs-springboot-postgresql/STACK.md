@@ -15,6 +15,7 @@ architecture_style = DDD + vertical slices
 ## Rules
 
 - `gridwork init` installs skill definitions only and does not generate product code.
+- Approved bootstrap skills may create confirmed framework scaffolds only inside `repository-bootstrap`.
 - During an approved implementation work order, stack skills may create or modify confirmed scoped product files.
 - Path hints are hints, not permissions.
 - Stack skills do not elevate permissions.
@@ -28,9 +29,9 @@ When feasible, issues should include UI, API/application behavior, domain behavi
 ## Skills
 
 ```text
-Next.js = frontend guidance, App Router architecture, auth/session, data/cache, UI design, performance
-Spring Boot = backend guidance, performance
-FastAPI = backend guidance, performance
-PostgreSQL = persistence guidance, performance
+Next.js = frontend guidance, App Router architecture, auth/session, data/cache, UI design, performance, bootstrap, CI, container, E2E
+Spring Boot = backend guidance, performance, bootstrap, CI, migrations, container, integration
+FastAPI = backend guidance, performance, bootstrap, CI, migrations, container, integration
+PostgreSQL = persistence guidance, performance, isolated test environment, migration verification
 Docker = Dockerfile authoring, Compose local guidance, Compose optimization
 ```

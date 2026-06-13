@@ -6,7 +6,7 @@ on:
 
 jobs:
   release-gate:
-    name: release / release-gate
+    name: release / full-regression-gate
     runs-on: ubuntu-latest
     steps:
       - name: Validate source branch

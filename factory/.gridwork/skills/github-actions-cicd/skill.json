@@ -8,11 +8,13 @@
   "allowedAgents": [
     "software-architect",
     "planner-agent",
-    "release-manager-agent"
+    "release-manager-agent",
+    "platform-engineer-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
-    "release-promotion"
+    "release-promotion",
+    "delivery-infrastructure"
   ],
   "requiredInputs": [
     "project_stack",

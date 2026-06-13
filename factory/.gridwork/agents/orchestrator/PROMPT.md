@@ -38,6 +38,12 @@ First read these Gridwork files from the installed `.gridwork/` folder:
 - `.gridwork/workflows/verification-pr/WORKFLOW.md`
 - `.gridwork/workflows/release-promotion/workflow.json`
 - `.gridwork/workflows/release-promotion/WORKFLOW.md`
+- `.gridwork/workflows/repository-bootstrap/workflow.json`
+- `.gridwork/workflows/repository-bootstrap/WORKFLOW.md`
+- `.gridwork/workflows/delivery-infrastructure/workflow.json`
+- `.gridwork/workflows/delivery-infrastructure/WORKFLOW.md`
+- `.gridwork/workflows/ci-failure-repair/workflow.json`
+- `.gridwork/workflows/ci-failure-repair/WORKFLOW.md`
 - `.gridwork/skills/handoff/skill.json`
 - `.gridwork/skills/handoff/SKILL.md`
 

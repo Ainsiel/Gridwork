@@ -470,7 +470,7 @@ GitHub PR comments, commits, pushes, PR creation and merge remain separately gat
 Use `release-promotion` when verified changes in `develop` are ready for production.
 
 ```text
-develop -> release PR to main -> release / release-gate
+develop -> release PR to main -> release / full-regression-gate
         -> production approval -> merge to main -> production deployment
 ```
 
@@ -601,3 +601,45 @@ List the exact missing inputs, unresolved decisions and approval gates.
 
 If an agent proposes an unexpected side effect, do not approve it until the action,
 scope and target are explicit.
+
+## Monorepo Bootstrap And Delivery Infrastructure
+
+Use this order for a new monorepo:
+
+```text
+architecture-ddd
+-> repository-bootstrap
+-> architecture-foundation
+-> delivery-infrastructure
+-> backlog-management
+-> tdd-implementation
+-> feature-pr-delivery
+-> verification-pr
+```
+
+`repository-bootstrap` creates approved framework roots, root quality commands,
+containers and Compose environment overlays. It may add minimal health or wiring
+probes, but it does not implement business behavior.
+
+`architecture-foundation` then materializes the approved domain boundaries,
+contracts, composition root and architecture tests inside that repository skeleton.
+
+`delivery-infrastructure` creates reusable GitHub Actions and plans required checks:
+
+```text
+feature / regression-gate
+develop / integration-gate
+release / full-regression-gate
+production / smoke-gate
+```
+
+Use `ci-failure-repair` when a required PR check fails. The workflow diagnoses the
+current head SHA, prepares the smallest repair handoff, and returns to verifier only
+after the new SHA is green.
+
+Example:
+
+```text
+Bootstrap the approved Next.js and FastAPI monorepo, create Compose environments,
+and create the GitHub Actions required by Gridwork delivery workflows.
+```

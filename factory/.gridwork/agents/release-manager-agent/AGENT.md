@@ -26,7 +26,7 @@ release-promotion
 ```text
 source_branch = develop
 target_branch = main
-required_ci = release / release-gate
+required_ci = release / full-regression-gate
 deployment_environment = production
 ```
 

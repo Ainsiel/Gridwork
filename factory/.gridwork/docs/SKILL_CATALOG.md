@@ -45,6 +45,18 @@
 | git-branch-management | git | Prepares governed Git plans; every write remains gated. |
 | github-label-manager | github | Audits predefined labels and prepares approved create plans. |
 | gridwork-release-publisher | release | Dry-run release plans by default. |
+| monorepo-layout-design | architecture | Defines repository component boundaries and ownership. |
+| repository-bootstrap | platform | Creates approved framework scaffolds without business behavior. |
+| quality-command-contract | testing | Aligns root local and CI commands. |
+| docker-compose-environment-strategy | platform | Defines base Compose plus environment overlays. |
+| github-actions-monorepo-ci | cicd | Defines branch-aware monorepo CI gates. |
+| github-actions-reusable-workflows | cicd | Extracts reusable component pipelines. |
+| changed-scope-detection | cicd | Optimizes feature PR checks only. |
+| ci-failure-diagnosis | diagnosis | Produces scoped CI repair handoffs. |
+| container-build-and-verification | platform | Builds and smoke-tests containers. |
+| github-rulesets-management | github | Plans and applies approved branch protections. |
+| github-environments-management | github | Plans and applies approved environments. |
+| rollback-planning | deployment | Defines recovery criteria and compatibility. |
 
 ## Stack Pack Skills
 
@@ -52,10 +64,10 @@ The `nextjs-springboot-postgresql` stack pack provides:
 
 | Technology | Skills |
 |---|---|
-| Next.js | `nextjs-frontend-guidance`, `nextjs-app-router-architecture`, `nextjs-auth-session-guidance`, `nextjs-data-fetching-and-cache`, `nextjs-ui-design`, `nextjs-performance` |
-| Spring Boot | `springboot-backend-guidance`, `springboot-performance` |
-| FastAPI | `fastapi-backend-guidance`, `fastapi-performance` |
-| PostgreSQL | `postgresql-persistence-guidance`, `postgresql-performance` |
+| Next.js | `nextjs-frontend-guidance`, `nextjs-app-router-architecture`, `nextjs-auth-session-guidance`, `nextjs-data-fetching-and-cache`, `nextjs-ui-design`, `nextjs-performance`, `nextjs-project-bootstrap`, `nextjs-ci-quality-gates`, `nextjs-container-build`, `nextjs-e2e-testing` |
+| Spring Boot | `springboot-backend-guidance`, `springboot-performance`, `springboot-project-bootstrap`, `springboot-ci-quality-gates`, `springboot-migration-testing`, `springboot-container-build`, `springboot-integration-testing` |
+| FastAPI | `fastapi-backend-guidance`, `fastapi-performance`, `fastapi-project-bootstrap`, `fastapi-ci-quality-gates`, `fastapi-migration-testing`, `fastapi-container-build`, `fastapi-integration-testing` |
+| PostgreSQL | `postgresql-persistence-guidance`, `postgresql-performance`, `postgres-test-environment`, `database-migration-verification` |
 | Docker | `dockerfile-authoring`, `docker-compose-local-guidance`, `docker-compose-optimization` |
 
 Stack skills never generate product code during `init`. They may guide or modify confirmed scoped files only inside the active agent and workflow permissions.

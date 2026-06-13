@@ -8,12 +8,14 @@
   "allowedAgents": [
     "intake-agent",
     "implementer-agent",
-    "verifier-agent"
+    "verifier-agent",
+    "platform-engineer-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
     "tdd-implementation",
-    "verification-pr"
+    "verification-pr",
+    "ci-failure-repair"
   ],
   "requiredInputs": [
     "bug_report",

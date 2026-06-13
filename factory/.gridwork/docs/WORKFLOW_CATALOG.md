@@ -15,6 +15,9 @@ For practical prompts, examples, workflow transitions and approval guidance, see
 | verification-pr | hybrid | verifier-agent |
 | feature-pr-delivery | hybrid | orchestrator |
 | release-promotion | hybrid | release-manager-agent |
+| repository-bootstrap | hybrid | platform-engineer-agent |
+| delivery-infrastructure | hybrid | platform-engineer-agent |
+| ci-failure-repair | hybrid | platform-engineer-agent |
 
 There is no agent workflow named `cicd-release` in v1. CI/CD is handled as GitHub Actions YAML with the `github-actions-cicd` skill.
 
@@ -35,3 +38,9 @@ feature boundaries, route ownership, execution boundaries, state strategy, API
 consumption, security boundary and test strategy.
 
 `architecture-foundation` materializes approved boundaries as a minimal executable structure, required contracts, composition root and architecture tests. It explicitly forbids business behavior and speculative abstractions.
+
+`repository-bootstrap` prepares approved framework roots, root quality commands, containers and Compose environments before architecture foundation or feature work.
+
+`delivery-infrastructure` materializes reusable GitHub Actions, required-check plans, ruleset plans and environment protections.
+
+`ci-failure-repair` diagnoses failed checks for the current PR SHA and routes the smallest repair back to the owning implementer.

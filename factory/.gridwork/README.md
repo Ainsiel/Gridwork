@@ -9,7 +9,7 @@ This folder contains the factory contracts that an agent can read by chat:
 - `workflows/` contains workflow playbooks.
 - `skills/` contains reusable skills.
 - `policies/` contains rules for paths, logging, secrets and GitHub CLI.
-- `stack-packs/` contains guidance-only stack packs.
+- `stack-packs/` contains composable stack guidance and approved bootstrap skills.
 - `schemas/` contains versioned JSON contracts.
 - `templates/` contains report templates used by `init` and future runs.
 - `docs/` contains installed catalogs for agents, workflows, skills and the active factory profile.

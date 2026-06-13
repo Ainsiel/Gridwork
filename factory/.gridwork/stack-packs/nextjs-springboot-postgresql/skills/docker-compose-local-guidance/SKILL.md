@@ -40,5 +40,5 @@ Guide creation, review and verification of Docker Compose environments for repro
 ## Rules
 
 - Gridwork `init` does not create Compose files.
-- An approved implementation work order may create or modify confirmed Compose paths.
+- An approved `repository-bootstrap` plan or implementation work order may create or modify confirmed Compose paths.
 - Do not deploy, read secrets or elevate permissions.
