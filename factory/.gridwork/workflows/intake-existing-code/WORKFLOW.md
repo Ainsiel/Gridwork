@@ -40,6 +40,7 @@ supporting_agents = orchestrator,planner-agent
 ```text
 diagnose-bug
 github-issue-discovery
+github-label-manager
 handoff
 ```
 
@@ -52,6 +53,7 @@ handoff
 5. Optionally prepare an issue draft or work order candidate in `.factory/`.
 6. Create `.factory/` runtime artifacts only after the user chooses to continue.
 7. Propose next step: continue intake, publish issue draft, route to TDD, or ask for approval.
+8. If issue publication is selected, audit catalog labels before any publish plan.
 
 ## Human Gates
 

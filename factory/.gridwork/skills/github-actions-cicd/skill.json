@@ -7,10 +7,12 @@
   "category": "cicd",
   "allowedAgents": [
     "software-architect",
-    "planner-agent"
+    "planner-agent",
+    "release-manager-agent"
   ],
   "allowedWorkflows": [
-    "architecture-ddd"
+    "architecture-ddd",
+    "release-promotion"
   ],
   "requiredInputs": [
     "project_stack",
@@ -18,6 +20,7 @@
     "deployment_policy"
   ],
   "producedOutputs": [
+    "pipeline_design",
     "github_actions_yaml_draft",
     "cicd_review_notes"
   ],
@@ -34,4 +37,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

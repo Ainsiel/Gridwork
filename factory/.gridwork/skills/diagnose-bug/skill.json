@@ -23,6 +23,7 @@
   "producedOutputs": [
     "diagnosis_report",
     "reproduction_steps",
+    "hypothesis_log",
     "regression_test_idea"
   ],
   "artifactPaths": [
@@ -35,4 +36,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

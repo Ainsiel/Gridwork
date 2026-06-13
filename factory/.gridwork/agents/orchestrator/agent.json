@@ -11,13 +11,22 @@
     "intake-existing-code",
     "ideation-from-zero",
     "architecture-ddd",
+    "architecture-foundation",
+    "backlog-management",
+    "backlog-task-delivery",
+    "feature-pr-delivery",
     "tdd-implementation",
-    "verification-pr"
+    "verification-pr",
+    "release-promotion"
   ],
   "allowedSkills": [
     "handoff",
     "github-cli",
-    "github-issue-discovery"
+    "github-issue-discovery",
+    "git-branch-management",
+    "work-order-branch-lifecycle",
+    "pull-request-lifecycle",
+    "ci-status-evaluation"
   ],
   "permissionProfile": "orchestrator-full-v1",
   "pathScopes": [
@@ -33,7 +42,8 @@
     "../../policies/agent-permissions.md",
     "../../policies/workspace-domains.md",
     "../../policies/human-gates.md",
-    "../../policies/policy-precedence.md"
+    "../../policies/policy-precedence.md",
+    "../../policies/git-policy.md"
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }

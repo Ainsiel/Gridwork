@@ -17,16 +17,19 @@
   ],
   "producedOutputs": [
     "html_diagram",
-    "diagram_notes"
+    "diagram_notes",
+    "element_inventory",
+    "relationship_inventory"
   ],
   "artifactPaths": [
     ".factory/runs/<run-id>/artifacts/architecture/diagrams/",
     "docs/architecture/diagrams/"
   ],
-  "toolPolicyRefs": [],
+  "toolPolicyRefs": [
+    "../../policies/diagram-html-policy.md"
+  ],
   "humanGates": [
     "approved_architecture_publish"
   ],
   "permissionsInheritedOnly": true
 }
-

@@ -11,6 +11,7 @@ docs_adr = docs/adr/**
 docs_backlog = docs/backlog/**
 github_workflows = .github/workflows/**
 product_code = project-specific paths confirmed by user or detected by stack pack hints
+product_infrastructure = project-specific Dockerfiles, Compose files and infrastructure configuration confirmed by user
 secrets = .env, .env.*, **/*secret*, **/*token*
 ```
 
@@ -28,7 +29,7 @@ remote_write = external side effect
 - `.factory/` is runtime local and should remain ignored by Git.
 - `.gridwork/` is versioned factory definition.
 - Product paths must be detected or confirmed before AFK work.
+- Infrastructure paths are product paths and require the same work-order scope.
 - Stack pack path hints are not permissions.
 - Delete operations require a human gate.
 - Secret-bearing files are blocked unless the user provides sanitized examples.
-

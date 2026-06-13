@@ -7,11 +7,15 @@
   "category": "planning",
   "allowedAgents": [
     "software-architect",
-    "planner-agent"
+    "architecture-foundation-agent",
+    "planner-agent",
+    "backlog-manager-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
-    "intake-existing-code"
+    "architecture-foundation",
+    "intake-existing-code",
+    "backlog-management"
   ],
   "requiredInputs": [
     "approved_sdd",
@@ -19,6 +23,7 @@
     "label_catalog"
   ],
   "producedOutputs": [
+    "capability_dependency_map",
     "issue_drafts",
     "publish_plan",
     "work_order_candidates"
@@ -35,4 +40,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

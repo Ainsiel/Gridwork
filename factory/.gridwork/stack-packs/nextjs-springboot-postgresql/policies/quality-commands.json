@@ -15,6 +15,16 @@
       "id": "backend_static_checks",
       "commandHint": "./mvnw verify -DskipTests",
       "requiresPathConfirmation": true
+    },
+    {
+      "id": "fastapi_lint",
+      "commandHint": "ruff check .",
+      "requiresPathConfirmation": true
+    },
+    {
+      "id": "fastapi_typecheck",
+      "commandHint": "mypy .",
+      "requiresPathConfirmation": true
     }
   ],
   "rules": [
@@ -22,4 +32,3 @@
     "Missing commands are skipped and reported, not invented."
   ]
 }
-

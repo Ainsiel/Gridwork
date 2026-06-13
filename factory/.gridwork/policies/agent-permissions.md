@@ -20,21 +20,39 @@ Can read non-sensitive project context and write local drafts. Cannot implement 
 
 ### architect-hitl
 
-Can write architecture drafts and approved architecture docs. Cannot implement product code.
+Can write architecture drafts and approved architecture docs. Can use stack skills for design guidance after technology detection. Cannot implement product code.
+
+### architecture-foundation-hybrid
+
+Can write only the approved minimal project structure, required boundary contracts,
+composition root and architecture tests. Cannot implement business behavior or invent
+architecture. Foundation plans, product-structure writes and scope changes require gates.
 
 ### planner-assisted
 
 Can create local issue drafts and publish plans. GitHub writes require approval.
 
+### backlog-manager-assisted
+
+Can read local backlog artifacts and governed GitHub issue data, write backlog reports,
+prepare work order candidates and handoffs. GitHub writes, work-order approval and AFK
+delegation require separate approval.
+
 ### implementer-afk-tdd
 
-Can modify scoped product and test files only when an approved work order exists. Must follow TDD and command allowlists.
+Can modify scoped product, test and infrastructure files only when an approved work order exists. May use confirmed stack skills. Must follow TDD and command allowlists.
 
 ### verifier-assisted-readonly
 
-Can inspect code and evidence, run allowlisted checks and write reports. Cannot modify code in v1.
+Can inspect code and evidence, use stack skills in review mode, run allowlisted checks and write reports. Cannot modify code in v1.
+
+### release-manager-hybrid
+
+Can inspect release scope, PRs, checks and deployment evidence. Can prepare and execute
+approved release PR, merge and deployment-observation actions. Cannot implement code,
+bypass checks or access secret values.
 
 ## Remote Actions
 
-GitHub writes, branch push, PR creation, merge, release creation and deploy require explicit approval. Merge and deploy remain manual by default in v1.
-
+GitHub writes, branch push, PR creation, merge, release creation and deploy require
+explicit approval. Only authorized delivery workflows may execute approved merges.

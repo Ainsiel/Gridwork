@@ -233,11 +233,11 @@ function validatePackageJson(packageJson: PackageJson, validation: ValidationEnt
     });
   }
 
-  if (packageJson.bin?.gridwork !== "./dist/index.js") {
+  if (packageJson.bin?.gridwork !== "dist/index.js") {
     validation.push({
       id: "bin_gridwork",
       severity: "error",
-      message: "bin.gridwork must point to ./dist/index.js.",
+      message: "bin.gridwork must point to dist/index.js.",
       blocking: true
     });
   }

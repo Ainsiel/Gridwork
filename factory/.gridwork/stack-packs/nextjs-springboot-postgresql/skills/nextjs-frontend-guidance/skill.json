@@ -7,11 +7,13 @@
   "category": "stack-guidance",
   "allowedAgents": [
     "software-architect",
+    "architecture-foundation-agent",
     "implementer-agent",
     "verifier-agent"
   ],
   "allowedWorkflows": [
     "architecture-ddd",
+    "architecture-foundation",
     "tdd-implementation",
     "verification-pr"
   ],
@@ -25,11 +27,12 @@
   "artifactPaths": [
     ".factory/runs/<run-id>/artifacts/stack-guidance/"
   ],
-  "toolPolicyRefs": [],
+  "toolPolicyRefs": [
+    "../../../../policies/stack-skill-policy.md"
+  ],
   "humanGates": [
     "path_confirmation"
   ],
   "permissionsInheritedOnly": true,
-  "guidanceOnly": true
+  "generatesOnInit": false
 }
-

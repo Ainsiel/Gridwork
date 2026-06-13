@@ -8,11 +8,14 @@
   "allowedAgents": [
     "orchestrator",
     "planner-agent",
+    "backlog-manager-agent",
     "implementer-agent",
     "verifier-agent"
   ],
   "allowedWorkflows": [
     "intake-existing-code",
+    "backlog-management",
+    "backlog-task-delivery",
     "tdd-implementation",
     "verification-pr"
   ],
@@ -35,4 +38,3 @@
   ],
   "permissionsInheritedOnly": true
 }
-

@@ -28,9 +28,12 @@ Do not use this skill:
 orchestrator
 intake-agent
 software-architect
+architecture-foundation-agent
 planner-agent
+backlog-manager-agent
 implementer-agent
 verifier-agent
+release-manager-agent
 ```
 
 ## Compatible Workflows
@@ -39,8 +42,12 @@ verifier-agent
 intake-existing-code
 ideation-from-zero
 architecture-ddd
+architecture-foundation
+backlog-management
 tdd-implementation
 verification-pr
+feature-pr-delivery
+release-promotion
 ```
 
 ## Required Inputs

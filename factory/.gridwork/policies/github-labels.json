@@ -143,6 +143,13 @@
       "required": false
     },
     {
+      "name": "agent:backlog-manager",
+      "color": "f9d0c4",
+      "description": "Backlog manager agent.",
+      "category": "agent",
+      "required": false
+    },
+    {
       "name": "agent:verifier",
       "color": "f9d0c4",
       "description": "Verifier agent.",
@@ -153,6 +160,13 @@
       "name": "workflow:tdd-implementation",
       "color": "fef2c0",
       "description": "TDD implementation workflow.",
+      "category": "workflow",
+      "required": false
+    },
+    {
+      "name": "workflow:backlog-management",
+      "color": "fef2c0",
+      "description": "Backlog management workflow.",
       "category": "workflow",
       "required": false
     },
@@ -170,4 +184,3 @@
     "Issue drafts must reference this catalog before publishing."
   ]
 }
-

@@ -8,11 +8,13 @@
   "contract": "AGENT.md",
   "allowedWorkflows": [
     "architecture-ddd",
-    "intake-existing-code"
+    "intake-existing-code",
+    "backlog-management"
   ],
   "allowedSkills": [
     "backlog-planning",
     "github-issue-publisher",
+    "github-label-manager",
     "github-issue-discovery",
     "github-cli",
     "handoff"
@@ -35,4 +37,3 @@
   ],
   "handoffPolicy": "required_on_agent_or_session_transfer"
 }
-

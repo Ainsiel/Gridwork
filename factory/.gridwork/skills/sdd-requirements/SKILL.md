@@ -2,28 +2,66 @@
 
 ## Purpose
 
-Generate an SDD-oriented requirements document from completed ideation notes.
+Consolidate completed ideation into an SDD-oriented requirements set that is precise enough for architecture design and acceptance testing.
 
-## When To Use
+## Readiness Gate
 
-Use at the end of `ideation-from-zero` when the user has answered enough questions to consolidate requirements.
+Before drafting, verify:
+
+- the problem and target users are understood;
+- scope and explicit exclusions exist;
+- important terms are defined consistently;
+- high-risk assumptions are visible;
+- each major capability has at least one success scenario;
+- unresolved questions are separated from accepted requirements.
+
+If these conditions fail, return to ideation instead of filling gaps with invention.
+
+## Procedure
+
+1. Normalize ideation notes into facts, decisions, assumptions and questions.
+2. Define problem, outcomes, actors, scope and exclusions.
+3. Write uniquely identified functional requirements as observable behavior.
+4. Write non-functional requirements as measurable quality scenarios.
+5. Create use cases with trigger, preconditions, main flow, alternatives, failures and postconditions.
+6. Derive acceptance and system test cases from each requirement and use case.
+7. Build a traceability matrix from requirement to use case and test.
+8. Record dependencies, constraints, risks and open questions.
+9. Run a contradiction and ambiguity review.
+10. Keep the draft in `.factory/` until the user approves it.
+
+## Requirement Quality
+
+Each requirement must be:
+
+```text
+necessary
+unambiguous
+observable
+independently identifiable
+traceable
+feasible enough to architect
+testable or explicitly non-testable
+```
+
+Avoid implementation decisions unless they are confirmed constraints. Use `must` only for approved requirements.
 
 ## Outputs
 
-- problem statement;
-- user roles;
-- functional requirements;
-- non-functional requirements;
-- use cases;
-- test cases;
-- open assumptions;
-- approval checklist.
+```text
+requirements-overview.md
+functional-requirements.md
+quality-attributes.md
+use-cases.md
+test-cases.md
+traceability-matrix.md
+assumptions-and-open-questions.md
+```
 
-## Rules
+Approved files may be copied to `docs/sdd/`.
 
-- Do not invent requirements.
-- Mark uncertain items as assumptions or questions.
-- Prefer separate drafts in `.factory/` until the user approves.
-- Approved SDD files may be written to `docs/sdd/`.
-- This skill does not create issues and does not implement code.
+## Forbidden
 
+- Do not invent requirements or resolve stakeholder conflicts silently.
+- Do not use vague qualities such as "fast" or "secure" without scenarios or measures.
+- Do not create issues or implement code.
